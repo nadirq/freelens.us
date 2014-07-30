@@ -12,7 +12,7 @@ class m140730_063732_create_schedule_table extends CDbMigration
             'desc' => 'text'
         ));
 
-        $this->addForeignKey('fk_cam', 'schedule', 'cam_id', 'camerists', 'user_id', 'cascade', 'cascade');
+        $this->addForeignKey('fk_cam_id', 'schedule', 'cam_id', 'camerists', 'user_id', 'cascade', 'cascade');
     }
 
 	public function down()

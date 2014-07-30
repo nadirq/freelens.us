@@ -10,8 +10,8 @@ class m140730_063803_create_rating_table extends CDbMigration
             'rate' => 'decimal(2,1) not null'
         ));
 
-        $this->addForeignKey('fk_cam', 'rating', 'cam_id', 'camerists', 'user_id', 'cascade', 'cascade');
-        $this->addForeignKey('fk_user', 'rating', 'user_id', 'users', 'id', 'cascade', 'cascade');
+        $this->addForeignKey('fk_cam_rate', 'rating', 'cam_id', 'camerists', 'user_id', 'cascade', 'cascade');
+        $this->addForeignKey('fk_user_rate', 'rating', 'user_id', 'users', 'id', 'cascade', 'cascade');
 	}
 
 	public function down()

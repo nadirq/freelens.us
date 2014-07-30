@@ -9,7 +9,7 @@ class m140730_063732_create_schedule_table extends CDbMigration
 	public function down()
 	{
 		echo "m140730_063732_create_schedule_table does not support migration down.\n";
-		return false;
+
 	}
 
 	/*

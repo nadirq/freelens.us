@@ -19,7 +19,6 @@ return array(
 	),
 
 	'modules'=>array(
-		// uncomment the following to enable the Gii tool
 
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -38,7 +37,6 @@ return array(
             'class' => 'WebUser',
 			'allowAutoLogin'=>true,
 		),
-
 
 
         // External extension

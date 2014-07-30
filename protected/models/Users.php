@@ -8,6 +8,12 @@
  * @property string $login
  * @property string $pass
  * @property string $email
+ * @property string $tel
+ * @property string $fio
+ * @property string $activation
+ * @property string $about
+ * @property string $reg_date
+ * @property string $last_login
  * @property string $role
  *
  * The followings are the available model relations:
@@ -15,6 +21,7 @@
  */
 class Users extends CActiveRecord
 {
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,13 +38,18 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('login, pass, email, role', 'required'),
+			array('login, pass, email, fio, activation, reg_date, role', 'required'),
 			array('login, role', 'length', 'max'=>30),
+            array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
 			array('pass', 'length', 'max'=>100),
-			array('email', 'length', 'max'=>50),
+			array('email, fio', 'length', 'max'=>50),
+			array('tel', 'length', 'max'=>20),
+			array('activation', 'length', 'max'=>32),
+			array('about, last_login', 'safe'),
+            array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, login, pass, email, role', 'safe', 'on'=>'search'),
+			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,9 +73,19 @@ class Users extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'login' => 'Login',
-			'pass' => 'Pass',
+			'pass' => 'Password',
+            'cpass' => 'Confirm password',
 			'email' => 'Email',
+            // Not needed yet
+            /*
+			'tel' => 'Tel',
+			'fio' => 'Fio',
+			'activation' => 'Activation',
+			'about' => 'About',
+			'reg_date' => 'Reg Date',
+			'last_login' => 'Last Login',
 			'role' => 'Role',
+            */
 		);
 	}
 
@@ -89,6 +111,12 @@ class Users extends CActiveRecord
 		$criteria->compare('login',$this->login,true);
 		$criteria->compare('pass',$this->pass,true);
 		$criteria->compare('email',$this->email,true);
+		$criteria->compare('tel',$this->tel,true);
+		$criteria->compare('fio',$this->fio,true);
+		$criteria->compare('activation',$this->activation,true);
+		$criteria->compare('about',$this->about,true);
+		$criteria->compare('reg_date',$this->reg_date,true);
+		$criteria->compare('last_login',$this->last_login,true);
 		$criteria->compare('role',$this->role,true);
 
 		return new CActiveDataProvider($this, array(

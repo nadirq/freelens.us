@@ -9,8 +9,7 @@ class m140730_062907_create_albums_table extends CDbMigration
 
 	public function down()
 	{
-		echo "m140730_062907_create_album_table does not support migration down.\n";
-		return false;
+
 	}
 
 	/*

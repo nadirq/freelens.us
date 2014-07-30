@@ -1039,3 +1039,21 @@ Stack trace:
 REQUEST_URI=/freelens.us/index.php/user/registration
 HTTP_REFERER=http://localhost/freelens.us/index.php/
 ---
+2014/07/30 17:46:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/registration".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/user/registration
+HTTP_REFERER=http://localhost/freelens.us/index.php/user/registration
+---
+2014/07/30 17:47:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/registration".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/user/registration
+HTTP_REFERER=http://localhost/freelens.us/index.php/user/registration
+---

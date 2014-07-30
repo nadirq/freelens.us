@@ -22,7 +22,14 @@
 class Users extends CActiveRecord
 {
 
-	/**
+
+
+    // Capthcha
+    public $verifyCode;
+    // second password
+    public $cpass;
+
+    /**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -37,16 +44,20 @@ class Users extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
+
+        // Uncomment when will do full version
 		return array(
-			array('login, pass, email, fio, activation, reg_date, role', 'required'),
-			array('login, role', 'length', 'max'=>30),
+			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
+            array('login, pass, verifyCode', 'required'),
+            array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
-			array('pass', 'length', 'max'=>100),
-			array('email, fio', 'length', 'max'=>50),
-			array('tel', 'length', 'max'=>20),
-			array('activation', 'length', 'max'=>32),
-			array('about, last_login', 'safe'),
-            array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
+            array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
+			//array('email, fio', 'length', 'max'=>50),
+			//array('tel', 'length', 'max'=>20),
+			//array('activation', 'length', 'max'=>32),
+			//array('about, last_login', 'safe'),
+            //array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
+            array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
@@ -134,4 +145,10 @@ class Users extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+    public function safeAttributes()
+    {
+        return array('login', 'pass', 'cpass', 'verifyCode');
+    }
 }

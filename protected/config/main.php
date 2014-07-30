@@ -34,9 +34,25 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
+            // RBAC auth
+            'class' => 'WebUser',
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
+
+
+
+        // External extension
+
+        'email'=>array(
+            'class'=>'application.extensions.email.Email',
+            'delivery'=>'php', //Will use the php mailing function.
+        ),
+
+        // Auth manager for users
+        'authManager' => array(
+            'class' => 'PhpAuthManager', // In components
+            'defaultRoles' => array('guest'),
+        ),
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',

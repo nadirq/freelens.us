@@ -9,7 +9,7 @@ class m140730_062607_create_camerist_table extends CDbMigration
             'rate' => 'decimal(2,1) default 0'
         ));
 
-        $this->addForeignKey('fk_user', 'camerists', 'user_id', 'users', 'id' );
+        $this->addForeignKey('fk_user', 'camerists', 'user_id', 'users', 'id','cascade','cascade');
 	}
 
 	public function down()

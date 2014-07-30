@@ -23,44 +23,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="342">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/config/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="-10.777778" vertical-offset="231" max-vertical-offset="1710">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/config/console.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="33" selection-start="663" selection-end="663" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="756">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="m140730_060213_create_users_table.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="m140730_060213_create_users_table.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="44" selection-start="349" selection-end="349" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="648">
+            <state line="14" column="33" selection-start="450" selection-end="450" vertical-scroll-proportion="0.29200464" vertical-offset="0" max-vertical-offset="863">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m140730_062839_create_photo_table.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photo_table.php">
+      <file leaf-file-name="m140730_062839_create_photos_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="10" selection-start="252" selection-end="252" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="648">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_062907_create_albums_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062907_create_albums_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="558">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_063020_create_orders_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
               <folding />
@@ -68,28 +59,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m140730_062607_create_camerist_table.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="m140730_063732_create_schedule_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_063803_create_rating_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_062607_create_camerist_table.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="5" selection-start="397" selection-end="397" vertical-scroll-proportion="0.35457706" vertical-offset="0" max-vertical-offset="863">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yiic.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/yiic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="234">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="yiic" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/yiic">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
+            <state line="11" column="99" selection-start="349" selection-end="349" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -107,8 +98,12 @@
       <list>
         <option value="$PROJECT_DIR$/protected/config/main.php" />
         <option value="$PROJECT_DIR$/protected/config/console.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photo_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_062907_create_album_table.php" />
         <option value="$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_062907_create_albums_table.php" />
         <option value="$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php" />
       </list>
     </option>
   </component>
@@ -327,8 +322,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="-10.777778" vertical-offset="231" max-vertical-offset="1710">
-          <folding />
+        <state line="29" column="0" selection-start="775" selection-end="775" vertical-scroll-proportion="-10.777778" vertical-offset="231" max-vertical-offset="1638">
+          <folding>
+            <marker date="1406704967982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1406704967982" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -348,28 +346,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/console.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="33" selection-start="663" selection-end="663" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="756">
+        <state line="18" column="33" selection-start="477" selection-end="477" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="702">
+          <folding>
+            <marker date="1406704967982" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1406704967982" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="10" selection-start="252" selection-end="252" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="648">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062907_create_albums_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="44" selection-start="349" selection-end="349" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="648">
+        <state line="6" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="558">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photo_table.php">
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="890">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="397" selection-end="397" vertical-scroll-proportion="0.35457706" vertical-offset="0" max-vertical-offset="863">
+        <state line="11" column="99" selection-start="349" selection-end="349" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="450" selection-end="450" vertical-scroll-proportion="0.29200464" vertical-offset="0" max-vertical-offset="863">
           <folding />
         </state>
       </provider>

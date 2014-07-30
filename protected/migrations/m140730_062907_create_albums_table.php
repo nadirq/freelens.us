@@ -1,14 +1,15 @@
 <?php
 
-class m140730_063803_create_rating_table extends CDbMigration
+class m140730_062907_create_albums_table extends CDbMigration
 {
 	public function up()
 	{
+
 	}
 
 	public function down()
 	{
-		echo "m140730_063803_create_rating_table does not support migration down.\n";
+		echo "m140730_062907_create_album_table does not support migration down.\n";
 		return false;
 	}
 

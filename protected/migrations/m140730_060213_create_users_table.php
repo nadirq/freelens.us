@@ -9,6 +9,11 @@ class m140730_060213_create_users_table extends CDbMigration
             'login' => 'varchar(30) not null',
             'pass' => 'varchar(100) not null',
             'email' => 'varchar(50) not null',
+            'tel' => 'varchar(20)',
+            'fio' => 'varchar(50) not null',
+            'about' => 'text',
+            'reg_date' => 'timestamp',
+            'last_login' => 'timestamp',
             'role' => 'varchar(30) not null'
         ));
 	}

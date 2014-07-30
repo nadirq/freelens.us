@@ -23,7 +23,9 @@ class Users extends CActiveRecord
 {
 
 
+    public $rememberMe;
 
+    private $_identity;
     // Capthcha
     public $verifyCode;
     // second password
@@ -87,6 +89,7 @@ class Users extends CActiveRecord
 			'pass' => 'Password',
             'cpass' => 'Confirm password',
 			'email' => 'Email',
+            ''
             // Not needed yet
             /*
 			'tel' => 'Tel',
@@ -150,5 +153,40 @@ class Users extends CActiveRecord
     public function safeAttributes()
     {
         return array('login', 'pass', 'cpass', 'verifyCode');
+    }
+
+
+
+    public function authenticate($attribute,$params)
+    {
+        var_dump($this->pass);
+        if(!$this->hasErrors())
+        {
+
+            $this->_identity=new UserIdentity($this->login,$this->pass);
+            if(!$this->_identity->authenticate())
+                $this->addError('pass','Incorrect username or password.');
+        }
+    }
+
+    /**
+     * Logs in the user using the given username and password in the model.
+     * @return boolean whether login is successful
+     */
+    public function login()
+    {
+        if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity($this->login,$this->pass);
+            $this->_identity->authenticate();
+        }
+        if($this->_identity->errorCode === UserIdentity::ERROR_NONE)
+        {
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->user->login($this->_identity,$duration);
+            return true;
+        }
+        else
+            return false;
     }
 }

@@ -12,18 +12,19 @@ class UserIdentity extends CUserIdentity
 
 	public function authenticate()
 	{
-        // Invalids auth
-		if(!isset($users[$this->login]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif(!CPasswordHelper::verifyPassword($users[$this->pass], $this->pass))
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		// Auth OK
+        $record=User::model()->findByAttributes(array('login'=>$this->login));
+
+        if($record===null)
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+        else if(!CPasswordHelper::verifyPassword($this->pass,$record->pass))
+            $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
         {
-            $this->_id = $users->id;
-			$this->errorCode=self::ERROR_NONE;
+            $this->_id=$record->id;
+            $this->setState('title', $record->title);
+            $this->errorCode=self::ERROR_NONE;
         }
-		return !$this->errorCode;
+        return !$this->errorCode;
 	}
 
     public function getId()

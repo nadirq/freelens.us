@@ -19,7 +19,7 @@ return array(
 	),
 
 	'modules'=>array(
-
+        'users',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
@@ -31,7 +31,7 @@ return array(
 
 	// application components
 	'components'=>array(
-		'user'=>array(
+        'user'=>array(
 			// enable cookie-based authentication
             // RBAC auth
             'class' => 'WebUser',

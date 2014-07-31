@@ -26,13 +26,8 @@ class Users extends CActiveRecord
     public $rememberMe;
 
     private $_identity;
-    // Capthcha
-    //public $verifyCode;
-    // second password
-    public $cpass;
-    //public $pass;
-   // public $role;
 
+    public $type; // Is user or camerist
 
 
 
@@ -43,7 +38,7 @@ class Users extends CActiveRecord
         {
             if($this->isNewRecord){
                 $this->pass = CPasswordHelper::hashPassword($this->pass);
-                $this->role = 'user';
+                $this->role = $this->type;
             }
             return true;
         }

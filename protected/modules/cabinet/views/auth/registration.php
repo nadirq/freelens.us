@@ -17,7 +17,11 @@
         <td><?=CHtml::activePasswordField($form, 'pass') ?></td>
     </tr>
     <tr>
-
+        <div class="compactRadioGroup">
+            <?php
+                echo CHtml::activeRadioButtonList($form,'type',array('user'=>'User', 'camerist'=>'Photographer'));
+            ?>
+        </div>
     </tr>
     <tr>
         <td></td>

@@ -3121,3 +3121,4 @@ Stack trace:
 REQUEST_URI=/~max/freelens.us/index.php/users/user/login
 in /home/max/public_html/freelens.us/protected/modules/users/controllers/UserController.php (90)
 in /home/max/public_html/freelens.us/index.php (13)
+2014/07/31 13:52:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'freelensus.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.

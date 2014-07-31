@@ -17,26 +17,9 @@ class m140730_063732_create_schedule_table extends CDbMigration
 
 	public function down()
 	{
-<<<<<<< HEAD
 		$this->dropTable('schedule');
-=======
 		echo "m140730_063732_create_schedule_table does not support migration down.\n";
 
-<<<<<<< HEAD
->>>>>>> origin/registration
-=======
->>>>>>> upstream/registration
->>>>>>> 49e5363532eecd16b6286b685027a78f9730623a
 	}
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
-	public function safeDown()
-	{
-	}
-	*/
 }

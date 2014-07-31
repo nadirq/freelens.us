@@ -30,6 +30,30 @@ class Users extends CActiveRecord
     public $verifyCode;
     // second password
     public $cpass;
+    //public $pass;
+   // public $role;
+
+
+
+
+    // Crypt password
+    protected function beforeSave()
+    {
+        if(parent::beforeSave())
+        {
+            if($this->isNewRecord){
+                $this->pass = CPasswordHelper::hashPassword($this->pass);
+                $this->role = 'user';
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+
+
 
     /**
 	 * @return string the associated database table name
@@ -89,7 +113,6 @@ class Users extends CActiveRecord
 			'pass' => 'Password',
             'cpass' => 'Confirm password',
 			'email' => 'Email',
-            ''
             // Not needed yet
             /*
 			'tel' => 'Tel',

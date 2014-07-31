@@ -11,6 +11,7 @@ class m140730_060213_create_users_table extends CDbMigration
             'email' => 'varchar(50) not null',
             'tel' => 'varchar(20)',
             'fio' => 'varchar(50) not null',
+            'activation' => 'varchar(32) NOT NULL',
             'about' => 'text',
             'reg_date' => 'timestamp',
             'last_login' => 'timestamp',

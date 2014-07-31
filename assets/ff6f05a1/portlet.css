@@ -1,0 +1,111 @@
+/**
+ * CSS styles for XPortlet.
+ *
+ * @author Qiang Xue <qiang.xue@gmail.com>
+ * @link http://www.yiiframework.com/
+ * @copyright Copyright &copy; 2008 Yii Software LLC
+ * @license http://www.yiiframework.com/license/
+ */
+
+.portlet
+{
+	-moz-border-radius:7px;
+	font-size:0.9em;
+	margin: 0;
+	padding: 3px;
+	margin-bottom:15px;
+	background-color:#D3DFEE;
+}
+
+.portlet .header
+{
+	color:#555;
+	font-size:1.2em;
+	font-weight:bold;
+	line-height:1;
+	padding:5px 10px 6px;
+	margin: 0;
+	text-align:center;
+}
+
+.portlet .content
+{
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	background:#E6F2FF;
+	padding:5px 5px 10px 5px;
+}
+
+.portlet ul, .portlet ol
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:square;
+	margin: 0 0 0 25px;
+	padding: 0;
+}
+
+.portlet li
+{
+	padding: 2px 0 2px 0px;
+}
+
+.portlet div.form
+{
+	margin: 0;
+	width: 100%;
+}
+
+.portlet div.errorMessage
+{
+	color: red;
+}
+
+.portlet div.form p.hint
+{
+	color: gray;
+	font-size: 90%;
+	margin: 0 0 0 70px;
+}
+
+.portlet div.form div.action
+{
+	margin-left: 70px;
+	padding: 0.25em 0;
+}
+
+.portlet div.form div.simple,
+.portlet div.form div.complex
+{
+	padding: 0.25em 0;
+}
+
+.portlet div.form div.simple label,
+.portlet div.form div.complex span
+{
+	display: block;
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	text-align: right;
+	width: 60px;
+}
+
+.portlet div.form label.error,
+.portlet div.form span.error
+{
+	color: #C00;
+}
+
+.portlet div.form input.error,
+.portlet div.form textarea.error
+{
+	background: #FEE;
+	border-color: #C00;
+}
+
+.portlet div.form div.simple div,
+.portlet div.form div.complex div
+{
+	margin-left: 70px;
+}

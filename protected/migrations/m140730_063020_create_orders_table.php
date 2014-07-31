@@ -18,7 +18,13 @@ class m140730_063020_create_orders_table extends CDbMigration
 
 	public function down()
 	{
+<<<<<<< HEAD
         $this->dropTable('orders');
+=======
+
+		$this->dropTable('orders');
+
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
 	}
 
 	/*

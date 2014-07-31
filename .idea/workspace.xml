@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44d5ed37-81d0-4149-aeb9-e31ce11ec0db" name="Default" comment="">
+<<<<<<< HEAD
       <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/yii-mail/doc/Swift/Transport/_vendors---swiftMailer---classes---Swift---Transport---SimpleMailInvoker.php.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/yii-mail/vendors/swiftMailer/classes/Swift/Plugins/LoggerPlugin.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/protected/extensions/yii-mail/doc/Swift/KeyCache/_vendors---swiftMailer---classes---Swift---KeyCache---ArrayKeyCache.php.html" afterPath="" />
@@ -488,6 +489,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/models/Users.php" afterPath="$PROJECT_DIR$/protected/models/Users.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/runtime/application.log" afterPath="$PROJECT_DIR$/protected/runtime/application.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/components/UserIdentity.php" afterPath="$PROJECT_DIR$/protected/components/UserIdentity.php" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php" afterPath="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php" afterPath="$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php" afterPath="$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php" afterPath="$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php" />
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Freelense.odp" afterPath="$PROJECT_DIR$/Freelense.odp" />
@@ -513,6 +520,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="m140730_060213_create_users_table.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -526,6 +534,12 @@
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="648">
+=======
+      <file leaf-file-name="m140730_063803_create_rating_table.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.42704627" vertical-offset="0" max-vertical-offset="843">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
               <folding />
             </state>
           </provider>
@@ -534,7 +548,44 @@
       <file leaf-file-name="m140730_063732_create_schedule_table.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="24" column="1" selection-start="596" selection-end="596" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="540">
+=======
+            <state line="21" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="720">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="m140730_062607_create_camerist_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="1" selection-start="552" selection-end="552" vertical-scroll-proportion="-19.333334" vertical-offset="0" max-vertical-offset="630">
+=======
+      <file leaf-file-name="m140730_063020_create_orders_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="738">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_062907_create_albums_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062907_create_albums_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_062839_create_photos_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="648">
               <folding />
             </state>
           </provider>
@@ -552,6 +603,26 @@
       <file leaf-file-name="m140730_062707_create_albums_table.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062707_create_albums_table.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_060213_create_users_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="28" selection-start="659" selection-end="659" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="756">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m140730_062707_create_albums_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062707_create_albums_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="666">
               <folding />
             </state>
@@ -589,6 +660,9 @@
         <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="702">
+=======
+            <state line="91" column="40" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="2196">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
               <folding />
             </state>
           </provider>
@@ -597,7 +671,11 @@
       <file leaf-file-name="Users.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="174" column="7" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="3132" max-vertical-offset="3546">
+=======
+            <state line="174" column="7" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="3546">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
               <folding />
             </state>
           </provider>
@@ -650,10 +728,17 @@
         <option value="$PROJECT_DIR$/protected/modules/users/views/user/index.php" />
         <option value="$PROJECT_DIR$/protected/modules/users/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/protected/modules/users/views/user/login.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php" />
         <option value="$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php" />
         <option value="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php" />
         <option value="$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php" />
+=======
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php" />
+        <option value="$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php" />
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
       </list>
     </option>
   </component>
@@ -663,9 +748,16 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="y" value="25" />
     <option name="width" value="1920" />
     <option name="height" value="1055" />
+=======
+    <option name="x" value="-1" />
+    <option name="y" value="25" />
+    <option name="width" value="1922" />
+    <option name="height" value="1056" />
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -920,6 +1012,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -938,6 +1031,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+=======
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1004,7 +1099,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+=======
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1018,7 +1117,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1026,6 +1128,10 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1048,6 +1154,7 @@
     <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="53" selection-start="725" selection-end="725" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="792">
+<<<<<<< HEAD
           <folding />
         </state>
       </provider>
@@ -1090,15 +1197,54 @@
     <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
+=======
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="12" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state line="37" column="62" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="1242" />
+=======
+        <state line="91" column="40" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="2196">
+          <folding />
+        </state>
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="7" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="3546">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="5" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2052">
-          <folding />
-        </state>
+        <state line="7" column="5" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2052" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
@@ -1111,13 +1257,13 @@
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="62" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="1242" />
+<<<<<<< HEAD
+=======
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="17" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2034">
-          <folding />
-        </state>
+        <state line="70" column="17" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
@@ -1125,6 +1271,7 @@
         <state line="46" column="0" selection-start="955" selection-end="955" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="2880">
           <folding />
         </state>
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
@@ -1212,6 +1359,7 @@
         <state line="17" column="0" selection-start="340" selection-end="340" vertical-scroll-proportion="0.30551627" vertical-offset="0" max-vertical-offset="707" />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/views/site/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-15.666667" vertical-offset="225" max-vertical-offset="1026" />
@@ -1264,17 +1412,81 @@
     <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="174" column="7" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="3132" max-vertical-offset="3546">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="10" selection-start="862" selection-end="862" vertical-scroll-proportion="0.28395063" vertical-offset="495" max-vertical-offset="1494" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/site/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-15.666667" vertical-offset="225" max-vertical-offset="1026" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.12345679" vertical-offset="0" max-vertical-offset="729" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="10" selection-start="1143" selection-end="1143" vertical-scroll-proportion="-21.666666" vertical-offset="243" max-vertical-offset="1890" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="1968" selection-end="1968" vertical-scroll-proportion="1.9753087" vertical-offset="0" max-vertical-offset="2052" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/components/UserIdentity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="53" selection-start="725" selection-end="725" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/registration_ok.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.22222222" vertical-offset="0" max-vertical-offset="729" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/UsersModule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="29" selection-start="363" selection-end="363" vertical-scroll-proportion="0.2962963" vertical-offset="0" max-vertical-offset="729" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="73" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.41975307" vertical-offset="378" max-vertical-offset="1242" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="146" selection-end="146" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="324">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/modules/users/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="91" column="40" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0" vertical-offset="1638" max-vertical-offset="2196">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="7" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="3546">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="12" selection-start="828" selection-end="828" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="558">
@@ -1292,41 +1504,83 @@
     <entry file="file://$PROJECT_DIR$/protected/controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="270">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="40" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="2196">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/modules/users/views/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="23" selection-start="853" selection-end="853" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="558">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/models/LoginForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="27" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-17.518518" vertical-offset="607" max-vertical-offset="1494">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="720">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063732_create_schedule_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="1" selection-start="596" selection-end="596" vertical-scroll-proportion="-16.0" vertical-offset="0" max-vertical-offset="540">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="738">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="702">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062907_create_albums_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="914">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063020_create_orders_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="702">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="648">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062839_create_photos_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="8" selection-start="432" selection-end="432" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="648">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="1" selection-start="552" selection-end="552" vertical-scroll-proportion="-19.333334" vertical-offset="0" max-vertical-offset="630">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
@@ -1338,16 +1592,28 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_062607_create_camerist_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="1" selection-start="552" selection-end="552" vertical-scroll-proportion="-19.333334" vertical-offset="0" max-vertical-offset="630">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="28" selection-start="659" selection-end="659" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="756">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_060213_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="28" selection-start="659" selection-end="659" vertical-scroll-proportion="0.46674183" vertical-offset="0" max-vertical-offset="887">
+=======
+    <entry file="file://$PROJECT_DIR$/protected/migrations/m140730_063803_create_rating_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.42704627" vertical-offset="0" max-vertical-offset="843">
+>>>>>>> 2b0b142c8b8b9451189cc3553d2df87b2eb111af
           <folding />
         </state>
       </provider>

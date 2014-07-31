@@ -1,4 +1,5 @@
 .idea*
 protected/runtime/application.log
 .~*
-log
+lo
+*~

@@ -53,7 +53,10 @@ class AuthController extends Controller
                         $form->addError('login', 'This login already in use');
                         $this->render("registration", array('form' => $form));
                     } else {
+
+                        // For tests
                         var_dump($form);
+
                         $form->save();
                         $this->render("registration_ok");
                     }

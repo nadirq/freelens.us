@@ -35,15 +35,18 @@ class AuthController extends Controller
         $form = new Users;
 
 
-        if (!Yii::app()->user->isGuest) {
+        if (!Yii::app()->user->isGuest)
+        {
             throw new CException('Already registered');
-        } else {
-            if (!empty($_POST['Users'])) {
+        } else
+        {
+            if (!empty($_POST['Users']))
+            {
 
 
                 $form->attributes = $_POST['Users'];
 
-                $form->verifyCode = $_POST['Users']['verifyCode'];
+                //$form->verifyCode = $_POST['Users']['verifyCode'];
 
                 if($form->validate('registration'))
                 {
@@ -52,11 +55,9 @@ class AuthController extends Controller
                     {
                         $form->addError('login', 'This login already in use');
                         $this->render("registration", array('form' => $form));
-                    } else {
-
-                        // For tests
-                        //var_dump($form);
-
+                    }
+                    else
+                    {
                         $form->save();
                         $this->render("registration_ok");
                     }
@@ -77,42 +78,36 @@ class AuthController extends Controller
 
 
 
+
+
+
     public function actionLogin()
     {
         $form = new Users;
 
-        // Проверяем является ли пользователь гостем
-        // ведь если он уже зарегистрирован - формы он не должен увидеть.
-        if (!Yii::app()->user->isGuest) {
-            throw new CException('Вы уже зарегистрированы!');
-        } else {
-            if (!empty($_POST['Users'])) {
-                $form->attributes = $_POST['Users'];
-                $form->verifyCode = $_POST['Users']['verifyCode'];
 
-                // Проверяем правильность данных
-                if($form->validate('login')) {
-                    // если всё ок - кидаем на главную страницу
+        if (!Yii::app()->user->isGuest)
+        {
+            $this->redirect(Yii::app()->homeUrl);
+        }
+        else
+        {
+            if (!empty($_POST['Users']))
+            {
+
+
+                $form->attributes = $_POST['Users'];
+                //$form->verifyCode = $_POST['Users']['verifyCode'];
+
+                // Some validation
+                if($form->validate('login'))
+                {
+                    $form->login();
                     $this->redirect(Yii::app()->homeUrl);
                 }
             }
             $this->render('login', array('form' => $form));
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

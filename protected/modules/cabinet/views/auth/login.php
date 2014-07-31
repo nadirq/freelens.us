@@ -1,5 +1,5 @@
 
-<h1>Авторизация</h1>
+<h1>Authorization</h1>
 
 <?=CHtml::form(); ?>
 <?=CHtml::errorSummary($form); ?><br>
@@ -14,8 +14,7 @@
             <td><?=CHtml::activePasswordField($form, 'pass') ?></td>
         <tr>
         <tr>
-            <td><?php $this->widget('CCaptcha', array('buttonLabel' => '<br>[New code]')); ?></td>
-            <td><?=CHtml::activeTextField($form,'verifyCode'); ?></td>
+
         </tr>
         <tr>
             <td></td>

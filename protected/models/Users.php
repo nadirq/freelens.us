@@ -27,7 +27,7 @@ class Users extends CActiveRecord
 
     private $_identity;
     // Capthcha
-    public $verifyCode;
+    //public $verifyCode;
     // second password
     public $cpass;
     //public $pass;
@@ -74,7 +74,7 @@ class Users extends CActiveRecord
         // Uncomment when will do full version
 		return array(
 			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
-            array('login, pass, verifyCode', 'required'),
+            array('login, pass', 'required'),
             array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
             array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
@@ -83,7 +83,7 @@ class Users extends CActiveRecord
 			//array('activation', 'length', 'max'=>32),
 			//array('about, last_login', 'safe'),
             //array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
-            array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
+            //array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
@@ -175,14 +175,13 @@ class Users extends CActiveRecord
 
     public function safeAttributes()
     {
-        return array('login', 'pass', 'cpass', 'verifyCode');
+        return array('login', 'pass', 'cpass', /*'verifyCode'*/);
     }
 
 
 
     public function authenticate($attribute,$params)
     {
-        var_dump($this->pass);
         if(!$this->hasErrors())
         {
 
@@ -200,7 +199,7 @@ class Users extends CActiveRecord
     {
         if($this->_identity===null)
         {
-            $this->_identity=new UserIdentity($this->login,$this->pass);
+            $this->_identity=new UserIdentity($this->login, $this->pass);
             $this->_identity->authenticate();
         }
         if($this->_identity->errorCode === UserIdentity::ERROR_NONE)

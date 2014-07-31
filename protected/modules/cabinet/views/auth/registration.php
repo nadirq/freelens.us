@@ -18,8 +18,6 @@
     </tr>
     <tr>
 
-        <td><?php $this->widget('CCaptcha', array('buttonLabel' => '<br>[New code]')); ?></td>
-        <td><?=CHtml::activeTextField($form,'verifyCode'); ?></td>
     </tr>
     <tr>
         <td></td>

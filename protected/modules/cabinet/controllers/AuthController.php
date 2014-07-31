@@ -45,8 +45,9 @@ class AuthController extends Controller
 
 
                 $form->attributes = $_POST['Users'];
+                $form->type = $_POST['Users']['type'];
 
-                //$form->verifyCode = $_POST['Users']['verifyCode'];
+
 
                 if($form->validate('registration'))
                 {
@@ -58,6 +59,7 @@ class AuthController extends Controller
                     }
                     else
                     {
+
                         $form->save();
                         $this->render("registration_ok");
                     }

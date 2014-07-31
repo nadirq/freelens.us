@@ -3297,3 +3297,33 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/freelens.us/index.php/cabinet/users/
 ---
+2014/07/31 14:29:43 [error] [php] Use of undefined constant pass - assumed 'pass' (/var/www/html/freelens.us/protected/models/Users.php:44)
+Stack trace:
+#0 /var/www/html/freelens.us/protected/modules/cabinet/controllers/AuthController.php(58): Users->save()
+#1 /var/www/html/yii/web/actions/CInlineAction.php(49): AuthController->actionRegistration()
+#2 /var/www/html/yii/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/html/yii/web/CController.php(286): AuthController->runAction()
+#4 /var/www/html/yii/web/CController.php(265): AuthController->runActionWithFilters()
+#5 /var/www/html/yii/web/CWebApplication.php(282): AuthController->run()
+#6 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/html/freelens.us/index.php(13): CWebApplication->run()
+REQUEST_URI=/freelens.us/index.php/cabinet/auth/registration
+in /var/www/html/freelens.us/protected/models/Users.php (44)
+in /var/www/html/freelens.us/protected/modules/cabinet/controllers/AuthController.php (58)
+in /var/www/html/freelens.us/index.php (13)
+2014/07/31 14:30:53 [error] [php] Use of undefined constant pass - assumed 'pass' (/var/www/html/freelens.us/protected/models/Users.php:45)
+Stack trace:
+#0 /var/www/html/freelens.us/protected/modules/cabinet/controllers/AuthController.php(58): Users->save()
+#1 /var/www/html/yii/web/actions/CInlineAction.php(49): AuthController->actionRegistration()
+#2 /var/www/html/yii/web/CController.php(308): CInlineAction->runWithParams()
+#3 /var/www/html/yii/web/CController.php(286): AuthController->runAction()
+#4 /var/www/html/yii/web/CController.php(265): AuthController->runActionWithFilters()
+#5 /var/www/html/yii/web/CWebApplication.php(282): AuthController->run()
+#6 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/html/freelens.us/index.php(13): CWebApplication->run()
+REQUEST_URI=/freelens.us/index.php/cabinet/auth/registration
+in /var/www/html/freelens.us/protected/models/Users.php (45)
+in /var/www/html/freelens.us/protected/modules/cabinet/controllers/AuthController.php (58)
+in /var/www/html/freelens.us/index.php (13)

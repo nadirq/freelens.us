@@ -38,7 +38,6 @@ class AuthController extends Controller
         if (!Yii::app()->user->isGuest) {
             throw new CException('Already registered');
         } else {
-
             if (!empty($_POST['Users'])) {
 
 
@@ -54,8 +53,7 @@ class AuthController extends Controller
                         $form->addError('login', 'This login already in use');
                         $this->render("registration", array('form' => $form));
                     } else {
-
-                        $form->pass = CPasswordHelper::hashPassword($form->pass);
+                        var_dump($form);
                         $form->save();
                         $this->render("registration_ok");
                     }

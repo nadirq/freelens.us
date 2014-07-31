@@ -432,3 +432,22 @@ Stack trace:
 #13 {main}
 ---
 2014/07/31 01:52:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'freelensus.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2014/07/31 12:30:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'rating'. The SQL statement executed was: DROP TABLE `rating`.
+2014/07/31 12:30:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'rating'. The SQL statement executed was: DROP TABLE `rating`' in /var/www/html/yii/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/html/yii/db/CDbCommand.php(1347): CDbCommand->execute()
+#1 /var/www/html/yii/db/CDbMigration.php(258): CDbCommand->dropTable('rating')
+#2 /var/www/html/freelens.us/protected/migrations/m140730_063803_create_rating_table.php(19): CDbMigration->dropTable('rating')
+#3 /var/www/html/yii/cli/commands/MigrateCommand.php(410): m140730_063803_create_rating_table->down()
+#4 /var/www/html/yii/cli/commands/MigrateCommand.php(145): MigrateCommand->migrateDown('m140730_063803_...')
+#5 [internal function]: MigrateCommand->actionDown(Array)
+#6 /var/www/html/yii/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /var/www/html/yii/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /var/www/html/yii/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /var/www/html/yii/base/CApplication.php(180): CConsoleApplication->processRequest()
+#10 /var/www/html/yii/yiic.php(33): CApplication->run()
+#11 /var/www/html/freelens.us/protected/yiic.php(7): require_once('/var/www/html/y...')
+#12 /var/www/html/freelens.us/protected/yiic(4): require_once('/var/www/html/f...')
+#13 {main}
+---
+2014/07/31 12:31:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'freelensus.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.

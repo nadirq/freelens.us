@@ -55,7 +55,7 @@ class AuthController extends Controller
                     } else {
 
                         // For tests
-                        var_dump($form);
+                        //var_dump($form);
 
                         $form->save();
                         $this->render("registration_ok");

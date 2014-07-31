@@ -19,7 +19,7 @@ return array(
 	),
 
 	'modules'=>array(
-        'users',
+        'cabinet',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',

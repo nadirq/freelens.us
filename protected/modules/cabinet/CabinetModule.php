@@ -1,6 +1,6 @@
 <?php
 
-class UsersModule extends CWebModule
+class CabinetModule extends CWebModule
 {
 	public function init()
 	{
@@ -10,8 +10,8 @@ class UsersModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'users.models.*',
-			'users.components.*',
+			'cabinet.models.*',
+			'cabinet.components.*',
 		));
 	}
 

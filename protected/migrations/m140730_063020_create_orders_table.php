@@ -18,12 +18,7 @@ class m140730_063020_create_orders_table extends CDbMigration
 
 	public function down()
 	{
-<<<<<<< HEAD
-		$this->dropTable('orders');
-=======
-		echo "m140730_063020_create_orders_table does not support migration down.\n";
-
->>>>>>> origin/registration
+        $this->dropTable('orders');
 	}
 
 	/*

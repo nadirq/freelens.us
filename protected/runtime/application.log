@@ -3121,3 +3121,179 @@ Stack trace:
 REQUEST_URI=/~max/freelens.us/index.php/users/user/login
 in /home/max/public_html/freelens.us/protected/modules/users/controllers/UserController.php (90)
 in /home/max/public_html/freelens.us/index.php (13)
+2014/07/31 13:58:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('user')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('user')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/user/regi...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/user/registration
+HTTP_REFERER=http://localhost/freelens.us/index.php/site/contact
+---
+2014/07/31 13:58:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet/user/registration".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet/user/re...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet/user/registration
+---
+2014/07/31 13:59:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet/registration".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet/registr...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet/registration
+---
+2014/07/31 13:59:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet
+---
+2014/07/31 13:59:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.php/cabinet".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('index.php/cabin...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/index.php/cabinet
+---
+2014/07/31 13:59:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.php".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('index.php')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/index.php/
+---
+2014/07/31 13:59:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('user')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('user')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/user/regi...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/user/registration
+HTTP_REFERER=http://localhost/freelens.us/index.php/index.php/
+---
+2014/07/31 13:59:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('user')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('user')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/user/logi...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/user/login
+HTTP_REFERER=http://localhost/freelens.us/index.php/users/user/registration
+---
+2014/07/31 13:59:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cabinet".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('cabinet')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('cabinet')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/cabinet/l...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/cabinet/login
+---
+2014/07/31 13:59:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cabinet".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('cabinet')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('cabinet')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/cabinet')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/cabinet
+---
+2014/07/31 14:00:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cabinet".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('cabinet')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('cabinet')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/cabinet')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/cabinet
+---
+2014/07/31 14:00:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet
+---
+2014/07/31 14:00:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/
+---
+2014/07/31 14:00:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cabinet".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('cabinet')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('cabinet')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/cabinet')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/cabinet/
+---
+2014/07/31 14:01:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('user')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('user')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/user/regi...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/user/registration
+HTTP_REFERER=http://localhost/freelens.us/index.php/site/contact
+---
+2014/07/31 14:01:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cabinet".' in /var/www/html/yii/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/web/CController.php(270): CController->missingAction('cabinet')
+#1 /var/www/html/yii/web/CWebApplication.php(282): CController->run('cabinet')
+#2 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('users/cabinet/r...')
+#3 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/freelens.us/index.php/users/cabinet/registration
+---
+2014/07/31 14:01:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet/registration".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet/registr...')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet/registration
+---
+2014/07/31 14:01:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet/users".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet/users')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet/users/
+---
+2014/07/31 14:03:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cabinet/users".' in /var/www/html/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/web/CWebApplication.php(141): CWebApplication->runController('cabinet/users')
+#1 /var/www/html/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/freelens.us/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/freelens.us/index.php/cabinet/users/
+---

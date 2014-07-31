@@ -1,5 +1,5 @@
 <?php
-/* @var $this UsersController */
+/* @var $this CabinetController */
 
 $this->breadcrumbs=array(
 	'Users',

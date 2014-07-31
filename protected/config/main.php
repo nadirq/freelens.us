@@ -19,8 +19,7 @@ return array(
 	),
 
 	'modules'=>array(
-		// uncomment the following to enable the Gii tool
-
+        'users',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
@@ -32,11 +31,26 @@ return array(
 
 	// application components
 	'components'=>array(
-		'user'=>array(
+        'user'=>array(
 			// enable cookie-based authentication
+            // RBAC auth
+            'class' => 'WebUser',
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
+
+
+        // External extension
+
+        'email'=>array(
+            'class'=>'application.extensions.email.Email',
+            'delivery'=>'php', //Will use the php mailing function.
+        ),
+
+        // Auth manager for users
+        'authManager' => array(
+            'class' => 'PhpAuthManager', // In components
+            'defaultRoles' => array('guest'),
+        ),
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',

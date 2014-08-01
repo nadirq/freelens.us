@@ -1,28 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "camerists".
+ * This is the model class for table "comments".
  *
- * The followings are the available columns in table 'camerists':
+ * The followings are the available columns in table 'comments':
+ * @property integer $id
  * @property integer $user_id
- * @property string $rate
+ * @property integer $cam_id
+ * @property string $message
+ * @property string $created_at
  *
  * The followings are the available model relations:
- * @property Albums[] $albums
+ * @property Camerists $cam
  * @property Users $user
- * @property Comments[] $comments
- * @property Orders[] $orders
- * @property Rating[] $ratings
- * @property Schedule[] $schedules
  */
-class Camerists extends CActiveRecord
+class Comments extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'camerists';
+		return 'comments';
 	}
 
 	/**
@@ -33,12 +32,11 @@ class Camerists extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('rate', 'length', 'max'=>2),
+			array('user_id, cam_id, message, created_at', 'required'),
+			array('user_id, cam_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, rate', 'safe', 'on'=>'search'),
+			array('id, user_id, cam_id, message, created_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,12 +48,8 @@ class Camerists extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'albums' => array(self::HAS_MANY, 'Albums', 'cam_id'),
+			'cam' => array(self::BELONGS_TO, 'Camerists', 'cam_id'),
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
-			'comments' => array(self::HAS_MANY, 'Comments', 'cam_id'),
-			'orders' => array(self::HAS_MANY, 'Orders', 'cam_id'),
-			'ratings' => array(self::HAS_MANY, 'Rating', 'cam_id'),
-			'schedules' => array(self::HAS_MANY, 'Schedule', 'cam_id'),
 		);
 	}
 
@@ -65,8 +59,11 @@ class Camerists extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'ID',
 			'user_id' => 'User',
-			'rate' => 'Rate',
+			'cam_id' => 'Cam',
+			'message' => 'Message',
+			'created_at' => 'Created At',
 		);
 	}
 
@@ -88,30 +85,22 @@ class Camerists extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('rate',$this->rate,true);
+		$criteria->compare('cam_id',$this->cam_id);
+		$criteria->compare('message',$this->message,true);
+		$criteria->compare('created_at',$this->created_at,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
-
-
-    // return all camwerists form user table
-    public function getAll(){
-
-        $criteria = new CDbCriteria;
-        $criteria->with = 'camerists';
-        $criteria->condition ='role = \'camerist\'';
-        return Users::model()->findAll($criteria);
-    }
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Camerists the static model class
+	 * @return Comments the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

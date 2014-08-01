@@ -8,6 +8,7 @@ class m140730_063020_create_orders_table extends CDbMigration
             'cam_id' => 'integer not null',
             'user_id' => 'integer not null',
             'price' => 'integer not null',
+            'accepted' => 'boolean default null',
             'date' => 'timestamp'
         ));
 

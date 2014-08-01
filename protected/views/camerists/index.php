@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     <?php foreach($camerists->getAll() as $c){ ?>
         <div class = "row" >
             <?php echo $c->login; ?>
-
+                <?php echo "button here"; ?>
         </div>
         <br />
     <?php } ?>

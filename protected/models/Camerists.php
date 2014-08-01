@@ -10,6 +10,7 @@
  * The followings are the available model relations:
  * @property Albums[] $albums
  * @property Users $user
+ * @property Comments[] $comments
  * @property Orders[] $orders
  * @property Rating[] $ratings
  * @property Schedule[] $schedules
@@ -51,6 +52,7 @@ class Camerists extends CActiveRecord
 		return array(
 			'albums' => array(self::HAS_MANY, 'Albums', 'cam_id'),
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+			'comments' => array(self::HAS_MANY, 'Comments', 'cam_id'),
 			'orders' => array(self::HAS_MANY, 'Orders', 'cam_id'),
 			'ratings' => array(self::HAS_MANY, 'Rating', 'cam_id'),
 			'schedules' => array(self::HAS_MANY, 'Schedule', 'cam_id'),
@@ -82,6 +84,7 @@ class Camerists extends CActiveRecord
 	 */
 	public function search()
 	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 

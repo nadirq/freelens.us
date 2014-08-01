@@ -5,8 +5,7 @@ class m140730_062607_create_camerist_table extends CDbMigration
 	public function up()
 	{
         $this->createTable('camerists', array(
-            'id' => 'pk',
-            'user_id' => 'integer not null',
+            'user_id' => 'pk',
             'rate' => 'decimal(2,1) default 3'
          ));
 

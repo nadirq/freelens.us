@@ -82,7 +82,6 @@ class Camerists extends CActiveRecord
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -93,6 +92,17 @@ class Camerists extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+
+
+    // return all camwerists form user table
+    public function getAll(){
+
+        $criteria = new CDbCriteria;
+        $criteria->with = 'camerists';
+        $criteria->condition ='role = \'camerist\'';
+        return Users::model()->findAll($criteria);
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

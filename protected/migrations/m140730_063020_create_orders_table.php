@@ -9,6 +9,7 @@ class m140730_063020_create_orders_table extends CDbMigration
             'user_id' => 'integer not null',
             'price' => 'integer not null',
             'accepted' => 'boolean default null',
+            'status' => 'varchar(50) default "Unclosed"',
             'date' => 'timestamp'
         ));
 

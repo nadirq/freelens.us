@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 <h1>Our photographers</h1>
 
 <p>
+    <?php //TODO: Add checkbox 'online' ?>
     <?php foreach($camerists->getAll() as $c){ ?>
         <div class = "row" >
             <?php echo $c->login; ?>

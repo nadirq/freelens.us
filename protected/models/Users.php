@@ -36,7 +36,8 @@ class Users extends CActiveRecord
     {
         if(parent::beforeSave())
         {
-            if($this->isNewRecord){
+            if($this->isNewRecord)
+            {
                 $this->pass = CPasswordHelper::hashPassword($this->pass);
                 $this->role = $this->type;
             }
@@ -46,6 +47,26 @@ class Users extends CActiveRecord
             return false;
     }
 
+
+    // If role == camerist then make entity in camerists table
+    protected function afterSave()
+    {
+        if (parent::beforeSave())
+        {
+            // Is it good place for functionality like this?
+            if($this->role == 'camerist')
+            {
+                // Create new camersits model and add user to it
+                $camerist = new Camerists;
+                $camerist->user_id = $this->id;
+                $camerist->rate = 0;
+                $camerist->save();
+            }
+            return true;
+        }
+
+        return false;
+    }
 
 
 

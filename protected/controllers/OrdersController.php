@@ -10,6 +10,15 @@ class OrdersController extends Controller
 
 
 
+    public function actionMake()
+    {
+        $camId = $_GET['cam_id'];
+        $cam = Camerists::model()->findByPk($camId); // Save camerist for order
+
+        $this->render('make', array('camerist' => $cam));
+    }
+
+
 
 	// Uncomment the following methods and override them if needed
 	/*

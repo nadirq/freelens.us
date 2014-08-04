@@ -8,15 +8,14 @@
     <?php echo CHtml::errorSummary($model); ?>
 
 
-    <?php
-    $this->widget('zii.widgets.jui.CJuiDatePicker',
-        array(
-            'model' => $model,
-            'name'=>'calendar',
-            'flat' => true,
-        )
-    );
-    ?>
+    <?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+        'name' => 'date',
+        'model' => $model,
+        'attribute' => 'date',
+        'language' => 'en',
+        'flat' => true,
+        'value' => date('d/m/Y'),
+    ));?>
 
     <div class="row">
         <?php echo CHtml::activeLabel($model, 'price'); ?>

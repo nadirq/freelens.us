@@ -15,6 +15,27 @@
  */
 class Orders extends CActiveRecord
 {
+
+    public function accessRules()
+    {
+        return array(
+            array('allow', 
+                'actions'=>array('make'),
+                'role'=>array('user'),
+            ),
+            array('allow',
+                'actions'=>array('index', 'accept', 'decline'),
+                'role' => 'camerists',
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
+
+
+
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -103,4 +124,18 @@ class Orders extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+    // For filling orders table
+    public function makeOrder($usr, $cam, $date, $price)
+    {
+        $command = Yii::app()->db->createCommand();
+
+        $command->insert('orders', array(
+            'cam_id' => $cam,
+            'user_id' => $usr,
+            'date' => strtotime($date),
+            'price' => $price,
+        ));
+    }
 }

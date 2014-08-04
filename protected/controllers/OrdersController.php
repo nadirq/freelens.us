@@ -10,6 +10,23 @@ class OrdersController extends Controller
 
 
 
+    public function actionMake()
+    {
+        $camId = $_GET['cam_id'];
+        $cam = Camerists::model()->findByPk($camId); // Save camerist for order
+        $orders = new Orders;
+
+        if(isset($_POST['calendar']) && isset($_POST['Orders']['price']))
+        {
+
+            $orders->makeOrder(Yii::app()->user->id, $cam->user_id, $_POST['calendar'], $_POST['Orders']['price']);
+
+
+        }
+        $this->render('make', array('model' => $orders));
+    }
+
+
 
 	// Uncomment the following methods and override them if needed
 	/*

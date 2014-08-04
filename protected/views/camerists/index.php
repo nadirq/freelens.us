@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     <?php foreach($camerists->getAll() as $c){ ?>
         <div class = "row" >
             <?php echo $c->login; ?>
-                <?php echo "button here"; ?>
+            <?php echo CHtml::link('Order', Yii::app()->createUrl('orders/make', array('cam_id' => $c->id))); ?>
         </div>
         <br />
     <?php } ?>

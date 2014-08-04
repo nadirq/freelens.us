@@ -14,8 +14,16 @@ class OrdersController extends Controller
     {
         $camId = $_GET['cam_id'];
         $cam = Camerists::model()->findByPk($camId); // Save camerist for order
+        $orders = new Orders;
 
-        $this->render('make', array('camerist' => $cam));
+        if(isset($_POST['calendar']) && isset($_POST['Orders']['price']))
+        {
+
+            $orders->makeOrder(Yii::app()->user->id, $cam->user_id, $_POST['calendar'], $_POST['Orders']['price']);
+
+
+        }
+        $this->render('make', array('model' => $orders));
     }
 
 

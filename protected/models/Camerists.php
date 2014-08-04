@@ -17,6 +17,7 @@
  */
 class Camerists extends CActiveRecord
 {
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -69,6 +70,7 @@ class Camerists extends CActiveRecord
 			'rate' => 'Rate',
 		);
 	}
+
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

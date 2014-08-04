@@ -32,7 +32,7 @@ class Comments extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, cam_id, message, created_at', 'required'),
+			array('user_id, cam_id, message', 'required'),
 			array('user_id, cam_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

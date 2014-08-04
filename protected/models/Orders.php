@@ -16,10 +16,24 @@
 class Orders extends CActiveRecord
 {
 
+
+
+    // For date convert
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            $this->date = date('Y-m-d H:i:s', strtotime($this->date));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
     public function accessRules()
     {
         return array(
-            array('allow', 
+            array('allow',
                 'actions'=>array('make'),
                 'role'=>array('user'),
             ),
@@ -126,16 +140,4 @@ class Orders extends CActiveRecord
 	}
 
 
-    // For filling orders table
-    public function makeOrder($usr, $cam, $date, $price)
-    {
-        $command = Yii::app()->db->createCommand();
-
-        $command->insert('orders', array(
-            'cam_id' => $cam,
-            'user_id' => $usr,
-            'date' => strtotime($date),
-            'price' => $price,
-        ));
-    }
 }

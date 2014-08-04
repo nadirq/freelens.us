@@ -16,11 +16,12 @@ class OrdersController extends Controller
         $cam = Camerists::model()->findByPk($camId); // Save camerist for order
         $orders = new Orders;
 
-        if(isset($_POST['calendar']) && isset($_POST['Orders']['price']))
+        if(isset($_POST['Orders']))
         {
-
-            $orders->makeOrder(Yii::app()->user->id, $cam->user_id, $_POST['calendar'], $_POST['Orders']['price']);
-
+            $orders->attributes = $_POST['Orders'];
+            $orders->cam_id = $camId;
+            $orders->user_id = Yii::app()->user->id;
+            $orders->save();
 
         }
         $this->render('make', array('model' => $orders));

@@ -3,23 +3,25 @@ body
 	margin: 0;
 	padding: 0;
 	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    background: #eee;
 	background-image: url("bg.png");
 }
 
 #page
 {
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 0;
 	background: white;
-	border: 1px solid #C9E0ED;
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
+	background: #e86c54;
+    color: white;
 }
 
 #content
@@ -34,11 +36,21 @@ body
 
 #footer
 {
-	padding: 10px;
-	margin: 10px 20px;
-	font-size: 0.8em;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
+	margin: 0;
+	background: #ccc;
+}
+
+.foot{
+    width:80%;
+    min-width:1024px;
+    margin: 0 auto;
+    padding: 15px 15px 10px;
+}
+
+.foot ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 #logo
@@ -49,13 +61,15 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+    background: #e86c54;
+    height: 45px;
+
 }
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
-	margin:0px;
+	padding:15px 15px 0 15px;
+	margin:0;
 }
 
 #mainmenu ul li
@@ -67,16 +81,15 @@ body
 {
 	color:#ffffff;
 	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
+	font-size:15px;
 	text-decoration:none;
-	padding:5px 8px;
+	padding:15px 15px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
 	color: #6399cd;
-	background-color:#EFF4FA;
+	background-color:#ffffff;
 	text-decoration:none;
 }
 

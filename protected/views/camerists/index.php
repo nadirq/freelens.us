@@ -13,6 +13,8 @@ $this->breadcrumbs=array(
         <div class = "row" >
             <?php echo $c->login; ?>
             <?php echo CHtml::link('Order', Yii::app()->createUrl('orders/make', array('cam_id' => $c->id))); ?>
+            <?php echo CHtml::link('Rate', Yii::app()->createUrl('rating/rate', array('cam_id' => $c->id))); ?>
+
         </div>
         <br />
     <?php } ?>

@@ -42,7 +42,7 @@ class Thumbnail extends CComponent {
             imagecopyresized( $tmp_img, $imgObj, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
             // save thumbnail into a file
 
-            imagepng( $tmp_img, str_replace('images/', 'images/thumb_', $img));
+            imagepng( $tmp_img, str_replace('images/', 'images/small_', $img));
         }
             // load image and get image size
 

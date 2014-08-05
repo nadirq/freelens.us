@@ -25,9 +25,31 @@ class Rating extends CActiveRecord
 
 
 
+
     protected function afterSave() {
         parent::afterSave();
         //TODO: add calculating of total rating
+
+        //count up common rating
+        $id = $_GET['cam_id'];
+        $sql = "SELECT AVG(rate) AS rating from rating where cam_id = :id";
+        $connect = Yii::app()->db;
+        $query = $connect->createCommand($sql);
+        $query->bindParam(":id", $id, PDO::PARAM_STR);
+        $rate = $query->queryRow();
+
+        //insert into camerists table
+
+
+        $sqlUpdate = "UPDATE `camerists` SET `rate` = :rate WHERE `user_id`=:id ";
+        $queryUpdate = $connect->createCommand($sqlUpdate);
+        $queryUpdate->bindParam(":rate", $rate['rating'], PDO::PARAM_STR);
+        $queryUpdate->bindParam(":id", $id, PDO::PARAM_STR);
+
+        $queryUpdate->execute();
+
+
+
     }
 
 	/**

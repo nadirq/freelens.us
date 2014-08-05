@@ -1,31 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "photos".
+ * This is the model class for table "albums".
  *
- * The followings are the available columns in table 'photos':
+ * The followings are the available columns in table 'albums':
  * @property integer $id
- * @property string $path
- * @property integer $album_id
+ * @property integer $cam_id
+ * @property string $name
  *
  * The followings are the available model relations:
- * @property Albums $album
+ * @property Camerists $cam
+ * @property Photos[] $photoses
  */
-class Photos extends CActiveRecord
+class Albums extends CActiveRecord
 {
-
-
-    public $image;
-    // другие свойства
-
-
-
-    /**
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'photos';
+		return 'albums';
 	}
 
 	/**
@@ -36,15 +30,12 @@ class Photos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('album_id', 'required'),
-			array('album_id', 'numerical', 'integerOnly'=>true),
-			array('path', 'length', 'max'=>100),
+			array('cam_id, name', 'required'),
+			array('cam_id', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, path, album_id', 'safe', 'on'=>'search'),
-            //устанавливаем правила для файла, позволяющие загружать
-            // только картинки!
-            array('image', 'file', 'types'=>'jpg, gif, png'),
+			array('id, cam_id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +47,8 @@ class Photos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'album' => array(self::BELONGS_TO, 'Albums', 'album_id'),
+			'cam' => array(self::BELONGS_TO, 'Camerists', 'cam_id'),
+			'photoses' => array(self::HAS_MANY, 'Photos', 'album_id'),
 		);
 	}
 
@@ -67,8 +59,8 @@ class Photos extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'path' => 'Path',
-			'album_id' => 'Album',
+			'cam_id' => 'Cam',
+			'name' => 'Name',
 		);
 	}
 
@@ -91,19 +83,29 @@ class Photos extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('path',$this->path,true);
-		$criteria->compare('album_id',$this->album_id);
+		$criteria->compare('cam_id',$this->cam_id);
+		$criteria->compare('name',$this->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
+    public function getAlbumId($cam)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->select = 'id';
+        $criteria->condition = 'cam_id=:id';
+        $criteria->params = array(':id'=>$cam);
+        return Albums::model()->find($criteria);
+
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Photos the static model class
+	 * @return Albums the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

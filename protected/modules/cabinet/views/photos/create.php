@@ -1,18 +1,20 @@
 <?php
-/* @var $this PhotosController */
-/* @var $model Photos */
 
-$this->breadcrumbs=array(
-	'Photoses'=>array('index'),
-	'Create',
+
+$form = $this->beginWidget(
+    'CActiveForm',
+    array(
+        'id' => 'upload-form',
+        'enableAjaxValidation' => false,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
+    )
 );
 
-$this->menu=array(
-	array('label'=>'List Photos', 'url'=>array('index')),
-	array('label'=>'Manage Photos', 'url'=>array('admin')),
-);
-?>
+echo $form->labelEx($model, 'img');
+echo $form->fileField($model, 'img');
+echo $form->error($model, 'img');
 
-<h1>Create Photos</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+echo CHtml::submitButton('Submit');
+
+$this->endWidget();

@@ -18,6 +18,25 @@
 class Camerists extends CActiveRecord
 {
 
+
+    // If camerist - make album
+    protected function afterSave()
+    {
+        if (parent::beforeSave())
+        {
+            $album = new Albums;
+            $album->cam_id = $this->user_id;
+            $album->name = 'Portfolio';
+            $album->save();
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+
 	/**
 	 * @return string the associated database table name
 	 */

@@ -91,6 +91,7 @@ class Albums extends CActiveRecord
 		));
 	}
 
+    // Lol
     public function getAlbumId($cam)
     {
         $criteria = new CDbCriteria();

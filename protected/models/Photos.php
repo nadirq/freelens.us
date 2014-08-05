@@ -66,6 +66,7 @@ class Photos extends CActiveRecord
 		);
 	}
 
+    // Lol
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

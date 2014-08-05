@@ -19,6 +19,7 @@ class PhotosController extends Controller
 		);
 	}
 
+    // Lol
 	public function accessRules()
 	{
 		return array(

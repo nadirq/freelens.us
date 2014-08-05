@@ -15,6 +15,11 @@ class Photos extends CActiveRecord
 {
 
 
+    protected function afterSave() {
+        parent::afterSave();
+
+
+    }
     public $img;
 	/**
 	 * @return string the associated database table name

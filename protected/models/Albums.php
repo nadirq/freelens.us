@@ -91,6 +91,17 @@ class Albums extends CActiveRecord
 		));
 	}
 
+
+
+
+    public function getPhotos(){
+        $criteria = new CDbCriteria;
+        $criteria->select = '*';
+        $criteria->condition = 'id = :id';
+        $criteria->params = array(':id' => $this->id);
+        return Photos::model()->findAll($criteria);
+    }
+
     // Lol
     public function getAlbumId($cam)
     {

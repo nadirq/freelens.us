@@ -22,12 +22,44 @@ class Rating extends CActiveRecord
         return 'rating';
     }
 
+    protected function beforeSave(){
+        $query = Yii::app()->db;
+        $id = $_GET['cam_id'];
+        $res = $query->createCommand()
+            ->select('user_id')
+            ->from('rating')
+            ->where('user_id=:id', array(':id'=>$id))
+            ->queryRow();
+
+        //if user already voted
+        if(!$res){
+            return true; //consider this vote
+        }
+        else{
+            return false;
+        }
+    }
 
 
-
-    protected function afterSave() {
+    protected function afterSave(){
         parent::afterSave();
         //TODO: add calculating of total rating
+        //TODO: Done
+
+        //count up common rating
+        $id = $_GET['cam_id'];
+        $sql = "SELECT AVG(rate) AS rating from rating where cam_id = :id";
+        $connect = Yii::app()->db;
+        $query = $connect->createCommand($sql);
+        $query->bindParam(":id", $id, PDO::PARAM_STR);
+        $rate = $query->queryRow();
+
+        //insert rating into camerists table
+        $queryUpdate = $connect;
+        $queryUpdate->createCommand()->update('camerists', array(
+            'rate'=>$rate['rating'],
+        ), 'user_id=:id', array(':id'=>$id));
+
     }
 
 	/**

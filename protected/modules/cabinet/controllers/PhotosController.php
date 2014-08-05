@@ -57,9 +57,7 @@ class PhotosController extends Controller
 
 		$model=new Photos;
 
-
-		$this->performAjaxValidation($model);
-
+ 		$this->performAjaxValidation($model);
 
 
 		if(isset($_POST['Photos']))
@@ -69,6 +67,7 @@ class PhotosController extends Controller
             $model->img = CUploadedFile::getInstance($model, 'img');
             $model->path = './images/'. $model->img->name;
             $alb = new Albums;
+            var_dump($alb);
             $alb = $alb->getAlbumId(Yii::app()->user->id);
 
             $model->album_id = $alb->id;

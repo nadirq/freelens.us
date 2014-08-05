@@ -6,7 +6,8 @@ class m140730_062839_create_photos_table extends CDbMigration
 	{
         $this->createTable('photos', array(
             'id' => 'pk',
-            'path' => 'varchar(100) default "/images/notexists.jpg"',
+            'path' => 'varchar(100) default "/images/"',
+            'desc' => 'varchar(300)',
             'album_id' => 'integer not null'
         ));
 

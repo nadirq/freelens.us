@@ -67,6 +67,10 @@ class PhotosController extends Controller
 
             $model->img = CUploadedFile::getInstance($model, 'img');
             $model->path = './images/'. $model->img->name;
+            $alb = new Albums;
+            $alb = $alb->getAlbumId(Yii::app()->user->id);
+
+            $model->album_id = $alb->id;
             if($model->save())
             {
 				$model->img->saveAs($model->path); // Save with hash name

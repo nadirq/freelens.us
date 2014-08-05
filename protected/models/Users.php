@@ -17,7 +17,10 @@
  * @property string $role
  *
  * The followings are the available model relations:
- * @property Camerists[] $camerists
+ * @property Camerists $camerists
+ * @property Comments[] $comments
+ * @property Orders[] $orders
+ * @property Rating[] $ratings
  */
 class Users extends CActiveRecord
 {
@@ -71,7 +74,7 @@ class Users extends CActiveRecord
 
 
 
-    /**
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -91,12 +94,13 @@ class Users extends CActiveRecord
 		return array(
 			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
             array('login, pass', 'required'),
-            array('login, role', 'length', 'max'=>30),
+            //array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
-            array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
+            //array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
 			//array('email, fio', 'length', 'max'=>50),
 			//array('tel', 'length', 'max'=>20),
 			//array('activation', 'length', 'max'=>32),
+
 			//array('about, last_login', 'safe'),
             //array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
             //array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
@@ -114,7 +118,10 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'camerists' => array(self::HAS_MANY, 'Camerists', 'user_id'),
+			'camerists' => array(self::HAS_ONE, 'Camerists', 'user_id'),
+			'comments' => array(self::HAS_MANY, 'Comments', 'user_id'),
+			'orders' => array(self::HAS_MANY, 'Orders', 'user_id'),
+			'ratings' => array(self::HAS_MANY, 'Rating', 'user_id'),
 		);
 	}
 
@@ -226,5 +233,5 @@ class Users extends CActiveRecord
         }
         else
             return false;
-    }
+	}
 }

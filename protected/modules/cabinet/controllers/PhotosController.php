@@ -32,10 +32,10 @@ class PhotosController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','add'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
@@ -45,10 +45,30 @@ class PhotosController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
+
+
+    public function actionAdd(){
+        $model=new Photos;
+        if(isset($_POST['photo'])){
+            $model->attributes=$_POST['photo'];
+            $model->image=CUploadedFile::getInstance($model,'image');
+            var_dump($model->image);
+            if($model->save()){
+                $model->path->saveAs('path/to/localFile');
+                // перенаправляем на страницу, где выводим сообщение об
+                // успешной загрузке
+            }
+        }
+        $this->render('add', array('model'=>$model));
+    }
+
+
+
+
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
 	public function actionView($id)
 	{
 		$this->render('view',array(

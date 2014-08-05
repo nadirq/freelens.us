@@ -13,7 +13,14 @@
  */
 class Photos extends CActiveRecord
 {
-	/**
+
+
+    public $image;
+    // другие свойства
+
+
+
+    /**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -35,6 +42,9 @@ class Photos extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, path, album_id', 'safe', 'on'=>'search'),
+            //устанавливаем правила для файла, позволяющие загружать
+            // только картинки!
+            array('image', 'file', 'types'=>'jpg, gif, png'),
 		);
 	}
 

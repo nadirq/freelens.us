@@ -13,6 +13,9 @@
  */
 class Photos extends CActiveRecord
 {
+
+
+    public $img;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -35,6 +38,7 @@ class Photos extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, path, album_id', 'safe', 'on'=>'search'),
+            array('img', 'file', 'types'=>'jpg, png, jpeg'),
 		);
 	}
 

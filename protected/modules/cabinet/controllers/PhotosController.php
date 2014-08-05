@@ -19,11 +19,6 @@ class PhotosController extends Controller
 		);
 	}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
 	public function accessRules()
 	{
 		return array(
@@ -45,10 +40,7 @@ class PhotosController extends Controller
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
+
 	public function actionView($id)
 	{
 		$this->render('view',array(
@@ -56,75 +48,38 @@ class PhotosController extends Controller
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionCreate()
 	{
+
+
+        // Good piece of smachny bydlocode
+
 		$model=new Photos;
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+
+		$this->performAjaxValidation($model);
+
+
 
 		if(isset($_POST['Photos']))
 		{
 			$model->attributes=$_POST['Photos'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+
+            $model->img = CUploadedFile::getInstance($model, 'img');
+            $model->path = './images/'. $model->img->name;
+            if($model->save())
+            {
+				$model->img->saveAs($model->path); // Save with hash name
+            }
+        }
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
 	}
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-
-        // в зависимости от аргумента создаем модель или ищем уже существующую
-        if($id===null){
-            $model=new Photos();
-        }
-        else if(!$model=Photos::model()->findByPk($id)){
-            throw new CHttpException(404);
-        }
-
-        if(isset($_POST['photos'])){
-            $model->attributes=$_POST['Item'];
-            if($model->save()){
-                echo "DOne!";
-                $this->refresh();
-            }
-        }
-
-        $this->render('update',array('model'=>$model));
 
 
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-
-	/**
-	 * Lists all models.
-	 */
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Photos');
@@ -133,20 +88,7 @@ class PhotosController extends Controller
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Photos('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Photos']))
-			$model->attributes=$_GET['Photos'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -72,9 +72,12 @@ class PhotosController extends Controller
             $alb = $alb->getAlbumId(Yii::app()->user->id);
 
             $model->album_id = $alb->id;
+
             if($model->save())
             {
 				$model->img->saveAs($model->path); // Save with hash name
+                Thumbnail::createThumbs($model->path, 200);
+
             }
         }
 

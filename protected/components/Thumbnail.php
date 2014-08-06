@@ -24,7 +24,7 @@ class Thumbnail extends CComponent {
             imagecopyresized( $tmp_img, $imgObj, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
             // save thumbnail into a file
 
-            imagejpeg( $tmp_img, str_replace('images/', 'images/thumb_', $img));
+            imagejpeg( $tmp_img, str_replace('images/', 'images/small_', $img));
         }
         else if(strtolower($info['extension']) == 'png' )
         {

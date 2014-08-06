@@ -240,3 +240,11 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+/* Карта */
+
+#map{
+    height: 500px;
+    width: 100%;
+    border-radius: 15px;
+}

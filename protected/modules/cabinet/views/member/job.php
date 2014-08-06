@@ -30,8 +30,19 @@
             <br />
         </div>
 
-    <?php echo CHtml::link('Accept', Yii::app()->createUrl('orders/accept', array('order' => $order->id))); ?>
-    <?php echo CHtml::link('Decline', Yii::app()->createUrl('orders/decline', array('order' => $order->id))); ?>
+    <?php
+        if($order->accepted == true)
+            echo 'Accepted';
+        else
+            echo CHtml::link('Accept', Yii::app()->createUrl('orders/accept', array('order' => $order->id)));
+     ?>
+
+    <?php
+    if($order->accepted == false)
+        echo 'Refused';
+    else
+        echo CHtml::link('Decline', Yii::app()->createUrl('orders/decline', array('order' => $order->id)));
+    ?>
 
 <?php
     }

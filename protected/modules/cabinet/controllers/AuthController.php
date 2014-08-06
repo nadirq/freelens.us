@@ -60,7 +60,7 @@ class AuthController extends Controller
                     else
                     {
 
-                        $form->save();
+                        $form->createCamerist();
                         $this->render("registration_ok");
                     }
 

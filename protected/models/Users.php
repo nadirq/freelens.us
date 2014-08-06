@@ -32,6 +32,7 @@ class Users extends CActiveRecord
 
     public $type; // Is user or camerist
 
+    public $img; // avatar
 
 
     // Crypt password
@@ -56,6 +57,20 @@ class Users extends CActiveRecord
     {
         if (parent::beforeSave())
         {
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+
+
+    public function createCamerist()
+    {
+        if($this->save())
+        {
             // Is it good place for functionality like this?
             if($this->role == 'camerist')
             {
@@ -65,14 +80,10 @@ class Users extends CActiveRecord
                 $camerist->rate = 0;
                 $camerist->save();
             }
-            return true;
         }
-
-        return false;
+        else
+            return false;
     }
-
-
-
 
 	/**
 	 * @return string the associated database table name
@@ -97,17 +108,18 @@ class Users extends CActiveRecord
             //array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
             //array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
-			//array('email, fio', 'length', 'max'=>50),
-			//array('tel', 'length', 'max'=>20),
+			array('email, fio', 'length', 'max'=>50),
+			array('tel', 'length', 'max'=>20),
 			//array('activation', 'length', 'max'=>32),
 
-			//array('about, last_login', 'safe'),
-            //array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
+			array('about, last_login', 'safe'),
+            array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
             //array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
-		);
+            /*array('img', 'file', 'types'=>'jpg, png, jpeg'),*/
+        );
 	}
 
 	/**

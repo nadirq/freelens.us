@@ -5,6 +5,7 @@ class m140730_063020_create_orders_table extends CDbMigration
 	public function up()
 	{
         $this->createTable('orders', array(
+            'id' => 'pk',
             'cam_id' => 'integer not null',
             'user_id' => 'integer not null',
             'price' => 'integer not null',

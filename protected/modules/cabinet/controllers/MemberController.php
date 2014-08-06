@@ -23,6 +23,7 @@ class MemberController extends Controller
             // Goddamn magic
             //$usr->attributes = $_POST['Users'];
             //$usr->save();
+
             // Works fine
             $usr->saveAttributes($_POST['Users']);
             $this->redirect('dashboard');
@@ -30,6 +31,18 @@ class MemberController extends Controller
 
 
         $this->render('account', array('me' =>$usr));
+    }
+
+    public function actionJob ()
+    {
+
+        $orders = Orders::model()->findOrders(Yii::app()->user->id);
+        $orderers = array();
+        foreach($orders as $o)
+        {
+            $orderers[] = Users::model()->findByPk($o->user_id); // Get all of users
+        }
+        $this->render('job', array('orders' => $orders, 'users' => $orderers));
     }
 
 }

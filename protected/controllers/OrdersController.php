@@ -9,6 +9,22 @@ class OrdersController extends Controller
 
 
 
+    // TODO: bullshit, needs to refactor
+    public function actionAccept()
+    {
+        $order = Orders::model()->findByPk($_GET['order']);
+        $order->accepted = true;
+        $order->save();
+        $this->redirect('../cabinet/member/dashboard');
+    }
+
+    public function actionDecline()
+    {
+        $order = Orders::model()->findByPk($_GET['order']);
+        $order->accepted = false;
+        $order->save();
+        $this->redirect('../cabinet/member/dashboard');
+    }
 
     public function actionMake()
     {

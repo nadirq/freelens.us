@@ -134,6 +134,15 @@ class Orders extends CActiveRecord
     }
 
 
+    public function findOrders($cam)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->condition = "cam_id = :id";
+
+        $criteria->params = array(':id'=>$cam);
+
+        return Orders::model()->findAll($criteria);
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -145,6 +154,11 @@ class Orders extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function setAccept($accept = true)
+    {
+        $this->accpeted = $accept; // True or false, look in controller's methods
+    }
 
 
 }

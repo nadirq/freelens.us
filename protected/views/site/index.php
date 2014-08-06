@@ -22,13 +22,37 @@
 
         function createMap (state) {
             state.zoom = 12;
-            state.controls = ['zoomControl'];
+            state.controls = ['zoomControl','geolocationControl'];
             map = new ymaps.Map('map', state);
+//            map.add(new ymaps.Placemark([55.684758, 37.738521], {
+//                balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+//            }, {
+//                preset: 'islands#icon',
+//                iconColor: '#0095b6'
+//            }));
         }
+
+
+<!--    $.getJSON("--><?php //echo Yii::app()->request->baseUrl; ?><!--/protected/handlers/mapOutput.php",-->
+<!--        function(json){-->
+<!--            for (i = 0; i < json.markers.length; i++) {-->
+<!---->
+<!--                var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {-->
+<!--                    // Свойства-->
+<!--                    balloonContentBody: json.markers[i].balloon-->
+<!--                }, {-->
+<!--                    // Опции-->
+<!--                    preset: json.markers[i].style-->
+<!--                });-->
+<!---->
+<!--                // Добавляем метку на карту-->
+<!--                map.geoObjects.add(myPlacemark);-->
+<!---->
+<!--            }-->
+<!---->
+<!--        });-->
+
     });
-
-
-
 
 
 

@@ -22,20 +22,22 @@ class MemberController extends Controller
         if(isset($_POST['Users']))
         {
 
-            // Goddamn magic
+
             $usr->attributes = $_POST['Users'];
 
 
-/*
+
             // Works fine
-            $usr->saveAttributes($_POST['Users']);
+
 
             $usr->img = CUploadedFile::getInstance($usr, 'img');
-            $usr->avatar = 'images/'. $usr->img->name;
-            $usr->img->saveAs($usr->avatar);
-            var_dump
-            Thumbnail::createThumbs($usr->avatar, 100);
-*/
+            if($usr->img != null)
+            {
+                $usr->avatar = 'images/'. $usr->img->name;
+                $usr->img->saveAs($usr->avatar);
+
+                Thumbnail::createThumbs($usr->avatar, 100);
+            }
             if($usr->save())
                 $this->redirect('dashboard');
         }

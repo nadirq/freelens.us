@@ -14,7 +14,6 @@
 
 <div id='avatar'>
     <?php
-        //var_dump($me->avatar);
         echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $me->avatar), 'Avatar');
     ?>
 </div>

@@ -14,24 +14,34 @@ class OrdersController extends Controller
     {
         $order = Orders::model()->findByPk($_GET['order']);
         $order->accepted = true;
+        $order->status = 'In progress';
         $order->save();
-        $this->redirect('../cabinet/member/dashboard');
+        $this->redirect('../cabinet/member/job');
     }
 
     public function actionDecline()
     {
         $order = Orders::model()->findByPk($_GET['order']);
         $order->accepted = false;
+        $order->status = 'Refused';
         $order->save();
-        $this->redirect('../cabinet/member/dashboard');
+        $this->redirect('../cabinet/member/job');
+    }
+
+    public function actionFinish()
+    {
+        $order = Orders::model()->findByPk($_GET['order']);
+        $order->status = 'Finished';
+        $order->save();
+        $this->redirect('../cabinet/member/job');
     }
 
     public function actionMake()
     {
         $camId = $_GET['cam_id'];
-        $cam = Camerists::model()->findByPk($camId); // Save camerist for order
+        //$cam = Camerists::model()->findByPk($camId); // Save camerist for order
         $orders = new Orders;
-
+        $busy = Orders::model()->getBusy($camId);
         if(isset($_POST['Orders']))
         {
             $orders->attributes = $_POST['Orders'];
@@ -40,7 +50,7 @@ class OrdersController extends Controller
             $orders->save();
 
         }
-        $this->render('make', array('model' => $orders));
+        $this->render('make', array('model' => $orders, 'busy' => $busy));
     }
 
 

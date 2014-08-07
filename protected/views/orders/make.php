@@ -21,6 +21,16 @@
         <?php echo CHtml::activeLabel($model, 'price'); ?>
         <?php echo CHtml::activeTextField($model, 'price'); ?>
     </div>
+    Busy days:
+    <br />
+    <div class="row">
+        <?php
+            foreach($busy as $b)
+            {
+                echo $b->date;
+            }
+        ?>
+    </div>
 
     <div class="row submit">
         <?php echo CHtml::submitButton('Order'); ?>

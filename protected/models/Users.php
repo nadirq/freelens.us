@@ -118,7 +118,7 @@ class Users extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
-            /*array('img', 'file', 'types'=>'jpg, png, jpeg'),*/
+            array('img', 'file', 'allowEmpty'=>true, 'types'=>'jpg, png, jpeg'),
         );
 	}
 

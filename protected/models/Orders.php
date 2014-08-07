@@ -128,8 +128,16 @@ class Orders extends CActiveRecord
 		));
 	}
 
-    public function getBusy()
+    // Get all active orders
+    public function getBusy($cam)
     {
+        $criteria = new CDbCriteria();
+
+        $criteria->condition = 'cam_id = :id AND status = "In progress"';
+
+        $criteria->params = array(':id'=>$cam);
+
+        return Orders::model()->findAll($criteria);
 
     }
 
@@ -144,6 +152,10 @@ class Orders extends CActiveRecord
         return Orders::model()->findAll($criteria);
     }
 
+    public function acceptOrder()
+    {
+
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

@@ -14,7 +14,8 @@
 
 <div id='avatar'>
     <?php
-        //echo CHtml::image(Yii::app()->baseUrl.'/'.$me->avatar->getThumb(), 'Avatar');
+        //var_dump($me->avatar);
+        echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $me->avatar), 'Avatar');
     ?>
 </div>
 <div id='login'>

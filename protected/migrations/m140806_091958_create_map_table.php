@@ -8,9 +8,13 @@ class m140806_091958_create_map_table extends CDbMigration
             'id' => 'pk',
             'stylePlacemark' => 'varchar(255)', //стиль метки
             'balloonText' => 'varchar(255)',    //содержимое балуна (может содеражть html)
+            'iconText' => 'varchar(255)',
+            'hintText' => 'varchar(255)',
             'lat' => 'varchar(255) NOT NULL',   //широта
             'lon' => 'varchar(255) NOT NULL'    //долгота
         ));
+
+
     }
 
 	public function down()

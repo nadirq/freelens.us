@@ -34,7 +34,7 @@
             }));
 
 
-        $.getJSON("mapOutput.php",
+        $.getJSON("/freelens.us/index.php/map/getmap",
             function(json){
                for (i = 0; i < json.markers.length; i++) {
                     var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
@@ -73,6 +73,7 @@ $this->pageTitle=Yii::app()->name;
 <!--    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>-->
 
 <div id="map"></div>
+<a href="/freelens.us/index.php/map/getmap" >lol</a>
 
 
 

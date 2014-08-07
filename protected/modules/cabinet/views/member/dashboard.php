@@ -13,7 +13,9 @@
 
 
 <div id='avatar'>
-    <?php echo CHtml::image($me->avatar, 'your avatar'); ?>
+    <?php
+        //echo CHtml::image(Yii::app()->baseUrl.'/'.$me->avatar->getThumb(), 'Avatar');
+    ?>
 </div>
 <div id='login'>
     <?php echo $me->login; ?>

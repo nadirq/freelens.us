@@ -34,8 +34,8 @@ $form = $this->beginWidget(
 <br />
 <?php
     echo $form->labelEx($me, 'Change avatar');
-    echo $form->fileField($me, 'avatar');
-    echo $form->error($me, 'avatar');
+    echo $form->fileField($me, 'img');
+    echo $form->error($me, 'img');
 ?>
 <br />
 <?php

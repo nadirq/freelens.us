@@ -2,7 +2,7 @@
 <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript">
     ymaps.ready(function () {
-        var map;
+        var myMap;
         ymaps.geolocation.get().then(function (res) {
             var mapContainer = $('#map'),
                 bounds = res.geoObjects.get(0).properties.get('boundedBy'),
@@ -16,43 +16,46 @@
             // Если место положение невозможно получить, то просто создаем карту.
             createMap({
                 center: [55.751574, 37.573856],
-                zoom: 2
+                zoom: 12,
+                controls: ['zoomControl','geolocationControl']
             });
         });
 
         function createMap (state) {
             state.zoom = 12;
             state.controls = ['zoomControl','geolocationControl'];
-            map = new ymaps.Map('map', state);
-//            map.add(new ymaps.Placemark([55.684758, 37.738521], {
-//                balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
-//            }, {
-//                preset: 'islands#icon',
-//                iconColor: '#0095b6'
-//            }));
-        }
+            myMap = new ymaps.Map('map', state);
+            myMap.geoObjects.add(new ymaps.Placemark([55,83], {
+                balloonText: 'lol'
+            },
+                {
+                preset: 'islands#redIcon'
+
+            }));
 
 
-<!--    $.getJSON("--><?php //echo Yii::app()->request->baseUrl; ?><!--/protected/handlers/mapOutput.php",-->
-<!--        function(json){-->
-<!--            for (i = 0; i < json.markers.length; i++) {-->
-<!---->
-<!--                var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {-->
-<!--                    // Свойства-->
-<!--                    balloonContentBody: json.markers[i].balloon-->
-<!--                }, {-->
-<!--                    // Опции-->
-<!--                    preset: json.markers[i].style-->
-<!--                });-->
-<!---->
-<!--                // Добавляем метку на карту-->
-<!--                map.geoObjects.add(myPlacemark);-->
-<!---->
-<!--            }-->
-<!---->
-<!--        });-->
+        $.getJSON("mapOutput.php",
+            function(json){
+               for (i = 0; i < json.markers.length; i++) {
+                    var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
+                        // Свойства
+                        balloonContentBody: json.markers[i].balloon
+                    }, {
+                        // Опции
+                        preset: json.markers[i].stylePlacemark
+                    });
+
+                    // Добавляем метку на карту
+                    myMap.geoObjects.add(myPlacemark);
+
+                }
+            });
+
+}
+
 
     });
+
 
 
 

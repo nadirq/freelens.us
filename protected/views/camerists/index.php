@@ -9,17 +9,18 @@ $this->breadcrumbs=array(
 
 <p>
     <?php //TODO: Add checkbox 'online' ?>
-    <?php foreach($camerists->getAll() as $c){ ?>
+    <?php foreach($camerists->getAll() as $i => $c){ ?>
         <div class = "row" >
             <div id='avatar'>
                 <?php
-                echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $c->avatar), 'Avatar');
+                    echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $c->avatar), 'Avatar');
                 ?>
             </div>
             <?php echo $c->login; ?>
+            <?php echo 'Rate: ' . $rate[$i] . '/5'; ?>
             <?php echo CHtml::link('Order', Yii::app()->createUrl('orders/make', array('cam_id' => $c->id))); ?>
             <?php echo CHtml::link('Rate', Yii::app()->createUrl('rating/rate', array('cam_id' => $c->id))); ?>
-
+            <?php echo CHtml::link('Review', Yii::app()->createUrl('/comments/add', array('cam_id' => $c->id))); ?>
         </div>
         <br />
     <?php } ?>

@@ -2,6 +2,14 @@
 
 class OrdersController extends Controller
 {
+
+    public function filters()
+    {
+        return array(
+            'accessControl'
+        );
+    }
+
 	public function actionIndex()
 	{
 		$this->render('index');

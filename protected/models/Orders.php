@@ -50,6 +50,18 @@ class Orders extends CActiveRecord
 
 
 
+    // Custom valudator
+    public function notBusy()
+    {
+        $criteria = new CDbCriteria();
+
+        $criteria->condition = 'cam_id = :id AND status = "In progress"';
+
+        $criteria->params = array();
+    }
+
+
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -71,6 +83,7 @@ class Orders extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cam_id, user_id, price, date', 'safe', 'on'=>'search'),
+            array('date', 'notBusy')
 		);
 	}
 

@@ -3,9 +3,13 @@
 class UsersController extends Controller
 {
 
+    public function filters()
+    {
+        return array(
+            'accessControl'
+        );
+    }
 
-
-    //TODO: add rules for all controllers
     
     public function actionIndex(){
         var_dump(Yii::app()->user->id);

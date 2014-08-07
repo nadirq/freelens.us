@@ -15,7 +15,7 @@
         }, function (e) {
             // Если место положение невозможно получить, то просто создаем карту.
             createMap({
-                center: [55.751574, 37.573856],
+                center: [55.751574, 83],
                 zoom: 12,
                 controls: ['zoomControl','geolocationControl']
             });
@@ -23,8 +23,11 @@
 
         function createMap (state) {
             state.zoom = 12;
+            //определяем контроллеры на карте
             state.controls = ['zoomControl','geolocationControl'];
+            //создание карты с параметрами пользователя
             myMap = new ymaps.Map('map', state);
+            //добавление метки для примера
             myMap.geoObjects.add(new ymaps.Placemark([55,83], {
                 balloonText: 'lol'
             },
@@ -34,7 +37,8 @@
             }));
 
 
-        $.getJSON("/freelens.us/index.php/map/getmap",
+        //запрашиваем все данные по меткам из БД
+        $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getmap'); ?>",
             function(json){
                for (i = 0; i < json.markers.length; i++) {
                     var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
@@ -73,7 +77,8 @@ $this->pageTitle=Yii::app()->name;
 <!--    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>-->
 
 <div id="map"></div>
-<a href="/freelens.us/index.php/map/getmap" >lol</a>
+
+
 
 
 

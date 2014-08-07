@@ -7,7 +7,7 @@ class m140730_060213_create_users_table extends CDbMigration
         $this->createTable('users', array(
             'id' => 'pk',
             'login' => 'varchar(30) not null',
-            'avatar' => 'varchar(50) default "noavatar.jpg"',
+            'avatar' => 'varchar(50) default "images/noavatar.jpg"',
             'pass' => 'varchar(100) not null',
             'email' => 'varchar(50) not null',
             'tel' => 'varchar(20)',

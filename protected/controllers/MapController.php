@@ -7,6 +7,9 @@ class MapController extends Controller
 		$this->render('index');
 	}
 
+    /*
+     * Отдает на выход массив маркеров в JSON формате
+     */
     public function actionGetmap(){
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
@@ -29,6 +32,27 @@ class MapController extends Controller
         echo json_encode($points);
 
     }
+
+
+    public function actionAddToMap(){
+        header('Content-Type: text/html; charset=utf-8');
+
+        $connect = Yii::app()->db;
+
+        $iconText = htmlspecialchars($_POST['icontext']);
+        $hintText = htmlspecialchars($_POST['hinttext']);
+        $balloonText = htmlspecialchars($_POST['balloontext']);
+        $stylePlacemark = $_POST['styleplacemark'];
+        $lat = $_POST['lat'];
+        $lon = $_POST['lon'];
+
+        $sql = "INSERT INTO map (`iconText`, `hintText`, `balloonText`, `stylePlacemark`, `lat`, `lon`) VALUES ('$iconText', '$hintText', '$balloonText', '$stylePlacemark', '$lat', '$lon');";
+
+        $result = $connect->createCommand($sql);
+        $result->execute();
+
+
+    
 
 	// Uncomment the following methods and override them if needed
 	/*

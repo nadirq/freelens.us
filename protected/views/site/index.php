@@ -32,7 +32,16 @@
                 balloonText: 'lol'
             },
                 {
-                preset: 'islands#redIcon'
+                    preset: 'islands#redIcon',
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#image',
+                    // Своё изображение иконки метки.
+                    iconImageHref: '/freelens.us/images/myIcon.png',
+                    // Размеры метки.
+                    iconImageSize: [28, 37],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-14, -37]
 
             }));
 
@@ -46,8 +55,20 @@
                         balloonContentBody: json.markers[i].balloon
                     }, {
                         // Опции
-                        preset: json.markers[i].stylePlacemark
-                    });
+                        //preset: json.markers[i].stylePlacemark
+                            preset: 'islands#redIcon',
+                            // Необходимо указать данный тип макета.
+                            iconLayout: 'default#image',
+                            // Своё изображение иконки метки.
+                            iconImageHref: '/freelens.us/images/location-big.png',
+                            // Размеры метки.
+                            iconImageSize: [28, 37],
+                            // Смещение левого верхнего угла иконки относительно
+                            // её "ножки" (точки привязки).
+                            iconImageOffset: [-14, -37]
+
+                    }
+                    );
 
                     // Добавляем метку на карту
                     myMap.geoObjects.add(myPlacemark);

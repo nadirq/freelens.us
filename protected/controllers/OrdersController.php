@@ -47,7 +47,7 @@ class OrdersController extends Controller
     public function actionMake()
     {
         $camId = $_GET['cam_id'];
-        //$cam = Camerists::model()->findByPk($camId); // Save camerist for order
+
         $orders = new Orders;
         $busy = Orders::model()->getBusy($camId);
         if(isset($_POST['Orders']))

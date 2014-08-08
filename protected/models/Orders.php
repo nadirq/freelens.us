@@ -17,7 +17,6 @@ class Orders extends CActiveRecord
 {
 
 
-
     // For date convert
     protected function beforeSave() {
         if(parent::beforeSave()) {
@@ -50,18 +49,6 @@ class Orders extends CActiveRecord
 
 
 
-    // Custom valudator
-    public function notBusy()
-    {
-        $criteria = new CDbCriteria();
-
-        $criteria->condition = 'cam_id = :id AND status = "In progress"';
-
-        $criteria->params = array();
-    }
-
-
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -83,7 +70,7 @@ class Orders extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cam_id, user_id, price, date', 'safe', 'on'=>'search'),
-            array('date', 'notBusy')
+            array('date', 'ext.validators.busyDay'),
 		);
 	}
 

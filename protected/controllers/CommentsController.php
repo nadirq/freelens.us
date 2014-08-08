@@ -9,6 +9,26 @@ class CommentsController extends Controller
         );
     }
 
+
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('add'),
+                'users'=>array('?'),
+            ),
+            array('deny',
+                'actions'=>array('add'),
+                'roles'=>array('camerist'),
+            ),
+            array('allow',
+                'actions'=>array('add'),
+                'roles'=>array('user'),
+            ),
+
+        );
+    }
+
 	public function actionIndex()
 	{
 		$this->render('index');
@@ -26,7 +46,6 @@ class CommentsController extends Controller
             $comm->cam_id = $_GET['cam_id'];
             $comm->attributes = $_POST['Comments'];
             $comm->save();
-            $this->redirect('../camerists/index');
         }
         $this->render('add', array('model' => $comm));
     }

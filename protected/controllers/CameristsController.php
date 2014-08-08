@@ -22,8 +22,7 @@ class CameristsController extends Controller
 	}
 
 
-    // TODO: make dis, nigga
-    public function actionHire(){
+    public function actionInfo(){
 
     }
 }

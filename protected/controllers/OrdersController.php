@@ -10,10 +10,40 @@ class OrdersController extends Controller
         );
     }
 
+
+
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('accept', 'decline', 'finish', 'make'), // Guests can't rule the orders
+                'users'=>array('?'),
+            ),
+            array('deny',
+                'actions'=>array('make'), // Guests can't rule the orders
+                'roles'=>array('camerist'),
+            ),
+            array('deny',
+                'actions'=>array('accept', 'decline', 'finish'),
+                'roles'=>array('user'),
+            ),
+            array('allow',
+                'actions'=>array('accept', 'decline', 'finish'), // Camerists can rule the orders, not make orders
+                'roles'=>array('camerist'),
+            ),
+            array('allow',
+                'actions'=>array('make'),
+                'roles'=>array('user'),
+            ),
+        );
+    }
+
+
 	public function actionIndex()
 	{
 		$this->render('index');
 	}
+
 
 
 
@@ -47,7 +77,7 @@ class OrdersController extends Controller
     public function actionMake()
     {
         $camId = $_GET['cam_id'];
-        //$cam = Camerists::model()->findByPk($camId); // Save camerist for order
+
         $orders = new Orders;
         $busy = Orders::model()->getBusy($camId);
         if(isset($_POST['Orders']))

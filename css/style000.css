@@ -248,3 +248,20 @@ div.search-form
     width: 100%;
     border-radius: 15px;
 }
+
+
+#addtomap{
+    height: 500px;
+    width: 75%;
+    border-radius: 15px;
+    float: left;
+    position: relative;
+}
+
+#addtomapform{
+    width: 25%;
+    float: left;
+    height: 500px;
+    position: relative;
+    background: #0070a3;
+}

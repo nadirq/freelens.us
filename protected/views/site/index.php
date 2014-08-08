@@ -25,7 +25,7 @@
             state.zoom = 12;
             //определяем контроллеры на карте
             state.controls = ['zoomControl','geolocationControl'];
-            //создание карты с параметрами пользователя
+            //создание карты, отцентрированной по местоположению пользователя
             myMap = new ymaps.Map('map', state);
             //добавление метки для примера
             myMap.geoObjects.add(new ymaps.Placemark([55,83], {
@@ -83,28 +83,8 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <h1>Welcome!</h1>
-<!--<p>Этот сервис предназначен для поиска фотографов и интересных мест для съемки.-->
-<!--    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>-->
+<a href="<?php echo Yii::app()->urlManager->createUrl('site/addPlacemark') ?>">Добавить метку </a>
+<p>Этот сервис предназначен для поиска фотографов и интересных мест для съемки.
+    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>
 
 <div id="map"></div>
-<a href="/freelens.us/images/myIcon.png"> lol </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ru/maps?ie=UTF8&amp;ll=55.031638,82.921715&amp;spn=0.024276,0.063643&amp;t=m&amp;z=15&amp;output=embed"></iframe><br />-->
-
-
-

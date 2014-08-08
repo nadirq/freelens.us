@@ -14,6 +14,14 @@ class WebUser extends CWebUser
 {
     private $_model = null;
 
+    public function isCamerist()
+    {
+        if($user = $this->getModel()){
+            if($user->role == 'camerits') return true;
+            else return false;
+        }
+    }
+
     public function getRole()
     {
         if($user = $this->getModel()){

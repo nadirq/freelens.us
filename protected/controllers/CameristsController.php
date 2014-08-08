@@ -23,6 +23,12 @@ class CameristsController extends Controller
 
 
     public function actionInfo(){
+        $id = $_GET['cam_id'];
+        $usr = Users::model()->findByPk($id);
 
+        $rate = Camerists::model()->findByPk($id)->rate;
+        $album = Albums::model()->getAlbumId($id);
+
+        $this->render('info', array('camerist' => $usr, 'rate' => $rate, 'album' => $album->getPhotos()));
     }
 }

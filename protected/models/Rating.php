@@ -21,7 +21,7 @@ class Rating extends CActiveRecord
     {
         return 'rating';
     }
-
+    /*
     protected function beforeSave(){
         $query = Yii::app()->db;
         $id = $_GET['cam_id'];
@@ -43,8 +43,7 @@ class Rating extends CActiveRecord
 
     protected function afterSave(){
         parent::afterSave();
-        //TODO: add calculating of total rating
-        //TODO: Done
+        parent::afterSave();
 
         //count up common rating
         $id = $_GET['cam_id'];
@@ -61,7 +60,7 @@ class Rating extends CActiveRecord
         ), 'user_id=:id', array(':id'=>$id));
 
     }
-
+    */
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -73,9 +72,8 @@ class Rating extends CActiveRecord
 			array('cam_id, user_id, rate', 'required'),
 			array('cam_id, user_id', 'numerical', 'integerOnly'=>true),
 			array('rate', 'length', 'max'=>2),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
 			array('cam_id, user_id, rate', 'safe', 'on'=>'search'),
+            array('user_id', 'unique'), // Only one user can set rating
 		);
 	}
 

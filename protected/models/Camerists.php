@@ -91,6 +91,22 @@ class Camerists extends CActiveRecord
 	}
 
 
+    public function updateRating()
+    {
+
+        $getAverageRate = Yii::app()->db->createCommand(array(
+                'select' => 'AVG(rate) as rt',
+                'from' => 'rating',
+                'where' => 'cam_id = :cam_id',
+                'params' => array(':cam_id' => $this->user_id),
+        ))->queryRow();
+
+        $command = Yii::app()->db->createCommand();
+        $command->update('camerists', array(
+            'rate'=>$getAverageRate['rt'],
+        ), 'user_id=:id', array(':id'=>$this->user_id));
+    }
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

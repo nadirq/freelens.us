@@ -20,21 +20,10 @@ class OrdersController extends Controller
                 'users'=>array('?'),
             ),
             array('deny',
-                'actions'=>array('make'), // Guests can't rule the orders
-                'roles'=>array('camerist'),
-            ),
-            array('deny',
-                'actions'=>array('accept', 'decline', 'finish'),
-                'roles'=>array('user'),
-            ),
-            array('allow',
-                'actions'=>array('accept', 'decline', 'finish'), // Camerists can rule the orders, not make orders
-                'roles'=>array('camerist'),
-            ),
-            array('allow',
                 'actions'=>array('make'),
-                'roles'=>array('user'),
+                'roles'=>array('camerist'),
             ),
+
         );
     }
 
@@ -51,6 +40,7 @@ class OrdersController extends Controller
     public function actionAccept()
     {
         $order = Orders::model()->findByPk($_GET['order']);
+        $order->scenario = 'status_change';
         $order->accepted = true;
         $order->status = 'In progress';
         $order->save();
@@ -60,8 +50,10 @@ class OrdersController extends Controller
     public function actionDecline()
     {
         $order = Orders::model()->findByPk($_GET['order']);
+        $order->scenario = 'status_change';
         $order->accepted = false;
         $order->status = 'Refused';
+
         $order->save();
         $this->redirect('../cabinet/member/job');
     }
@@ -69,7 +61,9 @@ class OrdersController extends Controller
     public function actionFinish()
     {
         $order = Orders::model()->findByPk($_GET['order']);
+        $order->scenario = 'status_change';
         $order->status = 'Finished';
+
         $order->save();
         $this->redirect('../cabinet/member/job');
     }
@@ -91,32 +85,4 @@ class OrdersController extends Controller
         $this->render('make', array('model' => $orders, 'busy' => $busy));
     }
 
-
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
 }

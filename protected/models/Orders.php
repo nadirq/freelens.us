@@ -29,25 +29,6 @@ class Orders extends CActiveRecord
 
 
 
-    public function accessRules()
-    {
-        return array(
-            array('allow',
-                'actions'=>array('make'),
-                'role'=>array('user'),
-            ),
-            array('allow',
-                'actions'=>array('index', 'accept', 'decline'),
-                'role' => 'camerists',
-            ),
-            array('deny',  // deny all users
-                'users'=>array('*'),
-            ),
-        );
-    }
-
-
-
 
 	/**
 	 * @return string the associated database table name
@@ -70,7 +51,7 @@ class Orders extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cam_id, user_id, price, date', 'safe', 'on'=>'search'),
-            array('date', 'ext.validators.busyDay'),
+            array('date', 'ext.validators.busyDay', 'on'=>'insert'),
 		);
 	}
 

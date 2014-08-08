@@ -49,4 +49,13 @@ class Thumbnail extends CComponent {
 
     }
 
+
+    public static function getThumb($name)
+    {
+
+        return str_replace('images/', 'images/small_', $name);
+
+    }
+
+
 }

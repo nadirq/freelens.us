@@ -1,6 +1,6 @@
 <div id='avatar'>
     <?php
-        echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $me->avatar), 'Avatar');
+        echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($me->avatar), 'Avatar');
     ?>
 </div>
 <div id='login'>
@@ -21,7 +21,7 @@
     <?php
         foreach($album as $item){
 
-            echo CHtml::image(Yii::app()->baseUrl.'/'.$item->getThumb(), 'Portfolio item');
+            echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');
         }
     ?>
 </div>

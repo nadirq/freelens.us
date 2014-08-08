@@ -96,6 +96,18 @@ class Comments extends CActiveRecord
 		));
 	}
 
+
+
+
+    public function getComments($cam){
+        $criteria = new CDbCriteria;
+        $criteria->select = '*';
+        $criteria->condition = 'cam_id = :id';
+        $criteria->params = array(':id' => $cam);
+        return Comments::model()->findAll($criteria);
+    }
+
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

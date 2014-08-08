@@ -71,9 +71,7 @@ class Photos extends CActiveRecord
 		);
 	}
 
-    public function getThumb(){
-        return str_replace('images/', 'images/small_', $this->path);
-    }
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

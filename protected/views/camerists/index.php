@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
         <div class = "row" >
             <div id='avatar'>
                 <?php
-                    echo CHtml::image(Yii::app()->baseUrl.'/'.str_replace('images/', 'images/small_', $c->avatar), 'Avatar');
+                    echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($c->avatar), 'Avatar');
                 ?>
             </div>
             <?php echo $c->login; ?>

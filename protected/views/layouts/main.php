@@ -37,6 +37,7 @@
 
     <?php
     //TODO: refactor is needed
+    /*
     if(Yii::app()->user->role == 'camerist')
 		$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -56,6 +57,19 @@
                 array('label'=>'Photographers', 'url'=>array('/camerists/index')),
                 array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+            ),
+        ));
+    */
+
+
+        $this->widget('zii.widgets.CMenu',array(
+            'items'=>array(
+                array('label'=>'Home', 'url'=>array('/site/index')),
+                array('label'=>'Photographers', 'url'=>array('/camerists/index')),
+                array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Cabinet', 'url'=>array('/cabinet/member/dashboard'), 'visible'=>Yii::app()->user->isCamerist()),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
             ),
         ));

@@ -23,6 +23,7 @@
 
     <div id='link_block'>
     <?php
+
         if($order->status != 'Refused'){
             if($order->accepted == true && $order->status != 'Finished')
             {

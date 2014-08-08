@@ -28,7 +28,8 @@ class CameristsController extends Controller
 
         $rate = Camerists::model()->findByPk($id)->rate;
         $album = Albums::model()->getAlbumId($id);
+        $reviews = Comments::model()->getComments($id);
 
-        $this->render('info', array('camerist' => $usr, 'rate' => $rate, 'album' => $album->getPhotos()));
+        $this->render('info', array('camerist' => $usr, 'rate' => $rate, 'album' => $album->getPhotos(), 'reviews' => $reviews));
     }
 }

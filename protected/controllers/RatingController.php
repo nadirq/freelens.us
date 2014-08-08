@@ -10,11 +10,23 @@ class RatingController extends Controller
         );
     }
 
-	public function actionIndex()
-	{
-
-	}
-
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('rate'),
+                'users'=>array('?'),
+            ),
+            array('allow',
+                'actions'=>array('rate'),
+                'roles'=>array('user'),
+            ),
+            array('deny',
+                'actions'=>array('rate'),
+                'roles'=>array('camerist'),
+            ),
+        );
+    }
     public function actionRate()
     {
         $rating = new Rating;

@@ -38,6 +38,7 @@ return array(
             // RBAC auth
             'class' => 'WebUser',
 			'allowAutoLogin'=>true,
+            'loginUrl' => array('cabinet/auth/login'), // Change default login action
 		),
 
 

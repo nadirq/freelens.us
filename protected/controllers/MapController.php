@@ -10,10 +10,9 @@ class MapController extends Controller
     /*
      * Отдает на выход массив маркеров в JSON формате
      */
-    public function actionGetmap(){
+    public function actionGetMap(){
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
-
         $result = $connect->createCommand()
             ->select('*')
             ->from('map')
@@ -50,7 +49,7 @@ class MapController extends Controller
 
         $result = $connect->createCommand($sql);
         $result->execute();
-
+    }
 
     
 

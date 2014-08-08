@@ -32,16 +32,16 @@
                 balloonText: 'lol'
             },
                 {
-                    preset: 'islands#redIcon',
+                    //Свое изображение на метке
                     // Необходимо указать данный тип макета.
                     iconLayout: 'default#image',
                     // Своё изображение иконки метки.
                     iconImageHref: '/freelens.us/images/myIcon.png',
                     // Размеры метки.
-                    iconImageSize: [28, 37],
+                    iconImageSize: [25, 32],
                     // Смещение левого верхнего угла иконки относительно
                     // её "ножки" (точки привязки).
-                    iconImageOffset: [-14, -37]
+                    iconImageOffset: [-12.5, -32]
 
             }));
 
@@ -52,21 +52,10 @@
                for (i = 0; i < json.markers.length; i++) {
                     var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
                         // Свойства
-                        balloonContentBody: json.markers[i].balloon
+                        balloonContentBody: json.markers[i].balloonText
                     }, {
                         // Опции
-                        //preset: json.markers[i].stylePlacemark
-                            preset: 'islands#redIcon',
-                            // Необходимо указать данный тип макета.
-                            iconLayout: 'default#image',
-                            // Своё изображение иконки метки.
-                            iconImageHref: '/freelens.us/images/location-big.png',
-                            // Размеры метки.
-                            iconImageSize: [28, 37],
-                            // Смещение левого верхнего угла иконки относительно
-                            // её "ножки" (точки привязки).
-                            iconImageOffset: [-14, -37]
-
+                        preset: json.markers[i].stylePlacemark
                     }
                     );
 
@@ -98,6 +87,7 @@ $this->pageTitle=Yii::app()->name;
 <!--    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>-->
 
 <div id="map"></div>
+<a href="/freelens.us/images/myIcon.png"> lol </a>
 
 
 

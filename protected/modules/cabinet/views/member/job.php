@@ -1,16 +1,3 @@
-
-<div id='submenu'>
-    <?php $this->widget('zii.widgets.CMenu',array(
-        'items'=>array(
-            array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
-            array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
-            array('label'=>'Gallery', 'url'=>array('/cabinet/photos/create')),
-            array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
-
-        ),
-    ));
-    ?>
-
 <?php
     foreach($orders as $i => $order){
 ?>

@@ -44,6 +44,7 @@
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
+
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -51,6 +52,20 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
+    <div id="cabmenu">
+        <?php if(Yii::app()->user->getRole() == 'camerist'){ ?>
+            <?php $this->widget('zii.widgets.CMenu',array(
+                'items'=>array(
+                    array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
+                    array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
+                    array('label'=>'Gallery', 'url'=>array('/cabinet/photos/create')),
+                    array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
+
+                ),
+            ));
+        }
+        ?>
+    </div>
 	<?php echo $content; ?>
 
 	<div class="clear"></div>

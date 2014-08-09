@@ -29,8 +29,8 @@
             myMap = new ymaps.Map('map', state);
             //добавление метки для примера
             myMap.geoObjects.add(new ymaps.Placemark([55,83], {
-                balloonText: 'lol'
-            },
+                    balloonText: 'lol'
+                },
                 {
                     //Свое изображение на метке
                     // Необходимо указать данный тип макета.
@@ -43,29 +43,29 @@
                     // её "ножки" (точки привязки).
                     iconImageOffset: [-12.5, -32]
 
-            }));
+                }));
 
 
-        //запрашиваем все данные по меткам из БД
-        $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getmap'); ?>",
-            function(json){
-               for (i = 0; i < json.markers.length; i++) {
-                    var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
-                        // Свойства
-                        balloonContentBody: json.markers[i].balloonText
-                    }, {
-                        // Опции
-                        preset: json.markers[i].stylePlacemark
+            //запрашиваем все данные по меткам из БД
+            $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getmap'); ?>",
+                function(json){
+                    for (i = 0; i < json.markers.length; i++) {
+                        var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
+                                // Свойства
+                                balloonContentBody: json.markers[i].balloonText
+                            }, {
+                                // Опции
+                                preset: json.markers[i].stylePlacemark
+                            }
+                        );
+
+                        // Добавляем метку на карту
+                        myMap.geoObjects.add(myPlacemark);
+
                     }
-                    );
+                });
 
-                    // Добавляем метку на карту
-                    myMap.geoObjects.add(myPlacemark);
-
-                }
-            });
-
-}
+        }
 
 
     });

@@ -11,6 +11,7 @@ class MapController extends Controller
      * Отдает на выход массив маркеров в JSON формате
      */
     public function actionGetMap(){
+
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
         $result = $connect->createCommand()
@@ -22,7 +23,13 @@ class MapController extends Controller
         if($result){
             //all placemarks data in JSON
             foreach($result as $value){
-            $json = array('stylePlacemark' => $value['stylePlacemark'], 'balloonText' => $value['balloonText'], 'lat' => $value['lat'], 'lon' => $value['lon']);
+            $json = array(
+                'stylePlacemark' => $value['stylePlacemark'],
+                'balloonText' => $value['balloonText'],
+                'lat' => $value['lat'],
+                'lon' => $value['lon']
+            );
+
             $markers[] = $json;
             }
         }
@@ -34,21 +41,22 @@ class MapController extends Controller
 
 
     public function actionAddToMap(){
+
         header('Content-Type: text/html; charset=utf-8');
 
         $connect = Yii::app()->db;
 
-        $iconText = htmlspecialchars($_POST['icontext']);
-        $hintText = htmlspecialchars($_POST['hinttext']);
-        $balloonText = htmlspecialchars($_POST['balloontext']);
-        $stylePlacemark = $_POST['styleplacemark'];
+        $balloonText = htmlspecialchars($_POST['balloonText']);
         $lat = $_POST['lat'];
         $lon = $_POST['lon'];
 
-        $sql = "INSERT INTO map (`iconText`, `hintText`, `balloonText`, `stylePlacemark`, `lat`, `lon`) VALUES ('$iconText', '$hintText', '$balloonText', '$stylePlacemark', '$lat', '$lon');";
 
-        $result = $connect->createCommand($sql);
-        $result->execute();
+        $connect->createCommand()->insert('map', array(
+            'balloonText' => $balloonText,
+            'lat' => $lat,
+            'lon' => $lon
+        ));
+
     }
 
     

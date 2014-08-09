@@ -65,7 +65,7 @@ class PhotosController extends Controller
 			$model->attributes=$_POST['Photos'];
 
             $model->img = CUploadedFile::getInstance($model, 'img');
-            $model->path = 'images/'. $model->img->name;
+            $model->path = 'images/'. md5($model->img->name) .'.'. $model->img->extensionName;
             $alb = new Albums;
             $alb = $alb->getAlbumId(Yii::app()->user->id);
 

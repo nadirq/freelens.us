@@ -23,13 +23,22 @@ class CameristsController extends Controller
 
 
     public function actionInfo(){
+
+        // Leave comment
         $id = $_GET['cam_id'];
         $usr = Users::model()->findByPk($id);
 
         $rate = Camerists::model()->findByPk($id)->rate;
         $album = Albums::model()->getAlbumId($id);
         $reviews = Comments::model()->getComments($id);
-
-        $this->render('info', array('camerist' => $usr, 'rate' => $rate, 'album' => $album->getPhotos(), 'reviews' => $reviews));
+        $commenters = array();
+        foreach($reviews as $rv)
+            $commenters[] = Users::model()->findByPk($rv->user_id);
+        $this->render('info', array(
+            'camerist' => $usr,
+            'commenters' => $commenters,
+            'rate' => $rate,
+            'album' => $album->getPhotos(),
+            'reviews' => $reviews));
     }
 }

@@ -1,4 +1,4 @@
-
+<h1><?php echo 'Review to ' . Users::model()->findByPk($_GET['cam_id'])->login; ?></h1>
 
 <div class="form">
     <?php echo CHtml::beginForm(); ?>

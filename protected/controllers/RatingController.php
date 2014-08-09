@@ -18,7 +18,7 @@ class RatingController extends Controller
                 'users'=>array('?'),
             ),
             array('allow',
-                'actions'=>array('rate'),
+                'actions'=>array('rate', 'change'),
                 'roles'=>array('user'),
             ),
             array('deny',
@@ -27,6 +27,27 @@ class RatingController extends Controller
             ),
         );
     }
+
+
+    public function actionChange()
+    {
+        Rating::model()->remove(Yii::app()->user->id);
+        $this->redirect('index');
+    }
+
+
+    public function actionIndex()
+    {
+
+        $rates = Rating::model()->findAllByAttributes(array('user_id' => Yii::app()->user->id));
+        $camerists = array();
+        // Just simple getting aims of comments
+        foreach($rates as $r)
+            $camerists[] = Users::model()->findByPk($r->cam_id);
+
+        $this->render('index', array('rates' => $rates, 'camerists' => $camerists));
+    }
+
     public function actionRate()
     {
         $rating = new Rating;
@@ -37,11 +58,16 @@ class RatingController extends Controller
             $rating->attributes = $_POST['Rating'];
             $rating->cam_id = $camId;
             $rating->user_id = Yii::app()->user->id;
-            $rating->save();
-
+            if($rating->save())
+            {
+                $this->render('congrats');
+                $cam->updateRating();
+            }
+            else
+                $this->render('rate', array('model'=>$rating));
         }
-        $cam->updateRating();
-        $this->render('rate', array('model'=>$rating));
+        else
+            $this->render('rate', array('model'=>$rating));
     }
 
 }

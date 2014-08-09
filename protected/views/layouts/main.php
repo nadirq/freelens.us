@@ -36,32 +36,6 @@
 
 
     <?php
-    //TODO: refactor is needed
-    /*
-    if(Yii::app()->user->role == 'camerist')
-		$this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Photographers', 'url'=>array('/camerists/index')),
-                array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Cabinet', 'url'=>array('/cabinet/member/dashboard')),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-			),
-		));
-
-    else
-        $this->widget('zii.widgets.CMenu',array(
-            'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'Photographers', 'url'=>array('/camerists/index')),
-                array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-            ),
-        ));
-    */
-
 
         $this->widget('zii.widgets.CMenu',array(
             'items'=>array(
@@ -81,6 +55,17 @@
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
+    <div id="usermenu">
+        <?php
+        $this->widget('zii.widgets.CMenu',array(
+            'items'=>array(
+                array('label'=>'My orders', 'url'=>array('/orders/index'), 'visible'=>Yii::app()->user->isUser()),
+                array('label'=>'My reviews', 'url'=>array('/comments/index'), 'visible'=>Yii::app()->user->isUser()),
+                array('label'=>'My rates', 'url'=>array('/rating/index'), 'visible'=>Yii::app()->user->isUser()),
+            ),
+        ));
+        ?>
+    </div>
 
     <div id="cabmenu">
         <?php if(Yii::app()->user->getRole() == 'camerist'){ ?>
@@ -88,7 +73,7 @@
                 'items'=>array(
                     array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
                     array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
-                    array('label'=>'Gallery', 'url'=>array('/cabinet/photos/create')),
+                    array('label'=>'Add photo', 'url'=>array('/cabinet/photos/create')),
                     array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
 
                 ),

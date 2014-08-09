@@ -19,10 +19,7 @@ $this->breadcrumbs=array(
             <?php echo $c->login; ?>
             <?php if($rate != null)
                     echo 'Rate: ' . $rate[$i] . '/5'; ?>
-            <?php echo CHtml::link('Order', Yii::app()->createUrl('orders/make', array('cam_id' => $c->id))); ?>
-            <?php echo CHtml::link('Rate', Yii::app()->createUrl('rating/rate', array('cam_id' => $c->id))); ?>
-            <?php echo CHtml::link('Review', Yii::app()->createUrl('/comments/add', array('cam_id' => $c->id))); ?>
-            <?php echo CHtml::link('Info', Yii::app()->createUrl('/camerists/info', array('cam_id' => $c->id))); ?>
+           <?php echo CHtml::link('Info', Yii::app()->createUrl('/camerists/info', array('cam_id' => $c->id))); ?>
         </div>
         <br />
     <?php } ?>

@@ -32,7 +32,7 @@ class RatingController extends Controller
     public function actionChange()
     {
         Rating::model()->remove(Yii::app()->user->id);
-        redirect('rate');
+        $this->redirect('index');
     }
 
 

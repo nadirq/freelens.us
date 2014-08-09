@@ -6,7 +6,7 @@ class m140730_063803_create_rating_table extends CDbMigration
 	{
         $this->createTable('rating', array(
             'cam_id' => 'integer not null',
-            'user_id' => 'integer not null',
+            'user_id' => 'pk',
             'rate' => 'decimal(2,1) not null'
         ));
 

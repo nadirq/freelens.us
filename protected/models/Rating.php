@@ -25,8 +25,7 @@ class Rating extends CActiveRecord
 
     public function remove($rt)
     {
-        var_dump($rt);
-        exit;
+
         $this->deleteByPk($rt);
 
     }

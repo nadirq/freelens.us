@@ -22,16 +22,29 @@ class CommentsController extends Controller
                 'roles'=>array('camerist'),
             ),
             array('allow',
-                'actions'=>array('add'),
+                'actions'=>array('add', 'remove'),
                 'roles'=>array('user'),
             ),
 
         );
     }
 
+
+    public function actionRemove()
+    {
+        Comments::model()->remove($_GET['comm']);
+        $this->redirect('index');
+    }
+
 	public function actionIndex()
 	{
-		$this->render('index');
+        $reviews = Comments::model()->findAllByAttributes(array('user_id' => Yii::app()->user->id));
+        $camerists = array();
+        // Just simple getting aims of comments
+        foreach($reviews as $r)
+            $camerists[] = Users::model()->findByPk($r->cam_id);
+
+        $this->render('index', array('reviews' => $reviews, 'camerists' => $camerists));
 	}
 
     public function actionAdd()
@@ -45,8 +58,12 @@ class CommentsController extends Controller
             $comm->user_id = Yii::app()->user->id;
             $comm->cam_id = $_GET['cam_id'];
             $comm->attributes = $_POST['Comments'];
-            $comm->save();
+            if($comm->save())
+                $this->render('congrats');
+            else
+                $this->render('add', array('model' => $comm));
         }
+        else
         $this->render('add', array('model' => $comm));
     }
 

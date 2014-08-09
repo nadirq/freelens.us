@@ -25,6 +25,17 @@ class WebUser extends CWebUser
         return false;
     }
 
+    public function isUser()
+    {
+        if($user = $this->getModel()){
+
+
+            if($user->role == 'user') return true;
+            else return false;
+        }
+        return false;
+    }
+
     public function getRole()
     {
         if($user = $this->getModel()){

@@ -5,9 +5,25 @@ $this->breadcrumbs=array(
 	'Comments',
 );
 ?>
-<h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
+<h1>My reviews</h1>
 
-<p>
-	You may change the content of this page by modifying
-	the file <tt><?php echo __FILE__; ?></tt>.
-</p>
+<div id="rewiews">
+    <?php
+    foreach($reviews as $i => $r)
+    {
+        ?>
+        <div class="review">
+            <?php if(isset($r)) { ?>
+                <?php echo $camerists[$i]->login; ?>
+                <br />
+                <?php echo $r->message; ?>
+                <br />
+                <div class="date"><?php echo $r->created_at ?></div>
+                <?php echo CHtml::link('Delete', Yii::app()->createUrl('comments/remove', array('comm' => $r->id)));
+                ?>
+            <?php } ?>
+        </div>
+    <?php
+    }
+    ?>
+</div>

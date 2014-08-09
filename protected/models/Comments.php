@@ -53,6 +53,12 @@ class Comments extends CActiveRecord
 		);
 	}
 
+
+    public function remove($comm)
+    {
+        $this->deleteByPk($comm);
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

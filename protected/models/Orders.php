@@ -126,9 +126,8 @@ class Orders extends CActiveRecord
     public function findOrders($cam)
     {
         $criteria = new CDbCriteria();
-        $criteria->condition = "cam_id = :id";
-
-        $criteria->params = array(':id'=>$cam);
+        $criteria->condition = 'cam_id = :id AND status != :status';
+        $criteria->params = array(':id'=>$cam, ':status' => 'closed');
 
         return Orders::model()->findAll($criteria);
     }

@@ -15,11 +15,6 @@ class Photos extends CActiveRecord
 {
 
 
-    protected function afterSave() {
-        parent::afterSave();
-
-
-    }
     public $img;
 	/**
 	 * @return string the associated database table name
@@ -70,7 +65,6 @@ class Photos extends CActiveRecord
 			'album_id' => 'Album',
 		);
 	}
-
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

@@ -3,6 +3,7 @@
 <script type="text/javascript">
     ymaps.ready(init);
     var myMap;
+    var myPlacemark;
 
     function init() {
         //запрашиваем местоположение
@@ -24,6 +25,26 @@
             });
         });
 
+            clusterer = new ymaps.Clusterer({
+                /**
+                 * Через кластеризатор можно указать только стили кластеров,
+                 * стили для меток нужно назначать каждой метке отдельно.
+                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage.xml
+                 */
+                preset: 'islands#invertedVioletClusterIcons',
+                /**
+                 * Ставим true, если хотим кластеризовать только точки с одинаковыми координатами.
+                 */
+                groupByCoordinates: false,
+                /**
+                 * Опции кластеров указываем в кластеризаторе с префиксом "cluster".
+                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ClusterPlacemark.xml
+                 */
+                clusterDisableClickZoom: true,
+                clusterHideIconOnBalloonOpen: false,
+                geoObjectHideIconOnBalloonOpen: true
+            })
+
 
     }
 
@@ -40,26 +61,33 @@
         //слушаем клики. По клику передаем географические координаты в форму
         myMap.events.add('click', function (e) {
 
+            var coords = e.get('coords');
+            $('#marker_lat').val(coords[0]);
+            $('#marker_lon').val(coords[1]);
+
             //если метка еще не создана - разрешаем действие, иначе
             //при клике ничего не произойдет
             if(typeof (myPlacemark) == 'undefined')
             {
-                var coords = e.get('coords');
-                $('#marker_lat').val(coords[0]);
-                $('#marker_lon').val(coords[1]);
-
-                myPlacemark = new ymaps.Placemark([coords[0], coords[1]], {
-
-                }, {
-                        preset: 'islands#redDotIcon',
-                        draggable: true
-
-                    });
+                myPlacemark = new ymaps.Placemark([coords[0], coords[1]], { }, {
+                    preset: 'islands#redDotIcon',
+                    draggable: true
+                });
 
                 myMap.geoObjects.add(myPlacemark);
+
             }
             else{
-                RemoveFromMap(myPlacemark);
+                myMap.geoObjects.remove(myPlacemark);
+
+                myPlacemark = new ymaps.Placemark([coords[0], coords[1]], { }, {
+                    preset: 'islands#redDotIcon',
+                    draggable: true
+                });
+
+                myMap.geoObjects.add(myPlacemark);
+
+
             }
 
             //слушаем событие dragend. Переписываем координаты
@@ -119,26 +147,33 @@
 
             if(validate()){
 
-            $.ajax({
-                url: "<?php echo Yii::app()->urlManager->createUrl('map/addtomap'); ?>", //Адрес обработчика
-                type:     "POST", //Тип запроса
-                dataType: "html", //Тип данных
-                data: {
-                    lat: $('#marker_lat').val(),
-                    lon: $('#marker_lon').val(),
-                    balloonText: $('#marker_balloontext').val()
-                },
-                success: function(response) { //Если все нормально
-                    $('#response').text('Место успешно добавлено в нашу базу.');
-                    $('#marker_form').trigger('reset')
+                $.ajax({
+                    url: "<?php echo Yii::app()->urlManager->createUrl('map/addtomap'); ?>", //Адрес обработчика
+                    type:     "POST", //Тип запроса
+                    dataType: "html", //Тип данных
+                    data: {
+                        lat: $('#marker_lat').val(),
+                        lon: $('#marker_lon').val(),
+                        balloonText: $('#marker_balloontext').val()
+                    },
+                    success: function(response) { //Если все нормально
+                        $('#response').text('Место успешно добавлено в нашу базу.');
 
-                    myMap.reload();
+                        //сбрасываем форму
+                        $('#marker_form').trigger('reset');
 
-                },
-                error: function(response) { //Если ошибка
-                    $('#response').text('Ошибка.');
-                }
-            });
+                        myMap.geoObjects.remove(myPlacemark);
+                        getPlacemarks();
+                        //нуллим переменную метки
+                        myPlacemark = undefined;
+
+
+
+                    },
+                    error: function(response) { //Если ошибка
+                        $('#response').text('Ошибка.');
+                    }
+                });
             }
             else{
                 $('#response').text('Заполните все поля!');
@@ -177,7 +212,7 @@ $this->pageTitle=Yii::app()->name;
                 <label for="lon">Долгота</label><input class="form-control" type="text" name="lon" id="marker_lon" value="" disabled><br>
             </div>
             <div class="form-group">
-                <label for="balloon_text">Описание(поддерживается Html)</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
+                <label for="balloon_text">Описание</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
             </div>
 
         </div>

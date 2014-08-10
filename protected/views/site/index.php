@@ -1,5 +1,4 @@
-<script src="//yandex.st/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
 <script type="text/javascript">
     ymaps.ready(function () {
         var myMap;
@@ -83,7 +82,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <h1>Welcome!</h1>
-<a href="<?php echo Yii::app()->urlManager->createUrl('site/addPlacemark') ?>">Добавить метку </a>
+<a href="<?php echo Yii::app()->urlManager->createUrl('map/addPlacemark') ?>">Добавить метку </a>
 <p>Этот сервис предназначен для поиска фотографов и интересных мест для съемки.
     На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>
 

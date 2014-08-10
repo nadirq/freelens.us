@@ -265,3 +265,8 @@ div.search-form
     position: relative;
     background: #0070a3;
 }
+
+
+.added_photo{
+    background: #ff8015;
+}

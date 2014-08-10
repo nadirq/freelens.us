@@ -52,10 +52,5 @@ class SiteController extends Controller
         $this->render('index');
     }
 
-    public function actionAddPlacemark()
-    {
-        $this->render('addPlacemark');
-    }
-
 
 }

@@ -11,7 +11,6 @@ class MapController extends Controller
     {
         $album = Albums::model()->getAlbumId(Yii::app()->user->id);
         $id = Yii::app()->user->id;
-
         $this->render('addPlacemark', array('id' => $id, 'album' => $album->getPhotos()));
     }
 
@@ -23,11 +22,21 @@ class MapController extends Controller
 
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
+
+        if(isset($_GET['id'])){
+            $result = $connect->createCommand()
+                ->select('*')
+                ->from('map')
+                ->where('cam_id=:id', array(':id'=>$_GET['id']))
+                ->query();
+
+        }
+        else{
         $result = $connect->createCommand()
             ->select('*')
             ->from('map')
             ->query();
-
+        }
 
         if($result){
             //all placemarks data in JSON

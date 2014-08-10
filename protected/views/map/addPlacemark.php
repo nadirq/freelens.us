@@ -4,6 +4,7 @@
     var myMap;
     var myPlacemark;
     var idArray = [];
+    var idUser = <?php echo Yii::app()->user->id; ?>;
 
     function init() {
         //запрашиваем местоположение
@@ -27,7 +28,7 @@
         });
 
 
-        //создаем карту с полученными данными о местоположении
+        //функция создание карты с полученными данными о местоположении
         function createMap (state) {
             state.zoom = 12;
             //определяем контроллеры на карте
@@ -71,10 +72,8 @@
             });
 
             //выводим все метки
-            getPlacemarks();
+            getPlacemarks(idUser);
         }
-
-
 
 
         //функция проверки заполнения всех полей
@@ -89,7 +88,7 @@
 
 
         //поиск по значению в массиве
-        //надо для поиска записанных id фоток, готовых к отправке по значению
+        //надо для поиска записанных id фоток, готовых к отправке
         function find(array, value) {
             if (array.indexOf) { // если метод существует
                 return array.indexOf(value);
@@ -103,6 +102,7 @@
 
         //запрещаем отправку формы
         $('#marker_form').submit(false);
+
 
         //выбираем фоточки и добавляем id в массив
         $('a.thumbnail').click(function(){
@@ -123,6 +123,22 @@
                 idArray.push(idx);
             }
         });
+
+
+        //Показать все/мои метки
+        $('#change_id').click(function(){
+            if(idUser){
+                idUser = null;
+                getPlacemarks(idUser);
+                $(this).text('Показать мои метки');
+            }
+            else{
+                idUser = <?php echo Yii::app()->user->id; ?>;
+                getPlacemarks(idUser);
+                $(this).text('Показать все метки');
+            }
+        });
+
 
 
         //реагируем на нажатие кнопки отправки формы
@@ -151,7 +167,7 @@
                         $('#marker_form').trigger('reset');
 
                         myMap.geoObjects.remove(myPlacemark);
-                        getPlacemarks();
+                        getPlacemarks(idUser);
                         //нуллим переменную метки
                         myPlacemark = undefined;
 
@@ -179,49 +195,60 @@ $this->pageTitle=Yii::app()->name;
 <p>Выберите место на карте. Заполните форму. Сохраните. Радуйтесь.</p>
 
 <div class="row">
-    <div class="col-lg-8"><h2 class="page-header">1. Выберите место</h2><div id="map"></div></div> <!--Блок с картой-->
+    <div class="col-lg-8"><h2 class="page-header">1. Выберите место</h2>
+        <div id="map"></div>
+        <div class="col-md-offset-10">
+            <button id="change_id" class="btn btn-success">Показать все метки</button>
+        </div>
+
+    </div> <!--Блок с картой-->
 
     <div class="col-lg-4">
         <h2 class="page-header">2. Заполните информацию</h2>
         <!-- CONTACT FORM -->
         <form id="marker_form">
-        <div id="add_marker">
-            <div class="form-group">
-                <label for="marker_name">Название места</label><input class="form-control" type="text" name="marker_name" id="marker_name">
+            <div id="add_marker">
+                <div class="form-group">
+                    <label for="marker_name">Название места</label><input class="form-control" type="text" name="marker_name" id="marker_name">
+                </div>
+                <div class="form-group">
+                    <label for="balloon_text">Описание</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <label for="lat">Широта</label><input class="form-control" type="text" name="lat" id="marker_lat" value="" disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="lon">Долгота</label><input class="form-control" type="text" name="lon" id="marker_lon" value="" disabled><br>
+                </div>
             </div>
             <div class="form-group">
-                <label for="balloon_text">Описание</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
+                <label for="submit">&nbsp;</label><input class="btn btn-lg btn-info" type="submit" name="submit" id="addmarker" value="Добавить">
             </div>
-            <div class="form-group">
-                <label for="lat">Широта</label><input class="form-control" type="text" name="lat" id="marker_lat" value="" disabled><br>
-            </div>
-            <div class="form-group">
-                <label for="lon">Долгота</label><input class="form-control" type="text" name="lon" id="marker_lon" value="" disabled><br>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="submit">&nbsp;</label><input class="btn btn-lg btn-info" type="submit" name="submit" id="addmarker" value="Добавить">
-        </div>
-        <div id="response"></div>
+            <div id="response"></div>
         </form>
     </div>
     <!-- END CONTACT FORM -->
-    </div>
+</div>
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">3. Выберите фотографии для привязки к этому месту</h2>
+        <?php
+        //выводим все фотки из портфолио
+        if(!empty($album)){
+            foreach($album as $item){ ?>
+                <div class="col-lg-2 col-md-3 col-xs-6">
+                    <a class="thumbnail">
+                        <!--у каждой фотографии добавляем id равное ее id из БД-->
+                        <img class="img-responsive for_check" id="<?php echo $item->id; ?>"
+                             src="<?php echo Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path); ?>" alt="">
+                    </a>
+                </div>
+            <?php }
+        }
+        else{
+            echo "Фотографии отсутствуют. <a href=".Yii::app()->urlManager->createUrl('cabinet/photos/create').">Загрузить фотографии</a>";
+        }?>
     </div>
-    <?php
-    //выводим все фотки из портфолио
-    foreach($album as $item){ ?>
-        <div class="col-lg-2 col-md-3 col-xs-6">
-            <a class="thumbnail">
-                <!--у каждой фотографии добавляем id равное ее id из БД-->
-                <img class="img-responsive for_check" id="<?php echo $item->id; ?>"
-                     src="<?php echo Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path); ?>" alt="">
-            </a>
-        </div>
-    <?php } ?>
 
 </div>
 

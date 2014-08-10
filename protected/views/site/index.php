@@ -82,7 +82,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <h1>Welcome!</h1>
-<a href="<?php echo Yii::app()->urlManager->createUrl('map/addPlacemark') ?>">Добавить метку </a>
+<a href="<?php echo Yii::app()->urlManager->createUrl('map/newPlacemark') ?>">Добавить метку </a>
 <p>Этот сервис предназначен для поиска фотографов и интересных мест для съемки.
     На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>
 

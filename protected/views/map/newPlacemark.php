@@ -4,7 +4,7 @@
     var myMap;
     var myPlacemark;
     var idArray = [];
-    var idUser = <?php echo Yii::app()->user->id; ?>;
+    var idUser = <?php echo $id; ?>;
 
     function init() {
         //запрашиваем местоположение
@@ -133,7 +133,7 @@
                 $(this).text('Показать мои метки');
             }
             else{
-                idUser = <?php echo Yii::app()->user->id; ?>;
+                idUser = <?php echo $id; ?>;
                 getPlacemarks(idUser);
                 $(this).text('Показать все метки');
             }

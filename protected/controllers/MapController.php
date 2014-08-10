@@ -7,11 +7,23 @@ class MapController extends Controller
 		$this->render('index');
 	}
 
-    public function actionAddPlacemark()
+    /*
+     * Страница добавления новой места на карте.
+     * TODO: сделать разрешение доступа только для фотографов
+     */
+    public function actionNewPlacemark()
     {
         $album = Albums::model()->getAlbumId(Yii::app()->user->id);
         $id = Yii::app()->user->id;
-        $this->render('addPlacemark', array('id' => $id, 'album' => $album->getPhotos()));
+        $this->render('newPlacemark', array('id' => $id, 'album' => $album->getPhotos()));
+    }
+
+    /*
+     * страница вывода меток опрееленного фотографа
+     */
+    public function actionShowPlaces() {
+
+        $this->render('showPlaces');
     }
 
 
@@ -19,17 +31,17 @@ class MapController extends Controller
      * Отдает на выход массив маркеров в JSON формате
      */
     public function actionGetMap(){
-
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
 
+        //если id пользователя передан, ищем по нему,
+        //иначе выбираем все записи
         if(isset($_GET['id'])){
             $result = $connect->createCommand()
                 ->select('*')
                 ->from('map')
                 ->where('cam_id=:id', array(':id'=>$_GET['id']))
                 ->query();
-
         }
         else{
         $result = $connect->createCommand()
@@ -42,6 +54,7 @@ class MapController extends Controller
             //all placemarks data in JSON
             foreach($result as $value){
             $json = array(
+                'idPlace' => $value['id'],
                 'name' => $value['name'],
                 'stylePlacemark' => $value['stylePlacemark'],
                 'balloonText' => $value['balloonText'],
@@ -55,15 +68,16 @@ class MapController extends Controller
 
         $points = array('markers' => $markers);
         echo json_encode($points);
-
     }
 
 
+    /*
+     * Звнесение новой метки в БД
+     */
     public function actionAddToMap(){
         //TODO: создать транзакцию, написать подготавливаемые запросы
 
         header('Content-Type: text/html; charset=utf-8');
-
         $connect = Yii::app()->db;
 
         $cam_id = htmlspecialchars($_POST['cam_id']);
@@ -80,10 +94,8 @@ class MapController extends Controller
             'lon' => $lon
         ));
 
-
         $place_id = $connect->getLastInsertID();
         $photo_ids = json_decode($_POST['photo_ids']);
-
 
         foreach($photo_ids as $value){
             $connect->createCommand()->insert('placemark_photos', array(
@@ -91,7 +103,6 @@ class MapController extends Controller
                 'photo_id' => $value
             ));
         }
-
     }
 
     

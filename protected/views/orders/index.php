@@ -7,10 +7,7 @@ $this->breadcrumbs=array(
 ?>
 <h1>My orders</h1>
 
-<?php
-    foreach($orders as $i => $o)
-    {
-?>
+<?php foreach($orders as $i => $o): ?>
         <div class="order">
         <?php
             if(isset($camerists[$i]))
@@ -25,6 +22,10 @@ $this->breadcrumbs=array(
             }
         ?>
         </div>
+<?php endforeach; ?>
+
 <?php
-    }
+    $this->widget('CLinkPager', array(
+        'pages' => $pages,
+    ));
 ?>

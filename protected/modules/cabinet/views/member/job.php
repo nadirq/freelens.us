@@ -1,6 +1,4 @@
-<?php
-    foreach($orders as $i => $order){
-?>
+<?php foreach($orders as $i => $order): ?>
         <div class='order'>
             <?php
                 echo $users[$i]->login;
@@ -43,6 +41,11 @@
 
      ?>
     </div>
+<?php endforeach; ?>
+
+
 <?php
-    }
+$this->widget('CLinkPager', array(
+    'pages' => $pages,
+));
 ?>

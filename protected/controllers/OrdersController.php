@@ -34,11 +34,24 @@ class OrdersController extends Controller
 
 	public function actionIndex()
 	{
-        $myOrders = Orders::model()->findAllByAttributes(array('user_id' => Yii::app()->user->id));
+
+        // for pagination
+
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'user_id = :u_id';
+        $criteria->order = 'id desc';
+        $criteria->params = array(':u_id' => Yii::app()->user->id);
+        $count = Orders::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        $pages->pageSize = 10; // 10 orders per page
+        $pages->applyLimit($criteria);
+
+        $myOrders = Orders::model()->findAll($criteria); //Orders::model()->findAllByAttributes(array('user_id' => Yii::app()->user->id));
 		$camerists = array();
         foreach($myOrders as $o)
             $camerists[] = Users::model()->findByPk($o->cam_id);
-        $this->render('index', array('orders' => $myOrders, 'camerists' => $camerists));
+        $this->render('index', array('orders' => $myOrders, 'camerists' => $camerists, 'pages' => $pages));
 	}
 
 

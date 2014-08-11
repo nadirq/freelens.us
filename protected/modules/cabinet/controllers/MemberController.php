@@ -49,13 +49,27 @@ class MemberController extends Controller
     public function actionJob ()
     {
 
-        $orders = Orders::model()->findOrders(Yii::app()->user->id);
+
+        // for pagination
+
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'cam_id = :c_id';
+        $criteria->order = 'id desc';
+        $criteria->params = array(':c_id' => Yii::app()->user->id);
+        $count = Orders::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        $pages->pageSize = 10; // 10 orders per page
+        $pages->applyLimit($criteria);
+
+
+        $orders = Orders::model()->findAll($criteria);
         $orderers = array();
         foreach($orders as $o)
         {
             $orderers[] = Users::model()->findByPk($o->user_id); // Get all of users
         }
-        $this->render('job', array('orders' => $orders, 'users' => $orderers));
+        $this->render('job', array('orders' => $orders, 'users' => $orderers, 'pages' => $pages));
     }
 
 }

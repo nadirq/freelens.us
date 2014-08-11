@@ -45,6 +45,8 @@
 <div id='gallery'>
     <h2>Photographer's portfolio</h2>
     <?php
+    if(!$album)
+        echo 'No photos in portfolio.';
     foreach($album as $item){
 
         echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');

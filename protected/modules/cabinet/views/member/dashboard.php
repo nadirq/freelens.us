@@ -19,6 +19,8 @@
 <h2>My galley</h2>
 <div id='gallery'>
     <?php
+    if(!$album)
+        echo 'No photos in portfolio yet.';
         foreach($album as $item){
 
             echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');

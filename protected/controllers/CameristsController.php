@@ -9,6 +9,7 @@ class CameristsController extends Controller
             'accessControl'
         );
     }
+
     // List of all masters
 	public function actionIndex()
 	{
@@ -29,15 +30,6 @@ class CameristsController extends Controller
 
 
         $allCamerists = Users::model()->findAll($criteria);
-
-        /*
-        $rt = Camerists::model()->findAll();
-
-        $rating = array();
-        foreach($rt as $i)
-            $rating[] = $i->rate;
-        */
-		//$this->render('index', array('camerists' => $allCamerists, 'rate' => $rating, 'pages' => $pages));
         $this->render('index', array('camerists' => $allCamerists, 'pages' => $pages));
 	}
 
@@ -45,7 +37,7 @@ class CameristsController extends Controller
     public function actionInfo(){
 
         // Leave comment
-        $id = $_GET['cam_id'];
+        $id = Yii::app()->request->getQuery('cam_id');
         $usr = Users::model()->findByPk($id);
 
         $rate = Camerists::model()->findByPk($id)->rate;

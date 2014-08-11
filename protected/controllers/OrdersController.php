@@ -60,7 +60,8 @@ class OrdersController extends Controller
     // TODO: bullshit, needs to refactor
     public function actionAccept()
     {
-        $order = Orders::model()->findByPk($_GET['order']);
+
+        $order = Orders::model()->findByPk(Yii::app()->request->getQuery('order'));
         $order->scenario = 'status_change';
         $order->accepted = true;
         $order->status = 'In progress';
@@ -70,7 +71,7 @@ class OrdersController extends Controller
 
     public function actionDecline()
     {
-        $order = Orders::model()->findByPk($_GET['order']);
+        $order = Orders::model()->findByPk(Yii::app()->request->getQuery('order'));
         $order->scenario = 'status_change';
         $order->accepted = false;
         $order->status = 'Refused';
@@ -81,7 +82,7 @@ class OrdersController extends Controller
 
     public function actionFinish()
     {
-        $order = Orders::model()->findByPk($_GET['order']);
+        $order = Orders::model()->findByPk(Yii::app()->request->getQuery('order'));
         $order->scenario = 'status_change';
         $order->status = 'Finished';
 
@@ -91,7 +92,7 @@ class OrdersController extends Controller
 
     public function actionClose()
     {
-        $order = Orders::model()->findByPk($_GET['order']);
+        $order = Orders::model()->findByPk(Yii::app()->request->getQuery('order'));
         $order->scenario = 'status_change';
         $order->status = 'Closed';
 
@@ -102,7 +103,7 @@ class OrdersController extends Controller
 
     public function actionMake()
     {
-        $camId = $_GET['cam_id'];
+        $camId = Yii::app()->request->getQuery('cam_id');
 
         $orders = new Orders;
         $busy = Orders::model()->getBusy($camId);

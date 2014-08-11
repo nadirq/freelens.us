@@ -8,6 +8,9 @@ $this->breadcrumbs=array(
 <h1>My rates</h1>
 
 <?php
+if(!$rates)
+    echo 'No rating yet.';
+
 foreach($rates as $i => $r)
 {
     ?>

@@ -32,7 +32,7 @@ class PhotosController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('delete'),
+				'actions'=>array('delete', 'changeMode'),
 				'roles'=>array('camerist'),
 			),
 			array('deny',  // deny all users
@@ -41,6 +41,11 @@ class PhotosController extends Controller
 		);
 	}
 
+
+    public function actionChangeMode()
+    {
+        var_dump($POST);
+    }
 
 	public function actionView($id)
 	{
@@ -89,20 +94,21 @@ class PhotosController extends Controller
 
     public function actionDelete()
     {
-        $pic = Photos::model()->findByPk($_GET['photo']);
-
+        //$pic = Photos::model()->findByPk();
+        //TODO: make in all app
+        $pic = Photos::model()->findByPk(Yii::app()->request->getQuery('photo'));
         if(file_exists($pic->path))
         {
-            var_dump($pic);
+            //var_dump($pic);
             unlink($pic->path);
         }
         if(file_exists(Thumbnail::getThumb($pic->path)))
         {
             unlink(Thumbnail::getThumb($pic->path));
-            var_dump($pic);
+            //var_dump($pic);
         }
         $pic->delete();
-        $this->redirect('cabinet/member/dashboard');
+        $this->redirect(array('member/dashboard'));
     }
 
 

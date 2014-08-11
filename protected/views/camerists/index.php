@@ -1,5 +1,6 @@
 <?php
 /* @var $this CameristsController */
+/* @var $camerist Users */
 
 $this->breadcrumbs=array(
 	'Camerists',
@@ -8,19 +9,24 @@ $this->breadcrumbs=array(
 <h1>Our photographers</h1>
 
 <p>
-    <?php //TODO: Add checkbox 'online' ?>
-    <?php foreach($camerists->getAll() as $i => $c){ ?>
+    <?php foreach($camerists as $camerist): ?>
         <div class = "row" >
             <div id='avatar'>
                 <?php
-                    echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($c->avatar), 'Avatar');
+                    echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($camerist->avatar), 'Avatar');
                 ?>
             </div>
-            <?php echo $c->login; ?>
-            <?php if($rate != null)
-                    echo 'Rate: ' . $rate[$i] . '/5'; ?>
-           <?php echo CHtml::link('Info', Yii::app()->createUrl('/camerists/info', array('cam_id' => $c->id))); ?>
+            <?php echo $camerist->login; ?>
+            <?php echo $camerist->camerists->rate; ?>
+           <?php echo CHtml::link('Info', Yii::app()->createUrl('/camerists/info', array('cam_id' => $camerist->id))); ?>
         </div>
         <br />
-    <?php } ?>
+    <?php endforeach; ?>
+
+<?php
+    $this->widget('CLinkPager', array(
+        'pages' => $pages,
+    ));
+?>
+
 </p>

@@ -9,6 +9,8 @@ $this->breadcrumbs=array(
 
 <div id="rewiews">
     <?php
+    if(!$reviews)
+        echo 'No reviews yet.';
     foreach($reviews as $i => $r)
     {
         ?>

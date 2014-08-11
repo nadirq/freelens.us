@@ -19,14 +19,16 @@
 <h2>My galley</h2>
 <div id='gallery'>
     <?php
-    if(!$album)
-        echo 'No photos in portfolio yet.';
-        foreach($album as $item):
+        if(!$album)
+            echo 'No photos in portfolio yet.';
     ?>
-            <div class="img">
-                <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
-                <?php echo CHtml::link('Delete', Yii::app()->createUrl('cabinet/photos/delete', array('photo' => $item->id))); ?>
-            </div>
+
+    <?php foreach($album as $item): ?>
+
+        <div class="img">
+            <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
+            <?php echo CHtml::link('Delete', Yii::app()->createUrl('cabinet/photos/delete', array('photo' => $item->id))); ?>
+        </div>
 
     <?php endforeach; ?>
 </div>

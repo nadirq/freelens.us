@@ -26,6 +26,35 @@ class MapController extends Controller
         $this->render('showPlaces');
     }
 
+    public function actionGetCamPhotos(){
+        header('Content-Type: text/html; charset=utf-8');
+        $connect = Yii::app()->db;
+        $id = $_GET['id'];
+
+
+        $sql = "select * from photos where id in(
+            select photo_id from placemark_photos WHERE placemark_id = $id )";
+
+        $result = $connect->createCommand($sql)->query();
+
+        if($result){
+            //all photo data in JSON
+            foreach($result as $value){
+                $json = array(
+                    'id' => $value['id'],
+                    'path' => Thumbnail::getThumb($value['path']),
+                    'desc' => $value['desc']
+                );
+
+                $photo[] = $json;
+            }
+
+        }
+
+        $photos = array('photo' => $photo);
+        echo json_encode($photos);
+    }
+
 
     /*
      * Отдает на выход массив маркеров в JSON формате

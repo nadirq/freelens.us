@@ -93,6 +93,24 @@ body
 	text-decoration:none;
 }
 
+#mainmenu ul li ul{
+    display: none;
+    color: red;
+}
+
+#mainmenu ul li ul li a{
+
+    color: red;
+}
+
+
+
+#mainmenu ul li:hover ul{
+    position: absolute;
+
+    display: block;
+}
+
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;

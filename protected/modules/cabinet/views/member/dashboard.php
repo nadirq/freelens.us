@@ -1,3 +1,4 @@
+
 <div id='avatar'>
     <?php
         echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($me->avatar), 'Avatar');

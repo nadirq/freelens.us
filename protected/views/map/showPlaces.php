@@ -35,9 +35,21 @@
 
             //выводим все метки
             getCamPlaces(idUser);
-
-
         }
+
+        clusterer = new ymaps.Clusterer();
+        clusterer.add(myGeoObjects);
+        myMap.geoObjects.add(clusterer);
+
+        for (i = 0; i < json.markers.length; i++) {
+            myPlacemark = new ymaps.Placemark([json.markers[i].lon, json.markers[i].lat], {
+
+                balloonContentHeader: '<div style="color:#ff0303;font-weight:bold">'+json.markers[i].cname+'</div>',
+                balloonContentBody: '<strong>Адрес:</strong> '+json.markers[i].address,
+            });
+            myGeoObjects.push(myPlacemark);
+        }
+
     }
 
 </script>

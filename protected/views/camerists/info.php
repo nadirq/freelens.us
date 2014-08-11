@@ -20,6 +20,11 @@
     <?php echo $camerist->about; ?>
 </div>
 
+<div id="contacts">
+    <?php echo 'Phone: ' . $camerist->tel; ?>
+    <br />
+    <?php echo 'Email: ' . $camerist->email; ?>
+</div>
 
 <div id="rewiews">
     <h2>Reviews:</h2>
@@ -48,8 +53,8 @@
     if(!$album)
         echo 'No photos in portfolio.';
     foreach($album as $item){
-
-        echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');
+        if($item->published)
+            echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');
     }
     ?>
 </div>

@@ -35,10 +35,12 @@ class Photos extends CActiveRecord
 			array('album_id', 'required'),
 			array('album_id', 'numerical', 'integerOnly'=>true),
 			array('path', 'length', 'max'=>100),
+            array('path', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, path, album_id', 'safe', 'on'=>'search'),
             array('img', 'file', 'types'=>'jpg, png, jpeg'),
+
 		);
 	}
 

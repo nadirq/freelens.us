@@ -33,7 +33,7 @@ class MemberController extends Controller
             $usr->img = CUploadedFile::getInstance($usr, 'img');
             if($usr->img != null)
             {
-                $usr->avatar = 'images/'. md5($usr->img->name) .'.'.$usr->img->extensionName;
+                $usr->avatar = 'images/'. md5(date('Y-m-d H:i:s:u')) .'.'.$usr->img->extensionName;
                 $usr->img->saveAs($usr->avatar);
 
                 Thumbnail::createThumbs($usr->avatar, 100);

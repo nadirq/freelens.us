@@ -15,7 +15,7 @@
  * @property string $reg_date
  * @property string $last_login
  * @property string $role
- *
+ * @property string $avatar
  * The followings are the available model relations:
  * @property Camerists $camerists
  * @property Comments[] $comments
@@ -27,13 +27,9 @@ class Users extends CActiveRecord
 
 
     public $rememberMe;
-
     private $_identity;
-
     public $type; // Is user or camerist
-
     public $img; // avatar
-
 
     // Crypt password
     protected function beforeSave()
@@ -62,9 +58,6 @@ class Users extends CActiveRecord
 
         return false;
     }
-
-
-
 
 
     public function createCamerist()
@@ -107,7 +100,8 @@ class Users extends CActiveRecord
             array('login, pass', 'required'),
             //array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
-            //array('pass', 'compare', 'compareAttribute'=>'cpass', 'on'=>'registration'),
+            array('login', 'length', 'min'=>5),
+            array('pass', 'length', 'min'=>6),
 			array('email, fio', 'length', 'max'=>50),
 			array('tel', 'length', 'max'=>20),
 			//array('activation', 'length', 'max'=>32),
@@ -146,12 +140,11 @@ class Users extends CActiveRecord
 			'id' => 'ID',
 			'login' => 'Login',
 			'pass' => 'Password',
-            'cpass' => 'Confirm password',
 			'email' => 'Email',
-            // Not needed yet
-            /*
+
 			'tel' => 'Tel',
 			'fio' => 'Fio',
+            /*
 			'activation' => 'Activation',
 			'about' => 'About',
 			'reg_date' => 'Reg Date',

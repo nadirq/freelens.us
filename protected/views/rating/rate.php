@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 
 
 <div class="form">
-    <?php echo CHtml::beginForm(); ?>
+    <?php $form = $this->beginWidget('CActiveForm'); ?>
 
-    <?php echo CHtml::errorSummary($model); ?>
+    <?php echo $form->errorSummary($model); ?>
 
     <div class="compactRadioGroup">
         <?php
-        echo CHtml::activeRadioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
+        echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
         ?>
         <div class="row submit">
             <?php echo CHtml::submitButton('Rate'); ?>
@@ -23,7 +23,7 @@ $this->breadcrumbs=array(
     </div>
 
 
-    <?php echo CHtml::endForm(); ?>
+    <?php $this->endWidget(); ?>
 </div><!-- form -->
 
 

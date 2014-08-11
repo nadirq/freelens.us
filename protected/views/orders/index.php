@@ -6,7 +6,9 @@ $this->breadcrumbs=array(
 );
 ?>
 <h1>My orders</h1>
-
+<?php if(!$orders)
+    echo 'No orders yet';
+?>
 <?php foreach($orders as $i => $o): ?>
         <div class="order">
         <?php

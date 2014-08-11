@@ -5,29 +5,23 @@
 
 <?=CHtml::errorSummary($form); ?><br>
 
-<table id="form2" border="0" width="400" cellpadding="10" cellspacing="10">
-    <tr>
 
-        <td width="150"><?=CHtml::activeLabel($form, 'login'); ?></td>
-        <td><?=CHtml::activeTextField($form, 'login') ?></td>
-    </tr>
-    <tr>
+<?=CHtml::activeLabel($form, 'login'); ?>
+<?=CHtml::activeTextField($form, 'login') ?>
 
-        <td><?=CHtml::activeLabel($form, 'pass'); ?></td>
-        <td><?=CHtml::activePasswordField($form, 'pass') ?></td>
-    </tr>
-    <tr>
-        <div class="compactRadioGroup">
-            <?php
-                echo CHtml::activeRadioButtonList($form,'type',array('user'=>'User', 'camerist'=>'Photographer'));
-            ?>
-        </div>
-    </tr>
-    <tr>
-        <td></td>
+<br />
 
-        <td><?=CHtml::submitButton('Sign up', array('id' => "submit")); ?></td>
-    </tr>
-</table>
+<?=CHtml::activeLabel($form, 'pass'); ?>
+<?=CHtml::activePasswordField($form, 'pass') ?>
+
+<div class="compactRadioGroup">
+    <?php
+    echo CHtml::activeRadioButtonList($form,'type',array('user'=>'User', 'camerist'=>'Photographer'));
+    ?>
+</div>
+
+<br />
+<?=CHtml::submitButton('Sign up', array('id' => "submit")); ?>
+
 
 <?=CHtml::endForm(); ?>

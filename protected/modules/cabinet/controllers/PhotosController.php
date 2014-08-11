@@ -15,7 +15,6 @@ class PhotosController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -23,6 +22,7 @@ class PhotosController extends Controller
 	public function accessRules()
 	{
 		return array(
+
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
@@ -32,8 +32,8 @@ class PhotosController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions'=>array('delete', 'changeMode'),
+				'roles'=>array('camerist'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -41,6 +41,11 @@ class PhotosController extends Controller
 		);
 	}
 
+
+    public function actionChangeMode()
+    {
+        var_dump($POST);
+    }
 
 	public function actionView($id)
 	{
@@ -63,13 +68,15 @@ class PhotosController extends Controller
 		if(isset($_POST['Photos']))
 		{
 			$model->attributes=$_POST['Photos'];
-
             $model->img = CUploadedFile::getInstance($model, 'img');
-            $model->path = 'images/'. md5($model->img->name) .'.'. $model->img->extensionName;
-            $alb = new Albums;
-            $alb = $alb->getAlbumId(Yii::app()->user->id);
+            if($model->img)
+            {
+                $model->path = 'images/'.md5(date('Y-m-d H:i:s:u')) .'.'. $model->img->extensionName;
+                $alb = new Albums;
+                $alb = $alb->getAlbumId(Yii::app()->user->id);
 
-            $model->album_id = $alb->id;
+                $model->album_id = $alb->id;
+            }
 
             if($model->save())
             {
@@ -83,6 +90,26 @@ class PhotosController extends Controller
 			'model'=>$model,
 		));
 	}
+
+
+    public function actionDelete()
+    {
+        //$pic = Photos::model()->findByPk();
+        //TODO: make in all app
+        $pic = Photos::model()->findByPk(Yii::app()->request->getQuery('photo'));
+        if(file_exists($pic->path))
+        {
+            //var_dump($pic);
+            unlink($pic->path);
+        }
+        if(file_exists(Thumbnail::getThumb($pic->path)))
+        {
+            unlink(Thumbnail::getThumb($pic->path));
+            //var_dump($pic);
+        }
+        $pic->delete();
+        $this->redirect(array('member/dashboard'));
+    }
 
 
 

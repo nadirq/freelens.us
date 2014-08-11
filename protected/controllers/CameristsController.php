@@ -12,13 +12,33 @@ class CameristsController extends Controller
     // List of all masters
 	public function actionIndex()
 	{
-        // So bydlocode
-        $allCamerists = new Camerists;
+        // for pagination
+
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'role = :role';
+        $criteria->params = array(':role' => 'camerist');
+        $count = Users::model()->count($criteria);
+        $pages = new CPagination($count);
+        $pages->pageSize = 15; // 15 per page
+        $pages->applyLimit($criteria);
+
+        $criteria->with = array('camerists');
+        $criteria->together = true;
+
+
+
+
+        $allCamerists = Users::model()->findAll($criteria);
+
+        /*
         $rt = Camerists::model()->findAll();
+
         $rating = array();
         foreach($rt as $i)
             $rating[] = $i->rate;
-		$this->render('index', array('camerists' => $allCamerists, 'rate' => $rating));
+        */
+		//$this->render('index', array('camerists' => $allCamerists, 'rate' => $rating, 'pages' => $pages));
+        $this->render('index', array('camerists' => $allCamerists, 'pages' => $pages));
 	}
 
 

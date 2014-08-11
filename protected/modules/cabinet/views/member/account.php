@@ -1,49 +1,52 @@
-<h1>Change account details</h1>
+<div class="container">
+    <h1 class="page-header">Change account details</h1>
 
-<?php
+    <?php
 
+    $form = $this->beginWidget(
+        'CActiveForm',
+        array(
+            'id' => 'account-form',
+            'enableAjaxValidation' => true,
+            'htmlOptions' => array('enctype' => 'multipart/form-data',
+                                    'class'=>'form_group'),
+        )
+    );
+    ?>
 
-$form = $this->beginWidget(
-    'CActiveForm',
-    array(
-        'id' => 'account-form',
-        'enableAjaxValidation' => true,
-        'htmlOptions' => array('enctype' => 'multipart/form-data'),
-    )
-);
-?>
+    <?php echo $form->errorSummary($me); ?>
 
-<?php echo $form->errorSummary($me); ?>
-
-<?php
+    <?php
     echo $form->labelEx($me, 'Whats your name?');
     echo $form->TextField($me, 'fio');
 
-?>
-<br />
-<?php
+    ?>
+    <br />
+    <?php
     echo $form->labelEx($me, 'Change avatar');
     echo $form->fileField($me, 'img');
 
-?>
-<br />
-<?php
+    ?>
+    <br />
+    <?php
     echo $form->labelEx($me, 'Write something about yourself');
     echo $form->TextArea($me, 'about');
 
-?>
-<br />
-<?php
+    ?>
+    <br />
+    <?php
     echo $form->labelEx($me, 'Enter your email address');
     echo $form->TextField($me, 'email');
 
-?>
-<br />
-<?php
+    ?>
+    <br />
+    <?php
     echo $form->labelEx($me, 'And your phone number');
     echo $form->TextField($me, 'tel');
 
 
-echo CHtml::submitButton('Submit');
+    echo CHtml::submitButton('Submit');
 
-$this->endWidget();
+    $this->endWidget();
+    ?>
+</div>

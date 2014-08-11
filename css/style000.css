@@ -5,8 +5,9 @@ body
 	color: #555;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
-    background: #eee;
-	background-image: url("bg.png");
+    background: #fff;
+    /*background: #eee;*/
+	/*background-image: url("bg.png");*/
 }
 
 #page
@@ -24,20 +25,18 @@ body
     color: white;
 }
 
-#content
-{
-    padding: 20px;
-}
+
 
 #sidebar
 {
 	padding: 20px 20px 20px 0;
 }
 
-#footer
+footer
 {
-	margin: 0;
-	background: #ccc;
+    background: #1AB3BD;
+    text-align: center;
+    padding: 25px 0 15px;
 }
 
 .foot{
@@ -284,7 +283,32 @@ div.search-form
     background: #0070a3;
 }
 
-
 .added_photo{
     background: #ff8015;
 }
+
+
+/***********слайдер на главной**************/
+
+
+.homeslider{
+    width: 100%;
+    min-width: 1024px;
+    height: 550px;
+    background: url("slide2.jpg");
+}
+
+.homeslider .homeimage{
+    background: url("pat.png");
+    background-position:0 50% ;
+    position: relative;
+    height: 100%;
+}
+
+.homeslider h1{
+    color: white;
+    font-family: 'Open Sans';
+    font-size: 30px;
+    font-weight: 300;
+}
+

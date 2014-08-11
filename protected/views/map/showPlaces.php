@@ -1,7 +1,7 @@
 <script type="text/javascript">
     ymaps.ready(init);
     var myMap;
-    var idUser = 1;
+    var idUser = 2;
 
     function init() {
         //запрашиваем местоположение

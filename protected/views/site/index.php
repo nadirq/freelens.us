@@ -1,3 +1,47 @@
+<?php
+/* @var $this SiteController */
+$this->pageTitle=Yii::app()->name;
+?>
+
+
+
+
+
+<!-- Start slider-->
+<section id="home">
+    <div class="homeslider">
+        <div class="homeimage">
+            <div>
+                <h1>гавно какое-то</h1>
+            </div>
+
+        </div>
+
+    </div><!--/ homeslider-->
+
+</section>
+<!-- End slider-->
+
+
+<div id="map"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript">
     ymaps.ready(function () {
@@ -68,22 +112,4 @@
 
 
     });
-
-
-
-
-
-
-
 </script>
-
-<?php
-/* @var $this SiteController */
-$this->pageTitle=Yii::app()->name;
-?>
-<h1>Welcome!</h1>
-<a href="<?php echo Yii::app()->urlManager->createUrl('map/newPlacemark') ?>">Добавить метку </a>
-<p>Этот сервис предназначен для поиска фотографов и интересных мест для съемки.
-    На карте вы можете выбрать интересные места и заказать съемку именно в этом месте. Также можете указать свое место, где бы вы хотели пофотографироваться. </p>
-
-<div id="map"></div>

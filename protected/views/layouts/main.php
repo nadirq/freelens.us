@@ -48,7 +48,12 @@
                 array('label'=>'Photographers', 'url'=>array('/camerists/index')),
                 array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Cabinet', 'url'=>array('/cabinet/member/dashboard'), 'visible'=>Yii::app()->user->isCamerist()),
+                array('label'=>'Cabinet', 'url'=>array('/cabinet/member/dashboard'), 'visible'=>Yii::app()->user->isCamerist(), 'items'=>array(
+                    array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
+                    array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
+                    array('label'=>'Add photo', 'url'=>array('/cabinet/photos/create')),
+                    array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
+                )),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
             ),
         ));
@@ -72,20 +77,20 @@
         ?>
     </div>
 
-    <div id="cabmenu">
-        <?php if(Yii::app()->user->getRole() == 'camerist'){ ?>
-            <?php $this->widget('zii.widgets.CMenu',array(
-                'items'=>array(
-                    array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
-                    array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
-                    array('label'=>'Add photo', 'url'=>array('/cabinet/photos/create')),
-                    array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
-
-                ),
-            ));
-        }
-        ?>
-    </div>
+<!--    <div id="cabmenu">-->
+<!--        --><?php //if(Yii::app()->user->getRole() == 'camerist'){ ?>
+<!--            --><?php //$this->widget('zii.widgets.CMenu',array(
+//                'items'=>array(
+//                    array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
+//                    array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
+//                    array('label'=>'Add photo', 'url'=>array('/cabinet/photos/create')),
+//                    array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
+//
+//                ),
+//            ));
+//        }
+//        ?>
+<!--    </div>-->
 	<?php echo $content; ?>
 
 	<div class="clear"></div>

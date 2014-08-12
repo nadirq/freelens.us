@@ -26,34 +26,35 @@
 
 <body>
 <div id="page">
+<div class="container">
+    <div class="row head_background ">
 
-    <div class="container row">
-    <div id="header">
-        <div id="logo"><img src="<?php echo Yii::app()->request->baseUrl; ?>/css/logo1.png" width="300px"></div>
-    </div><!-- header -->
+        <div id="header" class="col-lg-3">
+            <div id="logo"><img src="<?php echo Yii::app()->request->baseUrl; ?>/css/logo1.png" width="300px"></div>
+        </div><!-- header -->
 
-    <div id="mainmenu">
-        <?php
+        <div id="mainmenu" class="col-lg-4 col-lg-offset-5">
+            <?php
 
-        $this->widget('zii.widgets.CMenu',array(
-            'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'Photographers', 'url'=>array('/camerists/index')),
-                array('label'=>'Sign up', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Sign in', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Cabinet', 'url'=>array('/cabinet/member/dashboard'), 'visible'=>Yii::app()->user->isCamerist(), 'items'=>array(
-                    array('label'=>'Dashboard', 'url'=>array('/cabinet/member/dashboard')),
-                    array('label'=>'Settings', 'url'=>array('/cabinet/member/account')),
-                    array('label'=>'Add photo', 'url'=>array('/cabinet/photos/create')),
-                    array('label'=>'Job', 'url'=>array('/cabinet/member/job')),
-                )),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-            ),
-        ));
-        ?>
+            $this->widget('zii.widgets.CMenu',array(
+                'items'=>array(
+                    array('label'=>'Главная', 'url'=>array('/site/index')),
+                    array('label'=>'Фотографы', 'url'=>array('/camerists/index')),
+                    array('label'=>'Регистрация', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
+                    array('label'=>'Войти', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
+                    array('label'=>'Мой кабинет', 'url'=>array('/cabinet/member/dashboard'), 'visible'=>Yii::app()->user->isCamerist(), 'items'=>array(
+                        array('label'=>'Информация', 'url'=>array('/cabinet/member/dashboard')),
+                        array('label'=>'Настройки', 'url'=>array('/cabinet/member/account')),
+                        array('label'=>'Добавить фотографии', 'url'=>array('/cabinet/photos/create')),
+                        array('label'=>'Заказы', 'url'=>array('/cabinet/member/job')),
+                    )),
+                    array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                ),
+            ));
+            ?>
 
-    </div><!-- mainmenu -->
-        </div>
+        </div><!-- mainmenu -->
+    </div>
 
     <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -72,12 +73,12 @@
         ?>
     </div>
 
-    
+
     <?php echo $content; ?>
 
 
     <div class="clear"></div>
-
+</div>
 </div><!-- page -->
 
 <!--Start footer-->

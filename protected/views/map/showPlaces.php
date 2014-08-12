@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">Места какого-то еще одного фотографа</h2>
-        <div id="map"></div>
+        <div id="map" class="map"></div>
     </div>
     <div class="col-lg-12" id="showImg">
     </div>

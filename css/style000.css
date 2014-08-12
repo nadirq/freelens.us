@@ -12,7 +12,7 @@ body
 
 #page
 {
-	margin-top: 5px;
+	margin-top: 0;
 	margin-bottom: 0;
 	background: white;
 }
@@ -21,7 +21,6 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background: #e86c54;
     color: white;
 }
 
@@ -54,14 +53,15 @@ footer
 
 #logo
 {
-	padding: 10px 20px;
 	font-size: 200%;
+    margin-left: 15px;
 }
-
+.head_background{
+    background: #0D7BFF;
+}
 #mainmenu
 {
-    background: #e86c54;
-    height: 45px;
+
 
 }
 
@@ -262,7 +262,9 @@ div.search-form
 
 .map{
     height: 500px;
-    border-radius: 15px;
+    border: 2px solid black;
+    border-top: 0;
+    border-bottom: 0;
 }
 
 
@@ -294,7 +296,7 @@ div.search-form
     width: 100%;
     min-width: 1024px;
     height: 550px;
-    background: url("slide2.jpg");
+    background: url("slide3.jpg");
 }
 
 .homeslider .homeimage{
@@ -311,3 +313,14 @@ div.search-form
     font-weight: 300;
 }
 
+h1.center_head{
+    text-align: center;
+    display: table;
+}
+
+h1.center_head:after, h1.center_head:before{
+    display: table-cell;
+    content: "";
+    background: #ccc;
+    width: 50%;
+}

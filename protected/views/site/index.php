@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name;
 
 
 
-
+<div class="row">
 <!-- Start slider-->
 <section id="home">
     <div class="homeslider">
@@ -22,8 +22,10 @@ $this->pageTitle=Yii::app()->name;
 </section>
 <!-- End slider-->
 
+<h1 class="page-header center_head">Наши&nbsp;фотографы</h1>
+<div id="map" class="map"></div>
 
-<div id="map"></div>
+</div>
 
 
 

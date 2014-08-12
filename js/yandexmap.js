@@ -1,6 +1,6 @@
 
 //выборка всех интересных мест из БД
-var myPlacemark;
+
 var idPlace;
 
 function getPlacemarks(id){
@@ -24,7 +24,10 @@ function getPlacemarks(id){
                 // Добавляем метку на карту
                 myMap.geoObjects.add(myPlacemark);
             }
+            //удаляем указатель на последнюю метку
+            myPlacemark = null;
         });
+
 }
 
 function getCamPlaces(id){

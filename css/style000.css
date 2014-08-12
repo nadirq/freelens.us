@@ -260,9 +260,8 @@ div.search-form
 
 /* Карта */
 
-#map{
+.map{
     height: 500px;
-    width: 100%;
     border-radius: 15px;
 }
 

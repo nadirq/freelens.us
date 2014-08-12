@@ -191,12 +191,13 @@
 /* @var $this SiteController */
 $this->pageTitle=Yii::app()->name;
 ?>
-<h1>Добавление метки на карту</h1>
-<p>Выберите место на карте. Заполните форму. Сохраните. Радуйтесь.</p>
 
+<div class="container">
 <div class="row">
+    <h1 class="page-header">Добавление метки на карту</h1>
+    <p>Выберите место на карте. Заполните форму. Сохраните. Радуйтесь.</p>
     <div class="col-lg-8"><h2 class="page-header">1. Выберите место</h2>
-        <div id="map"></div>
+        <div id="map" class="map"></div>
         <div class="col-md-offset-10">
             <button id="change_id" class="btn btn-success">Показать все метки</button>
         </div>
@@ -251,6 +252,7 @@ $this->pageTitle=Yii::app()->name;
     </div>
 
 </div>
+    </div>
 
 
 

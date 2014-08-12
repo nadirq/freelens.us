@@ -18,7 +18,6 @@ class MemberController extends Controller
         /** @var Users $usr */
         $usr = Users::model()->findByPk(Yii::app()->user->id);
 
-
         if(isset($_POST['Users']))
         {
 

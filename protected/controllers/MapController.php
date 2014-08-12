@@ -157,6 +157,42 @@ class MapController extends Controller
         }
     }
 
+
+
+    public function actionGetCamLocation(){
+
+        header('Content-Type: text/html; charset=utf-8');
+        $connect = Yii::app()->db;
+        if(isset($_GET['id'])){
+        $result = $connect->createCommand()
+            ->select('lat, lon')
+            ->from('users')
+            ->where('id=:id', array(':id'=>$_GET['id']))
+            ->queryRow();
+        }
+        else{
+            $result = $connect->createCommand()
+                ->select('lat, lon')
+                ->from('users')
+                ->queryRow();
+        }
+
+        if($result){
+            //lat and lon in JSON array
+
+                $json = array(
+                    'lat' => $result['lat'],
+                    'lon' => $result['lon']
+                );
+
+                $marker[] = $json;
+            }
+
+        $location = array('marker' => $marker);
+        echo json_encode($location);
+
+    }
+
     
 
 	// Uncomment the following methods and override them if needed

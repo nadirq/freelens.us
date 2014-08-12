@@ -44,6 +44,7 @@ class CameristsController extends Controller
         $album = Albums::model()->getAlbumId($id);
         $reviews = Comments::model()->getComments($id);
         $commenters = array();
+
         foreach($reviews as $rv)
             $commenters[] = Users::model()->findByPk($rv->user_id);
         $this->render('info', array(

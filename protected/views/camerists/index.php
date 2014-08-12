@@ -30,3 +30,9 @@ $this->breadcrumbs=array(
 ?>
 
 </p>
+
+<script>
+    $(document).ready(function(){
+        $('.bxslider').bxSlider();
+    });
+</script>

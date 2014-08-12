@@ -233,7 +233,23 @@ $this->pageTitle=Yii::app()->name;
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">3. Выберите фотографии для привязки к этому месту</h2>
+
+
+        <?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
+            array(
+                'id'=>'uploadFile',
+                'config'=>array(
+                    'action'=>Yii::app()->createUrl('map/upload'),
+                    'allowedExtensions'=>array('jpg', 'png', 'jpeg'),//array("jpg","jpeg","gif","exe","mov" and etc...
+                    'sizeLimit'=>15*1024*1024,// maximum file size in bytes
+                    'minSizeLimit'=>1*1024*1024,// minimum file size in bytes
+                    'onComplete'=>"js:function(id, fileName, responseJSON){ idArray.push(responseJSON.id); alert(idArray);}",
+                )
+            )); ?>
+
+
         <?php
+        /*
         //выводим все фотки из портфолио
         if(!empty($album)){
             foreach($album as $item){ ?>
@@ -248,7 +264,9 @@ $this->pageTitle=Yii::app()->name;
         }
         else{
             echo "Фотографии отсутствуют. <a href=".Yii::app()->urlManager->createUrl('cabinet/photos/create').">Загрузить фотографии</a>";
-        }?>
+        }
+        */
+        ?>
     </div>
 
 </div>

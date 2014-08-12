@@ -14,8 +14,10 @@ $this->breadcrumbs=array(
     <?php echo $form->errorSummary($model); ?>
 
     <div class="compactRadioGroup">
+
+
         <?php
-        echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
+            echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
         ?>
         <div class="row submit">
             <?php echo CHtml::submitButton('Rate'); ?>

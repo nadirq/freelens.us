@@ -44,7 +44,7 @@ class PhotosController extends Controller
 
     public function actionChangeMode()
     {
-        var_dump($POST);
+
     }
 
 	public function actionView($id)
@@ -67,8 +67,10 @@ class PhotosController extends Controller
 
 		if(isset($_POST['Photos']))
 		{
+            $model->scenario = 'toPortfolio';
 			$model->attributes=$_POST['Photos'];
             $model->img = CUploadedFile::getInstance($model, 'img');
+
             if($model->img)
             {
                 $model->path = 'images/'.md5(date('Y-m-d H:i:s:u')) .'.'. $model->img->extensionName;

@@ -99,7 +99,7 @@ class AuthController extends Controller
 
 
                 $form->attributes = $_POST['Users'];
-                //$form->verifyCode = $_POST['Users']['verifyCode'];
+
 
                 // Some validation
                 if($form->validate('login'))

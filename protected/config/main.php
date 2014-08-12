@@ -7,7 +7,25 @@
 // CWebApplication properties can be configured here.
 
 
+Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+
 return array(
+
+
+
+    // ajax upld
+
+
+    'import'=>array(
+        'application.modules.ajaxuploader.widgets.*',
+        'application.modules.ajaxuploader.controllers.*',
+        'application.modules.ajaxuploader.models.*',
+    ),
+
+    // Bootstrap
+
+    'theme'=>'bootstrap', // requires you to copy the theme under your themes directory
+
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Freelens.us',
 
@@ -21,8 +39,17 @@ return array(
 	),
 
 	'modules'=>array(
+        'ajaxuploader'=>array(
+            'userModel'=>'Biodata',  //change to the model that has the pix column
+            'userPixColumn'=>'pix',  //column to save the filename
+            'folder'=>'images', //the dest folder(should be in the same folder level as protected folder)
+        ),
+
         'cabinet',
 		'gii'=>array(
+            'generatorPaths'=>array(
+                'bootstrap.gii',
+            ),
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
@@ -43,6 +70,13 @@ return array(
 
 
         // External extension
+
+        'bootstrap'=>array(
+            'class'=>'bootstrap.components.Bootstrap',
+        ),
+
+
+
 
         'email'=>array(
             'class'=>'application.extensions.email.Email',

@@ -18,6 +18,29 @@ class MapController extends Controller
         $this->render('newPlacemark', array('id' => $id, 'album' => $album->getPhotos()));
     }
 
+
+
+
+    // Uploader
+    public function actionUpload()
+    {
+        Yii::import("ext.EAjaxUpload.qqFileUploader");
+
+        $folder='images/';// folder for uploaded files
+        $allowedExtensions = array('jpg', 'png');//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($folder);
+
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+        //$fileId=$result['id'];//Here file id
+
+        echo $return; // it's array
+    }
+
+
+
     /*
      * страница вывода меток опрееленного фотографа
      */

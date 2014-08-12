@@ -24,7 +24,7 @@ return array(
 
     // Bootstrap
 
-    'theme'=>'bootstrap', // requires you to copy the theme under your themes directory
+    'theme'=>'classic', // requires you to copy the theme under your themes directory
 
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Freelens.us',

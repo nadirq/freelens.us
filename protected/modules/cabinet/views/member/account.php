@@ -1,9 +1,9 @@
-<div class="container">
-    <h1 class="page-header">Change account details</h1>
+<div class="row">
+    <h1 class="page-header">Настройки профиля</h1>
 
-    <div class="row">
+
         <div class="col-lg-6">
-
+            <h2>Информация</h2>
 
             <?php
 
@@ -54,8 +54,14 @@
             $this->endWidget();
             ?>
         </div>
-        <div id="map" class="col-lg-6 col-lg-offset-6"></div>
-    </div>
+        <div class="col-lg-6 pull-right">
+            <h2>Ваше местоположение</h2>
+            <p>Вы можете легко поменять свое расположение и
+                потенциальные клиенты могут увидеть что вы приехали в их город и они могут заказать фотосъемку!</p>
+            <div id="map" class="map"></div>
+
+        </div>
+
 </div>
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/showPlaces.js"></script>

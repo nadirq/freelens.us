@@ -33,7 +33,7 @@
             <div id="logo"><img src="<?php echo Yii::app()->request->baseUrl; ?>/css/logo1.png" width="300px"></div>
         </div><!-- header -->
 
-        <div id="mainmenu" class="col-lg-4 col-lg-offset-5">
+        <div id="mainmenu" class="pull-right">
             <?php
 
             $this->widget('zii.widgets.CMenu',array(

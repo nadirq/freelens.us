@@ -15,9 +15,9 @@ $this->breadcrumbs=array(
             if(isset($camerists[$i]))
             {
                 echo 'Photographer: ' . $camerists[$i]->login . '<br />';
-                echo 'Date: ' . $o->date . '<br />';
+                echo 'Date: ' . date('d/m/Y',strtotime($o->date)) . '<br />';
                 echo 'Status: '.$o->status . '<br />';
-                echo 'Payment: '. $o->price . '<br />';
+                echo 'Payment: '. $o->price . '$<br />';
                 if(($o->status != 'Refused') && ($o->status != 'Closed'))
                     echo CHtml::link('Close order', Yii::app()->createUrl('orders/close', array('order' => $o->id)));
 

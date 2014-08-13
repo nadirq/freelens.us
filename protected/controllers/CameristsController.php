@@ -36,8 +36,27 @@ class CameristsController extends Controller
 
     public function actionInfo(){
 
-        // Leave comment
+
+
+
         $id = Yii::app()->request->getQuery('cam_id');
+
+        // Rate him
+
+        $rating = new Rating;
+
+        $idd = Yii::app()->request->getQuery('cam_id');//$_GET['cam_id'];
+        $cam = Camerists::model()->findByPk($id); // Save camerist for order
+        if(isset($_POST['Rating'])){
+            $rating->attributes = $_POST['Rating'];
+            $rating->cam_id = $id;
+            $rating->user_id = Yii::app()->user->id;
+            if($rating->save())
+            {
+                $cam->updateRating();
+            }
+        }
+
         $usr = Users::model()->findByPk($id);
 
         $rate = Camerists::model()->findByPk($id)->rate;
@@ -52,6 +71,8 @@ class CameristsController extends Controller
             'commenters' => $commenters,
             'rate' => $rate,
             'album' => $album->getPhotos(),
-            'reviews' => $reviews));
+            'reviews' => $reviews,
+            'model' => $rating,  // for rate him at info page
+        ));
     }
 }

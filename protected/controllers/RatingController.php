@@ -52,7 +52,7 @@ class RatingController extends Controller
     {
         $rating = new Rating;
 
-        $camId = $_GET['cam_id'];
+        $camId = Yii::app()->request->getQuery('cam_id');//$_GET['cam_id'];
         $cam = Camerists::model()->findByPk($camId); // Save camerist for order
         if(isset($_POST['Rating'])){
             $rating->attributes = $_POST['Rating'];

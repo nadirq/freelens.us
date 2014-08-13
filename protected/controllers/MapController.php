@@ -8,9 +8,6 @@ class MapController extends Controller
     }
 
 
-
-
-
     public function accessRules()
     {
         return array(

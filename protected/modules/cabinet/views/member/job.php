@@ -6,7 +6,7 @@
             <br />
             <?php
 
-                echo 'When: ' . date('d/m/Y',strtotime($o->date));
+                echo 'When: ' . date('d/m/Y',strtotime($order->date));
             ?>
             <br />
             <?php

@@ -52,7 +52,8 @@
     </div><!-- rate -->
 <?php }
     else
-        echo Users::model()->getRate();
+        echo 'My rate: ' . Users::model()->getRate();
+        echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change'));
 ?>
 
 

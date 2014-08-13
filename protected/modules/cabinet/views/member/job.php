@@ -6,11 +6,11 @@
             <br />
             <?php
 
-                echo 'When: ' . $order->date;
+                echo 'When: ' . date('d/m/Y',strtotime($o->date));
             ?>
             <br />
             <?php
-                echo 'Cash: ' . $order->price;
+                echo 'Cash: ' . $order->price . '$';
             ?>
             <br />
             <?php

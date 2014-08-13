@@ -26,9 +26,37 @@
     <?php echo 'Email: ' . $camerist->email; ?>
 </div>
 
+
+
+<div class="rate">
+    <?php $form = $this->beginWidget('CActiveForm'); ?>
+
+    <?php echo $form->errorSummary($model); ?>
+
+    <div class="compactRadioGroup">
+
+
+        <?php
+        echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
+        ?>
+        <div class="row submit">
+            <?php echo CHtml::submitButton('Rate'); ?>
+        </div>
+    </div>
+
+
+    <?php $this->endWidget(); ?>
+</div><!-- rate -->
+
+
+
+
+
 <div id="rewiews">
     <h2>Reviews:</h2>
     <?php
+        if(!$reviews)
+            echo 'No reviews.';
         foreach($reviews as $i => $r)
         {
     ?>
@@ -47,14 +75,34 @@
 </div>
 
 
+
+
+
 <div id='gallery'>
     <h2>Photographer's portfolio</h2>
     <?php
     if(!$album)
         echo 'No photos in portfolio.';
-    foreach($album as $item){
-        if($item->published)
-            echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');
-    }
+    else {
     ?>
+
+        <div id="links">
+            <?php foreach($album as $item): ?>
+                <?php if($item->published) ?>
+                    <a href = "<?php echo  Yii::app()->baseUrl.'/'.$item->path; ?>" data-dialog>
+                        <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
+                    </a>
+                <?php endforeach; ?>
+        </div>
+
+    <?php } ?>
+    <div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
+        <!-- The gallery widget  -->
+        <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+            <div class="slides"></div>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="play-pause"></a>
+        </div>
+    </div>
 </div>

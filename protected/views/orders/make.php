@@ -18,7 +18,7 @@
     ));?>
 
     <div class="row">
-        <?php echo CHtml::activeLabel($model, 'price'); ?>
+        <?php echo CHtml::activeLabel($model, 'price($)'); ?>
         <?php echo CHtml::activeTextField($model, 'price'); ?>
     </div>
     Busy days:
@@ -27,7 +27,7 @@
         <?php
             foreach($busy as $b)
             {
-                echo $b->date;
+                echo date('d/m/Y',strtotime($b->date));
             }
         ?>
     </div>

@@ -170,7 +170,7 @@
                         getPlacemarks(idUser);
                         //нуллим переменную метки
                         myPlacemark = undefined;
-
+                        idArray = [];
                     },
                     error: function(response) { //Если ошибка
                         $('#response').text('Ошибка.');

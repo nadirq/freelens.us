@@ -34,6 +34,7 @@
             <div class="img">
                 <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
                 <?php echo CHtml::link('Delete', Yii::app()->createUrl('cabinet/photos/delete', array('photo' => $item->id))); ?>
+                <?php echo ($item->published == true)? 'Public' : 'Private'?>
             </div>
 
         <?php endforeach; ?>

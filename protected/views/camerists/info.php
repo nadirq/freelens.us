@@ -52,9 +52,35 @@
     <?php
     if(!$album)
         echo 'No photos in portfolio.';
-    foreach($album as $item){
-        if($item->published)
-            echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item');
-    }
+    else {
     ?>
+        <ul class="bxslider">
+            <?php foreach($album as $item): ?>
+                <li>
+                    <?php if($item->published)
+                        echo CHtml::image(Yii::app()->baseUrl.'/'.$item->path, 'Portfolio item'); ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <ul class="bx-pager">
+            <?php $i = 0; ?>
+            <?php foreach($album as $item): ?>
+                <li>
+                    <?php if($item->published) ?>
+                        <a data-silde-index="<?php echo $i; ?>" href="">
+                            <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
+                        </a>
+                </li>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+        </ul>
+
+    <?php } ?>
 </div>
+
+<script>
+    $('.bxslider').bxSlider({
+        pagerCustom: '#bx-pager'
+    });
+</script>

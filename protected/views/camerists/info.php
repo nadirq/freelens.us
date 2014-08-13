@@ -1,3 +1,4 @@
+
 <h1>Page of camerist <?php echo $camerist->login; ?></h1>
 <div id="rating">
     <?php echo 'Average rating: ' . $rate; ?>
@@ -29,25 +30,31 @@
 
 
 <div class="rate">
-    <?php $form = $this->beginWidget('CActiveForm'); ?>
 
-    <?php echo $form->errorSummary($model); ?>
+    <?php if(!Users::model()->isMadeRate()){ ?>
+        <?php $form = $this->beginWidget('CActiveForm'); ?>
 
-    <div class="compactRadioGroup">
+        <?php echo $form->errorSummary($model); ?>
 
-
-        <?php
-        echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
-        ?>
-        <div class="row submit">
-            <?php echo CHtml::submitButton('Rate'); ?>
-        </div>
-    </div>
+            <div class="compactRadioGroup">
 
 
-    <?php $this->endWidget(); ?>
-</div><!-- rate -->
+                <?php
+                    echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'));
+                ?>
+                <div class="row submit">
+                    <?php echo CHtml::submitButton('Rate'); ?>
+                </div>
+            </div>
 
+
+        <?php $this->endWidget(); ?>
+    </div><!-- rate -->
+<?php }
+    else
+        echo 'My rate: ' . Users::model()->getRate();
+        echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change'));
+?>
 
 
 

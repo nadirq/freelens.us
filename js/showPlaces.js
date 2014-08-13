@@ -4,7 +4,7 @@
 
 ymaps.ready(init);
 var myMap;
-var idUser = 2;
+var idUser = 1;
 
 function init() {
     //запрашиваем местоположение

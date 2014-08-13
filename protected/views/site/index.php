@@ -11,7 +11,7 @@ $this->pageTitle=Yii::app()->name;
 <section id="home">
     <div class="homeslider">
         <div class="homeimage">
-            <div>
+            <div class="center-block">
                 <h1>гавно какое-то</h1>
             </div>
 

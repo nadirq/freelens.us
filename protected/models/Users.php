@@ -104,6 +104,8 @@ class Users extends CActiveRecord
             array('pass', 'length', 'min'=>6),
 			array('email, fio', 'length', 'max'=>50),
 			array('tel', 'length', 'max'=>20),
+            array('lat', 'length', 'min'=>1),
+            array('lon', 'length', 'min'=>1),
 			//array('activation', 'length', 'max'=>32),
 
 			array('about, last_login', 'safe'),

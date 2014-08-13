@@ -68,7 +68,7 @@ class PhotosController extends Controller
 		if(isset($_POST['Photos']))
 		{
             $model->scenario = 'toPortfolio';
-			$model->attributes=$_POST['Photos'];
+			$model->attributes=Yii::app()->request->getPost('Photos');//$_POST['Photos'];
             $model->img = CUploadedFile::getInstance($model, 'img');
 
             if($model->img)
@@ -96,8 +96,7 @@ class PhotosController extends Controller
 
     public function actionDelete()
     {
-        //$pic = Photos::model()->findByPk();
-        //TODO: make in all app
+
         $pic = Photos::model()->findByPk(Yii::app()->request->getQuery('photo'));
         if(file_exists($pic->path))
         {

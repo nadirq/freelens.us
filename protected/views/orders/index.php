@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
         <?php
             if(isset($camerists[$i]))
             {
-                echo 'Photographer: ' . $camerists[$i]->login . '<br />';
+                echo 'Photographer: ' . CHtml::link($camerists[$i]->login, '../camerists/info?cam_id=' .$camerists[$i]->id ). '<br />';
                 echo 'Date: ' . date('d/m/Y',strtotime($o->date)) . '<br />';
                 echo 'Status: '.$o->status . '<br />';
                 echo 'Payment: '. $o->price . '$<br />';

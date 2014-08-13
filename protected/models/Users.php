@@ -60,6 +60,25 @@ class Users extends CActiveRecord
     }
 
 
+
+
+
+    public function getRate()
+    {
+        return Rating::model()->findByAttributes(array('user_id'=>Yii::app()->user->id))->rate;
+    }
+
+
+
+
+    public function isMadeRate()
+    {
+        if(Rating::model()->findByAttributes(array('user_id'=>Yii::app()->user->id)))
+            return true;
+        else
+            return false;
+    }
+
     public function createCamerist()
     {
         if($this->save())

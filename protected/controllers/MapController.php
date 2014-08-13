@@ -7,6 +7,33 @@ class MapController extends Controller
 		$this->render('index');
 	}
 
+
+
+
+
+    public function accessRules()
+    {
+        return array(
+            array('deny',
+                'actions'=>array('newPlacemark'),
+                'users'=>('?'),
+            ),
+            array('deny',
+                'actions'=>array('newPlacemark'),
+                'roles'=>('user'),
+            ),
+            array('allow',
+                'actions'=>array('showPlaces'),
+                'users'=>array('?'),
+            ),
+            array('allow',
+                'actions'=>array('newPlacemark', 'upload'),
+                'roles'=>array('camerist'),
+            ),
+        );
+    }
+
+
     /*
      * Страница добавления новой места на карте.
      * TODO: сделать разрешение доступа только для фотографов
@@ -92,7 +119,7 @@ class MapController extends Controller
             $result = $connect->createCommand()
                 ->select('*')
                 ->from('map')
-                ->where('cam_id=:id', array(':id'=>$_GET['id']))
+                ->where('cam_id=:id', array(':id'=>Yii::app()->request->getQuery('id')))
                 ->query();
         }
         else{

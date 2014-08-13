@@ -165,28 +165,36 @@ class MapController extends Controller
         $connect = Yii::app()->db;
         if(isset($_GET['id'])){
         $result = $connect->createCommand()
-            ->select('lat, lon')
+            ->select('*')
             ->from('users')
             ->where('id=:id', array(':id'=>$_GET['id']))
             ->queryRow();
+
+            var_dump($result);
         }
         else{
             $result = $connect->createCommand()
-                ->select('lat, lon')
-                ->from('users')
-                ->queryRow();
+                ->select('*')
+                ->from('users'),
+                ->where('')
+                ->queryAll();
         }
 
         if($result){
+            var_dump($result);
             //lat and lon in JSON array
 
                 $json = array(
-                    'lat' => $result['lat'],
-                    'lon' => $result['lon']
+//                    'lat' => $value['lat'],
+//                    'lon' => $value['lon'],
+//                    'fio' => $value['fio'],
+//                    'id' => $value['id'],
+//                    'avatar' => $value['avatar']
                 );
 
                 $marker[] = $json;
-            }
+
+        }
 
         $location = array('marker' => $marker);
         echo json_encode($location);

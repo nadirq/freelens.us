@@ -72,35 +72,19 @@ $this->pageTitle=Yii::app()->name;
             state.controls = ['zoomControl','geolocationControl'];
             //создание карты, отцентрированной по местоположению пользователя
             myMap = new ymaps.Map('map', state);
-            //добавление метки для примера
-            myMap.geoObjects.add(new ymaps.Placemark([55,83], {
-                    balloonText: 'lol'
-                },
-                {
-                    //Свое изображение на метке
-                    // Необходимо указать данный тип макета.
-                    iconLayout: 'default#image',
-                    // Своё изображение иконки метки.
-                    iconImageHref: '/freelens.us/images/myIcon.png',
-                    // Размеры метки.
-                    iconImageSize: [25, 32],
-                    // Смещение левого верхнего угла иконки относительно
-                    // её "ножки" (точки привязки).
-                    iconImageOffset: [-12.5, -32]
-
-                }));
 
 
             //запрашиваем все данные по меткам из БД
-            $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getmap'); ?>",
+            $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getcamLocation'); ?>",
                 function(json){
-                    for (i = 0; i < json.markers.length; i++) {
-                        var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
+                    for (i = 0; i < json.marker.length; i++) {
+                        alert('lol');
+                        var myPlacemark = new ymaps.Placemark([json.marker[i].lat, json.marker[i].lon], {
                                 // Свойства
-                                balloonContentBody: json.markers[i].balloonText
+                                balloonContentBody: '<h3>'+json.marker[i].fio+'<h3><img src="'+json.marker[i].avatar+'">'
                             }, {
                                 // Опции
-                                preset: json.markers[i].stylePlacemark
+                                preset: 'islands#redDotIcon'
                             }
                         );
 

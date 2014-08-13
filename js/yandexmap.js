@@ -57,17 +57,19 @@ function getCamPlaces(id){
 
                         //e.get('target') возвращает ссылку на объект, вызвавший событие
                         myId = e.get('target').properties.get('myId');
-                        myName = e.get('target').properties.get('name');
+                        myName = e.get('target').properties.get('balloonContentHeader');
                         myDesc = e.get('target').properties.get('balloonContentBody');
 
                         //запрашиваем  из БД все ассоциированные с меткой фотки
                         //id метки передается get параметром
                         $.getJSON("/freelens.us/index.php/map/getCamPhotos/"+myId,
                             function(json){
+                                $('#showImg').append('<h4>'+myName+'</h4><p>'+myDesc+'</p>');
                                 for (i = 0; i < json.photo.length; i++)
                                 {
-                                    $('#showImg').append('<div><p>'+myDesc+'</p>><img src="/freelens.us/'+json.photo[i].path+'"></div>');
+                                    $('#showImg').append('<a href="/freelens.us/'+json.photo[i].path+'" data-dialog><div><img src="/freelens.us/'+json.photo[i].small_path+'"></div></a>');
                                 }
+
                             });
                     });
 

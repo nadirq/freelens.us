@@ -335,3 +335,49 @@ h1, h2, h3, h4, h5, h6{
 h1{
     font-size: 45px;
 }
+
+.avatar{
+    height: 350px;
+    overflow: hidden;
+    border-radius:15px;
+}
+
+.avatar img{
+    height: 100%;
+    width: inherit;
+}
+
+#links a div, #showImg a div{
+    float: left;
+    overflow: hidden;
+
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    margin: 15px;
+}
+
+
+#can span{
+    display: block;
+    float: left;
+    margin: 15px 6% 0 0;
+    width: 47%;
+}
+
+#can span:nth-child(2){
+    margin-right: 0;
+}
+
+#can span:nth-child(3){
+    margin-right: 0;
+    width: 100%;
+}
+
+#can span a{
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Droid Sans',sans-serif;
+    text-decoration: none;
+}

@@ -89,7 +89,8 @@ class MapController extends Controller
             foreach($result as $value){
                 $json = array(
                     'id' => $value['id'],
-                    'path' => Thumbnail::getThumb($value['path']),
+                    'small_path' => Thumbnail::getThumb($value['path']),
+                    'path' => $value['path'],
                     'desc' => $value['desc']
                 );
 

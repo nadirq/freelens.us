@@ -95,11 +95,12 @@
 
         <div id="links">
             <?php foreach($album as $item): ?>
-                <?php if($item->published) ?>
+                <?php if($item->published): ?>
                     <a href = "<?php echo  Yii::app()->baseUrl.'/'.$item->path; ?>" data-dialog>
                         <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
                     </a>
-                <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
     <?php } ?>

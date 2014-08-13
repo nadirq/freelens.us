@@ -41,6 +41,9 @@ function init() {
     }
 
     clusterer = new ymaps.Clusterer();
+    clusterer.options.set({
+        gridSize: 64
+    });
     clusterer.add(myGeoObjects);
     myMap.geoObjects.add(clusterer);
 

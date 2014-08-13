@@ -2,13 +2,10 @@
 
 class MapController extends Controller
 {
-	public function actionIndex()
-	{
-		$this->render('index');
-	}
-
-
-
+    public function actionIndex()
+    {
+        $this->render('index');
+    }
 
 
     public function accessRules()
@@ -123,25 +120,25 @@ class MapController extends Controller
                 ->query();
         }
         else{
-        $result = $connect->createCommand()
-            ->select('*')
-            ->from('map')
-            ->query();
+            $result = $connect->createCommand()
+                ->select('*')
+                ->from('map')
+                ->query();
         }
 
         if($result){
             //all placemarks data in JSON
             foreach($result as $value){
-            $json = array(
-                'idPlace' => $value['id'],
-                'name' => $value['name'],
-                'stylePlacemark' => $value['stylePlacemark'],
-                'balloonText' => $value['balloonText'],
-                'lat' => $value['lat'],
-                'lon' => $value['lon']
-            );
+                $json = array(
+                    'idPlace' => $value['id'],
+                    'name' => $value['name'],
+                    'stylePlacemark' => $value['stylePlacemark'],
+                    'balloonText' => $value['balloonText'],
+                    'lat' => $value['lat'],
+                    'lon' => $value['lon']
+                );
 
-            $markers[] = $json;
+                $markers[] = $json;
             }
         }
 
@@ -185,42 +182,42 @@ class MapController extends Controller
     }
 
 
-
+    /*
+     * Возвращает JSON-массив юзеров, если вызвать action без параметров
+     * если передать id, то возвращает массив с одним фотографом
+     */
     public function actionGetCamLocation(){
 
         header('Content-Type: text/html; charset=utf-8');
         $connect = Yii::app()->db;
         if(isset($_GET['id'])){
-        $result = $connect->createCommand()
-            ->select('*')
-            ->from('users')
-            ->where('id=:id', array(':id'=>$_GET['id']))
-            ->queryRow();
+            $result = $connect->createCommand()
+                ->select('*')
+                ->from('users')
+                ->where('id=:id', array(':id'=>$_GET['id']))
+                ->queryAll();
 
-            var_dump($result);
         }
         else{
             $result = $connect->createCommand()
                 ->select('*')
                 ->from('users')
-                ->where('')
+                ->where('role="camerist"')
                 ->queryAll();
         }
 
         if($result){
-            var_dump($result);
             //lat and lon in JSON array
-
+            foreach($result as $value){
                 $json = array(
-//                    'lat' => $value['lat'],
-//                    'lon' => $value['lon'],
-//                    'fio' => $value['fio'],
-//                    'id' => $value['id'],
-//                    'avatar' => $value['avatar']
+                    'lat' => $value['lat'],
+                    'lon' => $value['lon'],
+                    'fio' => $value['fio'],
+                    'id' => $value['id'],
+                    'avatar' => $value['avatar']
                 );
-
                 $marker[] = $json;
-
+            }
         }
 
         $location = array('marker' => $marker);
@@ -228,32 +225,32 @@ class MapController extends Controller
 
     }
 
-    
 
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
 
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+    // Uncomment the following methods and override them if needed
+    /*
+    public function filters()
+    {
+        // return the filter configuration for this controller, e.g.:
+        return array(
+            'inlineFilterName',
+            array(
+                'class'=>'path.to.FilterClass',
+                'propertyName'=>'propertyValue',
+            ),
+        );
+    }
+
+    public function actions()
+    {
+        // return external action classes, e.g.:
+        return array(
+            'action1'=>'path.to.ActionClass',
+            'action2'=>array(
+                'class'=>'path.to.AnotherActionClass',
+                'propertyName'=>'propertyValue',
+            ),
+        );
+    }
+    */
 }

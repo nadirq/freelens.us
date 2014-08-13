@@ -12,9 +12,12 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.bxslider.css" />
+
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style000.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans:300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/juicyslider.css" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/south-street/jquery-ui.css" id="theme">
     <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
@@ -29,6 +32,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.image-gallery.min.js"></script>
+
 
 
 </head>
@@ -92,7 +96,7 @@
 
 <!--Start footer-->
 <footer>
-    <div><p>© 2014 FreeLens.us. All rights reserved.</p></div>
+    <div><p class="text-center">© 2014 FreeLens.us. All rights reserved.</p></div>
 </footer>
 <!--End footer-->
 

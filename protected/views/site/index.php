@@ -7,23 +7,41 @@ $this->pageTitle=Yii::app()->name;
 
 
 <div class="row">
-<!-- Start slider-->
-<section id="home">
-    <div class="homeslider">
-        <div class="homeimage">
-            <div class="center-block">
-                <h1>гавно какое-то</h1>
+    <!-- Start slider-->
+    <section id="home">
+        <div class="homeslider">
+            <div class="homeimage">
+                <div class="center-block">
+                    <h1>гавно какое-то</h1>
+                </div>
+
             </div>
 
         </div>
+<br />
+    </section>
+    <!-- End slider-->
 
-    </div><!--/ homeslider-->
+    <section>
+    <h1 class="text-center">Как это работает?</h1>
+        <p>
+            Если вы путешествуете один, то в кадре вашей камеры оказываются лишь какие-то здания и,
+            в лучшем случае, ваши ноги. Заказывая съемку другому фотографу, героем фотографии становитесь
+            вы сами! Как вы иначе всем докажете, что побывали в Лондоне?
+</p><p>
+            Если вы едете семьей, пусть в кадре будет вся семья! Медовый месяц? Тем более.
+            Будьте на снимках вдвоем, будьте рядом. Не отвлекайтесь на значения диафрагмы и выдержки,
+            не дергайте прохожих просьбами нажать на спуск. Пусть вашими фотографиями займется тот,
+            кто это в этом лучше разбирается, – профессиональный фотограф.
+        </p>
 
-</section>
-<!-- End slider-->
+    </section>
 
-<h1 class="page-header center_head">Наши&nbsp;фотографы</h1>
-<div id="map" class="map"></div>
+    <section>
+
+        <h1 class="text-center">Наши&nbsp;фотографы</h1>
+        <div id="map" class="map"></div>
+    </section>
 
 </div>
 
@@ -48,6 +66,7 @@ $this->pageTitle=Yii::app()->name;
 <script type="text/javascript">
     ymaps.ready(function () {
         var myMap;
+        var myGeoObjects = [];
         ymaps.geolocation.get().then(function (res) {
             var mapContainer = $('#map'),
                 bounds = res.geoObjects.get(0).properties.get('boundedBy'),
@@ -78,22 +97,28 @@ $this->pageTitle=Yii::app()->name;
             $.getJSON("<?php echo Yii::app()->urlManager->createUrl('map/getcamLocation'); ?>",
                 function(json){
                     for (i = 0; i < json.marker.length; i++) {
-                        alert('lol');
                         var myPlacemark = new ymaps.Placemark([json.marker[i].lat, json.marker[i].lon], {
                                 // Свойства
-                                balloonContentBody: '<h3>'+json.marker[i].fio+'<h3><img src="'+json.marker[i].avatar+'">'
+                                balloonContentBody: '<h3><a href="/freelens.us/index.php/camerists/info?cam_id='+json.marker[i].id+'">'
+                                    +json.marker[i].fio+'</a><h3><img src="'+json.marker[i].avatar+'" width="100">'
                             }, {
                                 // Опции
                                 preset: 'islands#redDotIcon'
                             }
                         );
-
-                        // Добавляем метку на карту
-                        myMap.geoObjects.add(myPlacemark);
-
+                        myGeoObjects.push(myPlacemark);
                     }
-                });
 
+                    //создаем кластеризатор
+                    clusterer = new ymaps.Clusterer();
+                    clusterer.options.set({
+                        gridSize: 64
+                    });
+                    //добавляем в кластеризатор все выбранные объекты
+                    clusterer.add(myGeoObjects);
+                    // Добавляем метку на карту
+                    myMap.geoObjects.add(clusterer);
+                });
         }
 
 

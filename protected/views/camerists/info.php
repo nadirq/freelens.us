@@ -86,6 +86,7 @@
     else {
     ?>
 
+
         <div id="links">
             <?php foreach($album as $item): ?>
                 <?php if($item->published) ?>

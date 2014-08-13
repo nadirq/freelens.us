@@ -45,7 +45,7 @@
         echo '</div>';
 
         echo '<div class="form-group">';
-        echo $form->labelEx($me, 'Write something about yourself');
+        echo $form->labelEx($me, 'Пару слов о себе...');
         echo $form->TextArea($me, 'about', array('class'=>'form-control'));
         echo '</div>';
 

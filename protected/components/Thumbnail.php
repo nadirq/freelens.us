@@ -8,15 +8,22 @@ class Thumbnail extends CComponent {
         //TODO: refactor
         $info = pathinfo($img);
         // continue only if this is a JPEG image
-        if ( strtolower($info['extension']) == 'jpg' )
+        if ( strtolower($info['extension']) == 'jpg' || strtolower($info['extension']) == 'jpeg')
         {
             $imgObj = imagecreatefromjpeg($img);
             $width = imagesx($imgObj);
             $height = imagesy($imgObj);
 
             // calculate thumbnail size
-            $new_width = $thumbWidth;
-            $new_height = floor( $height * ( $thumbWidth / $width ) );
+            if($width >= $height){
+                $new_width = $thumbWidth;
+                $new_height = floor( $height * ( $thumbWidth / $width ) );
+            }
+            else{
+                $new_width = floor( $width * ( $thumbWidth / $height ) );
+                $new_height = $thumbWidth;
+            }
+
 
             // create a new temporary image
             $tmp_img = imagecreatetruecolor( $new_width, $new_height );
@@ -33,8 +40,15 @@ class Thumbnail extends CComponent {
             $height = imagesy($imgObj);
 
             // calculate thumbnail size
-            $new_width = $thumbWidth;
-            $new_height = floor( $height * ( $thumbWidth / $width ) );
+            if($width >= $height){
+                $new_width = $thumbWidth;
+                $new_height = floor( $height * ( $thumbWidth / $width ) );
+            }
+            else{
+                $new_width = floor( $width * ( $thumbWidth / $height ) );
+                $new_height = $thumbWidth;
+            }
+
 
             // create a new temporary image
             $tmp_img = imagecreatetruecolor( $new_width, $new_height );

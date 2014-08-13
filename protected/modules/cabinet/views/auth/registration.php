@@ -5,7 +5,10 @@
 
 <?=CHtml::errorSummary($form); ?><br>
 
+<?=CHtml::activeLabel($form, 'ФИО'); ?>
+<?=CHtml::activeTextField($form, 'fio') ?>
 
+<br />
 <?=CHtml::activeLabel($form, 'login'); ?>
 <?=CHtml::activeTextField($form, 'login') ?>
 
@@ -16,7 +19,7 @@
 
 <div class="compactRadioGroup">
     <?php
-    echo CHtml::activeRadioButtonList($form,'type',array('user'=>'User', 'camerist'=>'Photographer'));
+        echo CHtml::activeRadioButtonList($form,'type',array('user'=>'User', 'camerist'=>'Photographer'));
     ?>
 </div>
 

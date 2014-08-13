@@ -44,7 +44,7 @@ class AuthController extends Controller
             {
 
 
-                $form->attributes = $_POST['Users'];
+                $form->attributes = Yii::app()->request->getPost('Users'); //$_POST['Users'];
                 $form->type = $_POST['Users']['type'];
 
 

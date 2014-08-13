@@ -22,7 +22,7 @@ class MemberController extends Controller
         {
 
 
-            $usr->attributes = $_POST['Users'];
+            $usr->attributes = Yii::app()->request->getPost('Users'); // $_POST['Users'];
 
 
 
@@ -35,7 +35,7 @@ class MemberController extends Controller
                 $usr->avatar = 'images/'. md5(date('Y-m-d H:i:s:u')) .'.'.$usr->img->extensionName;
                 $usr->img->saveAs($usr->avatar);
 
-                Thumbnail::createThumbs($usr->avatar, 100);
+                Thumbnail::createThumbs($usr->avatar, 200); // Size of avatar thumb
             }
             if($usr->save())
                 $this->redirect('dashboard');

@@ -1,17 +1,31 @@
 
-<h1>Page of camerist <?php echo $camerist->login; ?></h1>
+<section>
+    <div class="row">
+
+    <div class="col-lg-3">
+        <div id='avatar'>
+            <?php
+            echo CHtml::image(Yii::app()->baseUrl.'/'.$camerist->avatar, 'Avatar', array('style'=>'border-radius:15px;', 'width'=>'100%'));
+            ?>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <h2><?php echo $camerist->fio; ?></h2>
+    </div>
+    </div>
+
+</section>
+
+
+
+
+
 <div id="rating">
     <?php echo 'Average rating: ' . $rate; ?>
 </div>
 <div id="can">
     <?php echo CHtml::link('Order', Yii::app()->createUrl('orders/make', array('cam_id' => $camerist->id))); ?>
-    <?php echo CHtml::link('Rate', Yii::app()->createUrl('rating/rate', array('cam_id' => $camerist->id))); ?>
     <?php echo CHtml::link('Review', Yii::app()->createUrl('/comments/add', array('cam_id' => $camerist->id))); ?>
-</div>
-<div id='avatar'>
-    <?php
-    echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($camerist->avatar), 'Avatar');
-    ?>
 </div>
 <div id='name'>
     <?php echo $camerist->fio; ?>
@@ -51,9 +65,10 @@
         <?php $this->endWidget(); ?>
     </div><!-- rate -->
 <?php }
-    else
+    else{
         echo 'My rate: ' . Users::model()->getRate();
         echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change'));
+    }
 ?>
 
 

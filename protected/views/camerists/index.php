@@ -16,9 +16,9 @@ $this->breadcrumbs=array(
                     echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($camerist->avatar), 'Avatar');
                 ?>
             </div>
-            <?php echo $camerist->login; ?>
+            <?php echo CHtml::link($camerist->login, Yii::app()->createUrl('/camerists/info', array('cam_id' => $camerist->id))); ?>
             <?php echo $camerist->camerists->rate; ?>
-           <?php echo CHtml::link('Info', Yii::app()->createUrl('/camerists/info', array('cam_id' => $camerist->id))); ?>
+
         </div>
         <br />
     <?php endforeach; ?>

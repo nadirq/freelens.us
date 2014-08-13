@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style000.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans:300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <!--скрипты-->
@@ -83,7 +83,7 @@
 
 <!--Start footer-->
 <footer>
-    <div><p>© 2014 FreeLens.us. All rights reserved.</p></div>
+    <div><p class="text-center">© 2014 FreeLens.us. All rights reserved.</p></div>
 </footer>
 <!--End footer-->
 

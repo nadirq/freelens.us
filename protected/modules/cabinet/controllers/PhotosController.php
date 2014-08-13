@@ -32,7 +32,7 @@ class PhotosController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('delete', 'changeMode'),
+				'actions'=>array('delete', 'changeMode', 'index', 'view'),
 				'roles'=>array('camerist'),
 			),
 			array('deny',  // deny all users

@@ -29,6 +29,8 @@
 <div id="rewiews">
     <h2>Reviews:</h2>
     <?php
+        if(!$reviews)
+            echo 'No reviews.';
         foreach($reviews as $i => $r)
         {
     ?>
@@ -54,33 +56,24 @@
         echo 'No photos in portfolio.';
     else {
     ?>
-        <ul class="bxslider">
-            <?php foreach($album as $item): ?>
-                <li>
-                    <?php if($item->published)
-                        echo CHtml::image(Yii::app()->baseUrl.'/'.$item->path, 'Portfolio item'); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
 
-        <ul class="bx-pager">
-            <?php $i = 0; ?>
+        <div id="links">
             <?php foreach($album as $item): ?>
-                <li>
-                    <?php if($item->published) ?>
-                        <a data-silde-index="<?php echo $i; ?>" href="">
-                            <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
-                        </a>
-                </li>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </ul>
+                <?php if($item->published) ?>
+                    <a href = "<?php echo  Yii::app()->baseUrl.'/'.$item->path; ?>" data-dialog>
+                        <?php echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path), 'Portfolio item'); ?>
+                    </a>
+                <?php endforeach; ?>
+        </div>
 
     <?php } ?>
+    <div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
+        <!-- The gallery widget  -->
+        <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+            <div class="slides"></div>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="play-pause"></a>
+        </div>
+    </div>
 </div>
-
-<script>
-    $('.bxslider').bxSlider({
-        pagerCustom: '#bx-pager'
-    });
-</script>

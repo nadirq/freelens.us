@@ -175,7 +175,7 @@ class MapController extends Controller
         else{
             $result = $connect->createCommand()
                 ->select('*')
-                ->from('users'),
+                ->from('users')
                 ->where('')
                 ->queryAll();
         }

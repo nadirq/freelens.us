@@ -63,17 +63,18 @@
 
 
     <?php $this->endWidget(); ?>
-</div><!-- rate
+</div>
+
 <?php }
 else{
     echo 'My rate: ' . Users::model()->getRate();
     echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change'));
 }
 ?>
+<!-- rate-->
 
 
 
-<br />
 <div class="row">
     <div id="rewiews">
         <h4>Отзывы от благодарных клиентов</h4>

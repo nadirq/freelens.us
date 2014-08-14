@@ -299,7 +299,7 @@ div.search-form
     width: 100%;
     min-width: 1024px;
     height: 550px;
-    background: url("slide4.jpg");
+    background: url("slide4.jpg");<br />
 }
 
 .homeslider .homeimage{

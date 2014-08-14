@@ -86,7 +86,7 @@ $this->pageTitle=Yii::app()->name;
                     for (i = 0; i < json.marker.length; i++) {
                         var myPlacemark = new ymaps.Placemark([json.marker[i].lat, json.marker[i].lon], {
                                 // Свойства
-                                balloonContentBody: '<h3><a href="/freelens.us/index.php/camerists/info?cam_id='+json.marker[i].id+'">'
+                                balloonContentBody: '<h3><a href="'+json.marker[i].id+'">'
                                     +json.marker[i].fio+'</a><h3><img src="'+json.marker[i].avatar+'" width="100">'
                             }, {
                                 // Опции

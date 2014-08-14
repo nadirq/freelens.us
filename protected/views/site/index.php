@@ -7,23 +7,10 @@ $this->pageTitle=Yii::app()->name;
 
 
 <div class="row">
-    <!-- Start slider-->
-    <section id="home">
-        <div class="homeslider">
-            <div class="homeimage">
-                <div class="center-block">
-                    <h1>гавно какое-то</h1>
-                </div>
 
-            </div>
-
-        </div>
-<br />
-    </section>
-    <!-- End slider-->
 
     <section>
-    <h1 class="text-center">Как это работает?</h1>
+    <h2 class="page-header">Как это работает?</h2>
         <p>
             Если вы путешествуете один, то в кадре вашей камеры оказываются лишь какие-то здания и,
             в лучшем случае, ваши ноги. Заказывая съемку другому фотографу, героем фотографии становитесь

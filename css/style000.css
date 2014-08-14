@@ -295,31 +295,7 @@ div.search-form
 /***********слайдер на главной**************/
 
 
-.homeslider{
-    width: 100%;
-    min-width: 1024px;
-    height: 550px;
-    background: url("slide4.jpg");<br />
-}
 
-.homeslider .homeimage{
-    background: url("pat.png");
-    background-position:0 50% ;
-    position: relative;
-    height: 100%;
-}
-
-.homeslider h1{
-    color: white;
-    font-family: 'Open Sans';
-    font-size: 30px;
-    font-weight: 300;
-}
-
-h1.center_head{
-    text-align: center;
-    display: table;
-}
 
 h1.center_head:after, h1.center_head:before{
     display: table-cell;

@@ -1,17 +1,23 @@
+<div class="row">
+    <div class="col-lg-4">
+        <h3 class="page-header">Вход на сайт</h3>
 
-<h1>Authorization</h1>
+
 
 <?=CHtml::form(); ?>
-<?=CHtml::errorSummary($form); ?><br>
+
 
 <?=CHtml::activeLabel($form, 'login'); ?>
-<?=CHtml::activeTextField($form, 'login') ?>
+<?=CHtml::activeTextField($form, 'login', array('class' => 'form-control')) ?>
 <br />
 <?=CHtml::activeLabel($form, 'pass'); ?>
-<?=CHtml::activePasswordField($form, 'pass') ?>
+<?=CHtml::activePasswordField($form, 'pass', array('class' => 'form-control')) ?>
 
 <br/>
-<?=CHtml::submitButton('Enter', array('id' => "submit")); ?>
+<?=CHtml::submitButton('Enter', array('id' => "submit", 'class' => 'btn btn-success')); ?>
+        <?=CHtml::errorSummary($form); ?><br>
 
 
 <?=CHtml::endForm(); ?>
+        </div>
+    </div>

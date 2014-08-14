@@ -10,8 +10,8 @@ class m140806_091958_create_map_table extends CDbMigration
             'name' => 'varchar(150)',
             'balloonText' => 'varchar(1000)',    //содержимое балуна (может содеражть html)
             'stylePlacemark' => 'varchar(255) default "islands#nightDotIcon" ', //стиль метки
-            'lat' => 'varchar(255) NOT NULL',   //широта
-            'lon' => 'varchar(255) NOT NULL'    //долгота
+            'lat' => 'varchar(255)',   //широта
+            'lon' => 'varchar(255)'    //долгота
         ));
     }
 

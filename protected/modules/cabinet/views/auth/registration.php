@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-lg-4">
-        <h2 class="page-header">Регистрация</h2>
+        <h3 class="page-header">Регистрация</h3>
 
         <p>Заполните, пожалуйста, все поля</p>
 
         <?=CHtml::form(); ?>
 
-        <?=CHtml::errorSummary($form); ?><br>
+        <?=CHtml::errorSummary($form); ?>
 
         <?=CHtml::activeLabel($form, 'ФИО'); ?>
         <?=CHtml::activeTextField($form, 'fio', array('class' => 'form-control')) ?>

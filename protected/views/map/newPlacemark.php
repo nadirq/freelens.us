@@ -1,12 +1,101 @@
 
+
+<?php
+/* @var $this SiteController */
+$this->pageTitle=Yii::app()->name;
+?>
+
+
+<div class="row">
+    <h2 class="page-header">Добавление метки на карту</h2>
+    <p>Выберите место на карте. Заполните форму. Сохраните. Радуйтесь.</p>
+    <div class="col-lg-8"><h3 class="page-header">1. Выберите место</h3>
+        <div id="map" class="map"></div>
+        <div class="col-md-offset-10">
+            <button id="change_id" class="btn btn-success">Показать все метки</button>
+        </div>
+
+    </div> <!--Блок с картой-->
+
+    <div class="col-lg-4">
+        <h3 class="page-header">2. Заполните информацию</h3>
+        <!-- CONTACT FORM -->
+        <form id="marker_form">
+            <div id="add_marker">
+                <div class="form-group">
+                    <label for="marker_name">Название места</label><input class="form-control" type="text" name="marker_name" id="marker_name">
+                </div>
+                <div class="form-group">
+                    <label for="balloon_text">Описание</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <label for="lat">Широта</label><input class="form-control" type="text" name="lat" id="marker_lat" value="" disabled><br>
+                </div>
+                <div class="form-group">
+                    <label for="lon">Долгота</label><input class="form-control" type="text" name="lon" id="marker_lon" value="" disabled><br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="submit">&nbsp;</label><input class="btn btn-lg btn-info" type="submit" name="submit" id="addmarker" value="Добавить">
+            </div>
+            <div id="response"></div>
+        </form>
+    </div>
+    <!-- END CONTACT FORM -->
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">3. Выберите фотографии для привязки к этому месту</h3>
+
+
+        <?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
+            array(
+                'id'=>'uploadFile',
+                'config'=>array(
+                    'action'=>Yii::app()->createUrl('map/upload'),
+                    'allowedExtensions'=>array('jpg', 'png', 'jpeg'),//array("jpg","jpeg","gif","exe","mov" and etc...
+                    'sizeLimit'=>15*1024*1024,// maximum file size in bytes
+                    'minSizeLimit'=>1*1024*1024,// minimum file size in bytes
+                    'onComplete'=>"js:function(id, fileName, responseJSON){ idArray.push(responseJSON.id); }",
+                )
+            )); ?>
+
+
+        <?php
+        /*
+        //выводим все фотки из портфолио
+        if(!empty($album)){
+            foreach($album as $item){ ?>
+                <div class="col-lg-2 col-md-3 col-xs-6">
+                    <a class="thumbnail">
+                        <!--у каждой фотографии добавляем id равное ее id из БД-->
+                        <img class="img-responsive for_check" id="<?php echo $item->id; ?>"
+                             src="<?php echo Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path); ?>" alt="">
+                    </a>
+                </div>
+            <?php }
+        }
+        else{
+            echo "Фотографии отсутствуют. <a href=".Yii::app()->urlManager->createUrl('cabinet/photos/create').">Загрузить фотографии</a>";
+        }
+        */
+        ?>
+    </div>
+
+</div>
+
+
+
 <script type="text/javascript">
     ymaps.ready(init);
     var myMap;
     var myPlacemark;
     var idArray = [];
     var idUser = <?php echo $id; ?>;
+    var url = "<?php echo Yii::app()->urlManager->createUrl('map/getmap'); ?>/";
 
     function init() {
+
         //запрашиваем местоположение
         ymaps.geolocation.get().then(function (res) {
             var mapContainer = $('#map'),
@@ -72,7 +161,7 @@
             });
 
             //выводим все метки
-            getPlacemarks(idUser);
+            getPlacemarks(url,idUser);
         }
 
 
@@ -129,12 +218,12 @@
         $('#change_id').click(function(){
             if(idUser){
                 idUser = null;
-                getPlacemarks(idUser);
+                getPlacemarks(url,idUser);
                 $(this).text('Показать мои метки');
             }
             else{
                 idUser = <?php echo $id; ?>;
-                getPlacemarks(idUser);
+                getPlacemarks(url,idUser);
                 $(this).text('Показать все метки');
             }
         });
@@ -185,91 +274,6 @@
 
 </script>
 
-
-
-<?php
-/* @var $this SiteController */
-$this->pageTitle=Yii::app()->name;
-?>
-
-
-<div class="row">
-    <h2 class="page-header">Добавление метки на карту</h2>
-    <p>Выберите место на карте. Заполните форму. Сохраните. Радуйтесь.</p>
-    <div class="col-lg-8"><h3 class="page-header">1. Выберите место</h3>
-        <div id="map" class="map"></div>
-        <div class="col-md-offset-10">
-            <button id="change_id" class="btn btn-success">Показать все метки</button>
-        </div>
-
-    </div> <!--Блок с картой-->
-
-    <div class="col-lg-4">
-        <h3 class="page-header">2. Заполните информацию</h3>
-        <!-- CONTACT FORM -->
-        <form id="marker_form">
-            <div id="add_marker">
-                <div class="form-group">
-                    <label for="marker_name">Название места</label><input class="form-control" type="text" name="marker_name" id="marker_name">
-                </div>
-                <div class="form-group">
-                    <label for="balloon_text">Описание</label><textarea class="form-control" name="balloon_text" id="marker_balloontext" rows="5" cols="25"></textarea><br>
-                </div>
-                <div class="form-group">
-                    <label for="lat">Широта</label><input class="form-control" type="text" name="lat" id="marker_lat" value="" disabled><br>
-                </div>
-                <div class="form-group">
-                    <label for="lon">Долгота</label><input class="form-control" type="text" name="lon" id="marker_lon" value="" disabled><br>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="submit">&nbsp;</label><input class="btn btn-lg btn-info" type="submit" name="submit" id="addmarker" value="Добавить">
-            </div>
-            <div id="response"></div>
-        </form>
-    </div>
-    <!-- END CONTACT FORM -->
-</div>
-<div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">3. Выберите фотографии для привязки к этому месту</h3>
-
-
-        <?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
-            array(
-                'id'=>'uploadFile',
-                'config'=>array(
-                    'action'=>Yii::app()->createUrl('map/upload'),
-                    'allowedExtensions'=>array('jpg', 'png', 'jpeg'),//array("jpg","jpeg","gif","exe","mov" and etc...
-                    'sizeLimit'=>15*1024*1024,// maximum file size in bytes
-                    'minSizeLimit'=>1*1024*1024,// minimum file size in bytes
-                    'onComplete'=>"js:function(id, fileName, responseJSON){ idArray.push(responseJSON.id); alert(idArray);}",
-                )
-            )); ?>
-
-
-        <?php
-        /*
-        //выводим все фотки из портфолио
-        if(!empty($album)){
-            foreach($album as $item){ ?>
-                <div class="col-lg-2 col-md-3 col-xs-6">
-                    <a class="thumbnail">
-                        <!--у каждой фотографии добавляем id равное ее id из БД-->
-                        <img class="img-responsive for_check" id="<?php echo $item->id; ?>"
-                             src="<?php echo Yii::app()->baseUrl.'/'.Thumbnail::getThumb($item->path); ?>" alt="">
-                    </a>
-                </div>
-            <?php }
-        }
-        else{
-            echo "Фотографии отсутствуют. <a href=".Yii::app()->urlManager->createUrl('cabinet/photos/create').">Загрузить фотографии</a>";
-        }
-        */
-        ?>
-    </div>
-
-</div>
 
 
 

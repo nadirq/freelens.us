@@ -3,6 +3,8 @@
     var myMap;
     var idUser = <?php if(isset($_GET['cam_id'])){echo Yii::app()->request->getQuery('cam_id');}
                         else{ echo 'undefined'; } ?>;
+    var urlGetMap = "<?php echo Yii::app()->urlManager->createUrl('map/getmap') ?>/";
+    var urlGetCamPhotos = "<?php echo Yii::app()->urlManager->createUrl('map/getCamPhotos')?>/";
 
     function init() {
         //запрашиваем местоположение
@@ -35,7 +37,7 @@
             myMap = new ymaps.Map('map', state);
 
             //выводим все метки
-            getCamPlaces(idUser);
+            getCamPlaces(urlGetMap, urlGetCamPhotos, idUser);
         }
 
         clusterer = new ymaps.Clusterer();

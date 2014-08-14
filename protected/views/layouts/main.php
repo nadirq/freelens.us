@@ -60,6 +60,7 @@
                         array('label'=>'Настройки', 'url'=>array('/cabinet/member/account')),
                         array('label'=>'Добавить фотографии', 'url'=>array('/cabinet/photos/create')),
                         array('label'=>'Заказы', 'url'=>array('/cabinet/member/job')),
+                        array('label'=>'Добавить место', 'url' => array('/map/newPlacemark'))
                     )),
                     array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                 ),

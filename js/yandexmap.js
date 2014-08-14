@@ -3,13 +3,13 @@
 
 var idPlace;
 
-function getPlacemarks(id){
+function getPlacemarks(url, id){
 
     //TODO: использовать коллекции, вместо удаления всех меток
     myMap.geoObjects.removeAll();
 
     //запрашиваем все плейсмарки из БД
-    $.getJSON("/freelens.us/index.php/map/getmap/"+id,
+    $.getJSON(url+id,
         function(json){
             for (i = 0; i < json.markers.length; i++) {
                  myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon],
@@ -30,11 +30,12 @@ function getPlacemarks(id){
 
 }
 
-function getCamPlaces(id){
+
+function getCamPlaces(urlGetMap, urlGetCamPhotos, id){
     var myGeoObjects = [];
 
     //запрашиваем все плейсмарки из БД
-    $.getJSON("/freelens.us/index.php/map/getmap/"+id,
+    $.getJSON(urlGetMap+id,
         function(json){
             for (i = 0; i < json.markers.length; i++) {
                 myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon],
@@ -62,7 +63,7 @@ function getCamPlaces(id){
 
                         //запрашиваем  из БД все ассоциированные с меткой фотки
                         //id метки передается get параметром
-                        $.getJSON("/freelens.us/index.php/map/getCamPhotos/"+myId,
+                        $.getJSON(urlGetCamPhotos+myId,
                             function(json){
                                 $('#showImg').append('<h4>'+myName+'</h4><p>'+myDesc+'</p>');
                                 for (i = 0; i < json.photo.length; i++)

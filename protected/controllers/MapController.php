@@ -41,7 +41,6 @@ class MapController extends Controller
      */
     public function actionNewPlacemark()
     {
-        var_dump('jkgjkh'); exit();
         $album = Albums::model()->getAlbumId(Yii::app()->user->id);
         $id = Yii::app()->user->id;
         $this->render('newPlacemark', array('id' => $id, 'album' => $album->getPhotos()));

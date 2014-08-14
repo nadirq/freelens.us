@@ -43,7 +43,7 @@ class AuthController extends Controller
             if (!empty($_POST['Users']))
             {
 
-
+                $form->scenario = 'registration';
                 $form->attributes = Yii::app()->request->getPost('Users'); //$_POST['Users'];
                 $form->type = $_POST['Users']['type'];
 
@@ -98,7 +98,8 @@ class AuthController extends Controller
             {
 
 
-                $form->attributes = $_POST['Users'];
+                $form->attributes = Yii::app()->request->getPost('Users');
+                $form->scenario = 'justLogin';
 
 
                 // Some validation

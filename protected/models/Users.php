@@ -116,7 +116,7 @@ class Users extends CActiveRecord
         // Uncomment when will do full version
 		return array(
 			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
-            array('login, pass', 'required'),
+            array('login, pass, fio', 'required', 'on' => 'registration'),
             //array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
             array('login', 'length', 'min'=>5),

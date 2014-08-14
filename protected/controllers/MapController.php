@@ -118,11 +118,12 @@ class MapController extends Controller
 
         //если id пользователя передан, ищем по нему,
         //иначе выбираем все записи
-        if(isset($_GET['id'])){
+        $id = Yii::app()->request->getQuery('id');
+        if(isset($id)){
             $result = $connect->createCommand()
                 ->select('*')
                 ->from('map')
-                ->where('cam_id=:id', array(':id'=>Yii::app()->request->getQuery('id')))
+                ->where('cam_id=:id', array(':id'=>$id))
                 ->query();
         }
         else{

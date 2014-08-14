@@ -31,7 +31,7 @@ function getPlacemarks(url, id){
 }
 
 
-function getCamPlaces(urlGetMap, urlGetCamPhotos, id){
+function etCamPlaces(urlGetMap, urlGetCamPhotos, id){
     var myGeoObjects = [];
 
     //запрашиваем все плейсмарки из БД
@@ -68,7 +68,7 @@ function getCamPlaces(urlGetMap, urlGetCamPhotos, id){
                                 $('#showImg').append('<h4>'+myName+'</h4><p>'+myDesc+'</p>');
                                 for (i = 0; i < json.photo.length; i++)
                                 {
-                                    $('#showImg').append('<a href="/freelens.us/'+json.photo[i].path+'" data-dialog><div><img src="/freelens.us/'+json.photo[i].small_path+'"></div></a>');
+                                    $('#showImg').append('<a href="/images/'+json.photo[i].path+'" data-dialog><div><img src="/images/'+json.photo[i].small_path+'"></div></a>');
                                 }
 
                             });

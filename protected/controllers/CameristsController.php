@@ -43,9 +43,13 @@ class CameristsController extends Controller
         $usr = Users::model()->findByPk($id);
 
         // For ghosts
-        if($usr == '')
+        if(!isset($usr)){
             throw new CHttpException(404,'The specified post cannot be found.');
-
+        }
+        if($usr->role == 'user')
+        {
+            throw new CHttpException(404,'The specified post cannot be found.');
+        }
         // Rate him
 
         $rating = new Rating;
@@ -61,7 +65,7 @@ class CameristsController extends Controller
         }
 
 
-        $rate = Camerists::model()->findByPk($id)->rate;
+        $rate = $cam->rate;
         $album = Albums::model()->getAlbumId($id);
         $reviews = Comments::model()->getComments($id);
         $commenters = array();

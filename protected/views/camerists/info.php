@@ -45,7 +45,7 @@
 
 <div class="rate">
 
-    <?php if(!Users::model()->isMadeRate()){ ?>
+    <?php if(!Users::model()->isMadeRate($camerist->id)){ ?>
     <?php $form = $this->beginWidget('CActiveForm'); ?>
 
     <?php echo $form->errorSummary($model); ?>
@@ -67,7 +67,7 @@
 
 <?php }
 else{
-    echo 'My rate: ' . Users::model()->getRate();
+    echo 'My rate: ' . Users::model()->getRate($camerist->id);
     echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change', array('cam_id' => $camerist->id)));
 }
 }

@@ -149,7 +149,7 @@ class Orders extends CActiveRecord
 
     public function setAccept($accept = true)
     {
-        $this->accpeted = $accept; // True or false, look in controller's methods
+        $this->accepted = $accept; // True or false, look in controller's methods
     }
 
 

@@ -97,6 +97,8 @@
 </div><!-- page -->
 
 <!--Start footer-->
+
+
 <footer>
     <div><p class="text-center">© 2014 FreeLens.us. All rights reserved.</p></div>
 </footer>

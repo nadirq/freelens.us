@@ -57,7 +57,7 @@ class CommentsController extends Controller
         {
             $comm->user_id = Yii::app()->user->id;
             $comm->cam_id = $_GET['cam_id'];
-            $comm->attributes = $_POST['Comments'];
+            $comm->attributes = Yii::app()->request->getPost('Comments');//$_POST['Comments'];
             if($comm->save())
                 $this->render('congrats');
             else

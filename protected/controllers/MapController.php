@@ -2,30 +2,34 @@
 
 class MapController extends Controller
 {
+
+
+    public function filters()
+    {
+        return array(
+            'accessControl'
+        );
+    }
+
     public function actionIndex()
     {
         $this->render('index');
     }
 
-
     public function accessRules()
     {
         return array(
-            array('deny',
-                'actions'=>array('newPlacemark'),
-                'users'=>('?'),
-            ),
-            array('deny',
-                'actions'=>array('newPlacemark'),
-                'roles'=>('user'),
-            ),
-            array('allow',
-                'actions'=>array('showPlaces'),
-                'users'=>array('?'),
-            ),
             array('allow',
                 'actions'=>array('newPlacemark', 'upload'),
                 'roles'=>array('camerist'),
+            ),
+            array('allow',
+                'actions'=>array('showPlaces'),
+                'users'=>array('*'),
+            ),
+            array('deny',
+                'actions'=>array('newPlacemark', 'upload'),
+                'users'=>array('*'),
             ),
         );
     }
@@ -37,6 +41,7 @@ class MapController extends Controller
      */
     public function actionNewPlacemark()
     {
+        var_dump('jkgjkh'); exit();
         $album = Albums::model()->getAlbumId(Yii::app()->user->id);
         $id = Yii::app()->user->id;
         $this->render('newPlacemark', array('id' => $id, 'album' => $album->getPhotos()));
@@ -113,11 +118,12 @@ class MapController extends Controller
 
         //если id пользователя передан, ищем по нему,
         //иначе выбираем все записи
-        if(isset($_GET['id'])){
+        $id = Yii::app()->request->getQuery('id');
+        if(isset($id)){
             $result = $connect->createCommand()
                 ->select('*')
                 ->from('map')
-                ->where('cam_id=:id', array(':id'=>Yii::app()->request->getQuery('id')))
+                ->where('cam_id=:id', array(':id'=>$id))
                 ->query();
         }
         else{

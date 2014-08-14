@@ -68,7 +68,7 @@
 <?php }
 else{
     echo 'My rate: ' . Users::model()->getRate();
-    echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change'));
+    echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change', array('cam_id' => $camerist->id)));
 }
 ?>
 <!-- rate-->

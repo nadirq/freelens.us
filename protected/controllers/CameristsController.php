@@ -40,15 +40,18 @@ class CameristsController extends Controller
 
 
         $id = Yii::app()->request->getQuery('cam_id');
+        $usr = Users::model()->findByPk($id);
+
+        // For ghosts
+        if($usr == '')
+            throw new CHttpException(404,'The specified post cannot be found.');
 
         // Rate him
 
         $rating = new Rating;
-
-        $idd = Yii::app()->request->getQuery('cam_id');//$_GET['cam_id'];
         $cam = Camerists::model()->findByPk($id); // Save camerist for order
         if(isset($_POST['Rating'])){
-            $rating->attributes = Yii::app()->request->getPost('Rating');//$_POST['Rating'];
+            $rating->attributes = Yii::app()->request->getPost('Rating');
             $rating->cam_id = $id;
             $rating->user_id = Yii::app()->user->id;
             if($rating->save())
@@ -57,11 +60,7 @@ class CameristsController extends Controller
             }
         }
 
-        $usr = Users::model()->findByPk($id);
 
-        // For ghosts
-        if($usr == '')
-            throw new CHttpException(404,'The specified post cannot be found.');
         $rate = Camerists::model()->findByPk($id)->rate;
         $album = Albums::model()->getAlbumId($id);
         $reviews = Comments::model()->getComments($id);

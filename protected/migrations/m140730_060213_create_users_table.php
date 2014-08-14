@@ -16,7 +16,7 @@ class m140730_060213_create_users_table extends CDbMigration
             'about' => 'text',
             'reg_date' => 'timestamp',
             'last_login' => 'timestamp',
-            'role' => 'varchar(30) not null',
+            'role' => 'varchar(30) default "user"',
             'lat' => 'varchar(40)',
             'lon' => 'varchar(40)'
         ));

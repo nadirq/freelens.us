@@ -101,6 +101,8 @@ class Camerists extends CActiveRecord
                 'params' => array(':cam_id' => $this->user_id),
         ))->queryRow();
 
+        if($getAverageRate['rt'] == '')
+            $getAverageRate['rt'] = 0;
         $command = Yii::app()->db->createCommand();
         $command->update('camerists', array(
             'rate'=>$getAverageRate['rt'],

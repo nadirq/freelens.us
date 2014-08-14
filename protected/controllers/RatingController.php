@@ -31,7 +31,13 @@ class RatingController extends Controller
 
     public function actionChange()
     {
-        Rating::model()->remove(Yii::app()->user->id);
+
+        $criteria = new CDbCriteria;
+        $criteria->select = 'id';
+        $criteria->condition = 'cam_id = :c_id AND user_id = :u_id';
+        $criteria->params = array(':c_id' => Yii::app()->request->getQuery('cam_id'), ':u_id'=>Yii::app()->user->id);
+        Rating::model()->find($criteria)->delete();
+        //Rating::model()->delete();
         $camId = Yii::app()->request->getQuery('cam_id');
         $cam = Camerists::model()->findByPk($camId); // Save camerist for order
         $cam->updateRating();

@@ -40,6 +40,8 @@ class Users extends CActiveRecord
             {
                 $this->pass = CPasswordHelper::hashPassword($this->pass);
                 $this->role = $this->type;
+                if($this->role=='')
+                    $this->role = 'user';
             }
             return true;
         }
@@ -63,18 +65,34 @@ class Users extends CActiveRecord
 
 
 
-    public function getRate()
+    public function getRate($cam)
     {
-        return Rating::model()->findByAttributes(array('user_id'=>Yii::app()->user->id))->rate;
+
+        $criteria = new CDbCriteria;
+        $criteria->select = 'rate';
+        $criteria->condition = 'cam_id = :c_id AND user_id = :u_id';
+        $criteria->params = array(':c_id' => $cam, ':u_id'=> Yii::app()->user->id);
+        //var_dump(Rating::model()->findAll($criteria));
+        //exit;
+        return Rating::model()->find($criteria)->rate;
+
+        //return Rating::model()->findByAttributes(array('user_id'=>Yii::app()->user->id, 'cam_id' => $cam))->rate;
     }
 
 
 
 
-    public function isMadeRate()
+    public function isMadeRate($cam)
     {
-        if(Rating::model()->findByAttributes(array('user_id'=>Yii::app()->user->id)))
+        $criteria = new CDbCriteria;
+        $criteria->select = 'rate';
+        $criteria->condition = 'cam_id = :c_id AND user_id = :u_id';
+        $criteria->params = array(':c_id' => $cam, ':u_id'=> Yii::app()->user->id);
+
+        if(Rating::model()->find($criteria)){
             return true;
+        }
+
         else
             return false;
     }

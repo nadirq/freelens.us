@@ -41,7 +41,7 @@
         </div>
     </div>
 
-
+<?php if(Yii::app()->request->getQuery('cam_id')!=Yii::app()->user->id) {?>
 
 <div class="rate">
 
@@ -69,6 +69,7 @@
 else{
     echo 'My rate: ' . Users::model()->getRate();
     echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change', array('cam_id' => $camerist->id)));
+}
 }
 ?>
 <!-- rate-->

@@ -219,7 +219,7 @@ class MapController extends Controller
                     'lat' => $value['lat'],
                     'lon' => $value['lon'],
                     'fio' => $value['fio'],
-                    'id' => $value['id'],
+                    'id' => Yii::app()->urlManager->createUrl("/camerists/info", array('cam_id'=>$value['id'])),
                     'avatar' => Yii::app()->request->baseUrl.'/'.$value['avatar']
                 );
                 $marker[] = $json;

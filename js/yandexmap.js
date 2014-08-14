@@ -68,7 +68,7 @@ function getCamPlaces(urlGetMap, urlGetCamPhotos, id){
                                 $('#showImg').append('<h4>'+myName+'</h4><p>'+myDesc+'</p>');
                                 for (i = 0; i < json.photo.length; i++)
                                 {
-                                    $('#showImg').append('<a href="'+json.photo[i].path+'" data-dialog><div><img src="'+json.photo[i].small_path+'"></div></a>');
+                                    $('#showImg').append('<a href="/'+json.photo[i].path+'" data-dialog><div><img src="/'+json.photo[i].small_path+'"></div></a>');
                                 }
 
                             });

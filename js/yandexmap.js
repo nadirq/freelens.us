@@ -31,7 +31,7 @@ function getPlacemarks(url, id){
 }
 
 
-function etCamPlaces(urlGetMap, urlGetCamPhotos, id){
+function getCamPlaces(urlGetMap, urlGetCamPhotos, id){
     var myGeoObjects = [];
 
     //запрашиваем все плейсмарки из БД

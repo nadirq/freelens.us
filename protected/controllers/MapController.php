@@ -221,7 +221,7 @@ class MapController extends Controller
                     'lon' => $value['lon'],
                     'fio' => $value['fio'],
                     'id' => $value['id'],
-                    'avatar' => $value['avatar']
+                    'avatar' => Yii::app()->request->baseUrl.'/'.$value['avatar']
                 );
                 $marker[] = $json;
             }

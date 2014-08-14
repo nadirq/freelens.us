@@ -118,22 +118,22 @@ class Users extends CActiveRecord
 			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
             array('login, pass, fio', 'required', 'on' => 'registration'),
             //array('login, role', 'length', 'max'=>30),
-            array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Login contains bad symbols.'),
-            array('login', 'length', 'min'=>5),
-            array('pass', 'length', 'min'=>6),
-			array('email, fio', 'length', 'max'=>50),
+            array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Запрещенные символы в логине!'),
+            array('login', 'length', 'min'=>5, 'message' => 'Логин слишком короткий. Минимальная длина 5 символов.'),
+            array('pass', 'length', 'min'=>6, 'message' => 'Минимальная длина пароля сосставляет 6 символов.'),
+			array('email, fio', 'length', 'max'=>50, 'message' => 'Слишком длинный email.'),
 			array('tel', 'length', 'max'=>20),
             array('lat', 'length', 'min'=>1),
             array('lon', 'length', 'min'=>1),
 			//array('activation', 'length', 'max'=>32),
 
 			array('about, last_login', 'safe'),
-            array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Wrong email address.'),
+            array('email', 'match', 'pattern' => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Невозможный email'),
             //array('verifyCode', 'captcha', 'allowEmpty'=>!extension_loaded('gd')),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, login, pass, email, tel, fio, activation, about, reg_date, last_login, role', 'safe', 'on'=>'search'),
-            array('img', 'file', 'allowEmpty'=>true, 'types'=>'jpg, png, jpeg'),
+            array('img', 'file', 'allowEmpty'=>true, 'types'=>'jpg, png, jpeg', 'message' => 'В вашем портфолио могут быть только изображения'),
         );
 	}
 

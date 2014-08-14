@@ -32,14 +32,14 @@ class Photos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('album_id', 'required'),
+			array('album_id', 'required', 'Нет привязки к альбомую'),
 			array('album_id', 'numerical', 'integerOnly'=>true),
-			array('path', 'length', 'max'=>100),
-            array('path', 'required'),
+			array('path', 'length', 'max'=>100, 'message' => 'Слишком длиннов название изображения'),
+            array('path', 'required', 'message' => 'загрузите что-нибудь!'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, path, album_id', 'safe', 'on'=>'search'),
-            array('img', 'file', 'types'=>'jpg, png, jpeg', 'on'=>'toPortfolio'),
+            array('img', 'file', 'types'=>'jpg, png, jpeg', 'on'=>'toPortfolio', 'В вашем портфолио могут быть только изображения.'),
 
 		);
 	}

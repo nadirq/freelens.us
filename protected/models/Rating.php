@@ -42,7 +42,7 @@ class Rating extends CActiveRecord
 			array('cam_id, user_id', 'numerical', 'integerOnly'=>true),
 			array('rate', 'length', 'max'=>2),
 			array('cam_id, user_id, rate', 'safe', 'on'=>'search'),
-            array('user_id', 'unique'), // Only one user can set rating
+            array('user_id', 'unique', 'message' => 'Вы уже выставляли рейтиг этому фотографу!'), // Only one user can set rating
 		);
 	}
 

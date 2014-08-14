@@ -1,7 +1,8 @@
 <script type="text/javascript">
     ymaps.ready(init);
     var myMap;
-    var idUser = <?php echo Yii::app()->request->getQuery('cam_id'); ?>;
+    var idUser = <?php if(isset($_GET['cam_id'])){echo Yii::app()->request->getQuery('cam_id');}
+                        else{ echo 'undefined'; } ?>;
 
     function init() {
         //запрашиваем местоположение

@@ -48,6 +48,7 @@ class Orders extends CActiveRecord
 		return array(
 			array('cam_id, user_id, price, date', 'required'),
 			array('cam_id, user_id, price', 'numerical', 'integerOnly'=>true),
+            array('price', 'in', 'range'=>range(10,1000), 'message' => 'Как минимум 10 долларов, но не больше 1000'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cam_id, user_id, price, date', 'safe', 'on'=>'search'),

@@ -22,7 +22,7 @@ class MemberController extends Controller
         {
 
 
-            $usr->attributes = Yii::app()->request->getPost('Users'); // $_POST['Users'];
+            $usr->attributes = Yii::app()->request->getPost('Users');
 
 
 

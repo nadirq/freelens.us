@@ -2,7 +2,7 @@
 
 class busyDay extends CValidator{
 
-    protected $error = 'You can\'t pick this day';
+    protected $error = 'Этот день уже занят. Попробуйте выбрать другой.';
 
 
     protected function validateAttribute($object, $attribute)

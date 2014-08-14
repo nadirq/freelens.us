@@ -105,8 +105,13 @@ class AuthController extends Controller
                 // Some validation
                 if($form->validate('login'))
                 {
-                    $form->login();
-                    $this->redirect(Yii::app()->homeUrl);
+                    if(!$form->login()){
+                        $form->addError('login', 'Ошибка входа');
+                        $this->render('login', array('form' => $form));
+                        return;
+                    }
+                    else
+                        $this->redirect(Yii::app()->homeUrl);
                 }
             }
             $this->render('login', array('form' => $form));

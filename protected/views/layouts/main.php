@@ -93,15 +93,19 @@
 
 
         <div class="clear"></div>
+
     </div>
 </div><!-- page -->
 
 <!--Start footer-->
-
-
-<footer>
-    <div><p class="text-center">© 2014 FreeLens.us. All rights reserved.</p></div>
-</footer>
+<div class="row">
+    <div class="col-lg-12"><div class="space"></div></div>
+</div>
+<div class="row">
+    <footer>
+        <div><p class="text-center">© 2014 FreeLens.us. All rights reserved.</p></div>
+    </footer>
+</div>
 <!--End footer-->
 
 </body>

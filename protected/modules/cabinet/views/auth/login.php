@@ -4,20 +4,20 @@
 
 
 
-<?=CHtml::form(); ?>
+        <?=CHtml::form(); ?>
 
 
-<?=CHtml::activeLabel($form, 'login'); ?>
-<?=CHtml::activeTextField($form, 'login', array('class' => 'form-control')) ?>
-<br />
-<?=CHtml::activeLabel($form, 'pass'); ?>
-<?=CHtml::activePasswordField($form, 'pass', array('class' => 'form-control')) ?>
+        <?=CHtml::activeLabel($form, 'login'); ?>
+        <?=CHtml::activeTextField($form, 'login', array('class' => 'form-control')) ?>
+        <br />
+        <?=CHtml::activeLabel($form, 'pass'); ?>
+        <?=CHtml::activePasswordField($form, 'pass', array('class' => 'form-control')) ?>
 
-<br/>
-<?=CHtml::submitButton('Enter', array('id' => "submit", 'class' => 'btn btn-success')); ?>
+        <br/>
+        <?=CHtml::submitButton('Enter', array('id' => "submit", 'class' => 'btn btn-success')); ?>
         <?=CHtml::errorSummary($form); ?><br>
 
 
-<?=CHtml::endForm(); ?>
-        </div>
+        <?=CHtml::endForm(); ?>
     </div>
+</div>

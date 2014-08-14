@@ -117,6 +117,7 @@ class Users extends CActiveRecord
 		return array(
 			//array('login, pass, cpass, email, fio, activation, reg_date, role', 'required'),
             array('login, pass, fio', 'required', 'on' => 'registration'),
+            array('login, pass', 'required', 'on' => 'justLogin'),
             //array('login, role', 'length', 'max'=>30),
             array('login', 'match', 'pattern' => '/^[A-Za-z0-9_-А-Яа-я\s,]+$/u','message'  => 'Запрещенные символы в логине!'),
             array('login', 'length', 'min'=>5, 'message' => 'Логин слишком короткий. Минимальная длина 5 символов.'),

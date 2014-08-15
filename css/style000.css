@@ -1,33 +1,41 @@
 html, body{
+
     height: 100%;
-    min-height: 100%;
 }
 body
 {
-	margin: 0;
-	padding: 0;
-	color: black;
+    margin: 0;
+    padding: 0;
+    color: black;
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     background: #fff;
     /*background: #eee;*/
-	/*background-image: url("bg.png");*/
+    /*background-image: url("bg.png");*/
 }
 p{
     text-align: justify;
 }
+
+::selection {background: #cd4646; color:#fff;}
+::-moz-selection {background: #cd4646; color:#fff;}
+::-webkit-selection {background: #cd4646; color:#fff;}
+
 #page
 {
-	margin-top: 0;
-	margin-bottom: 0;
+
+    background-color: #fffefe;
+
+    min-height: 100%;
+    height: auto !important;
     height: 100%;
-    background-color: #ffffff;
+    margin: 0 auto -60px;
 }
 
 #header
 {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
     color: white;
 }
 
@@ -35,21 +43,22 @@ p{
 
 #sidebar
 {
-	padding: 20px 20px 20px 0;
+    padding: 20px 20px 20px 0;
 }
 
 footer
 {
-    background: #1AB3BD;
+    background: #cdcdcd;
     text-align: center;
     padding: 25px 0 15px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
 }
 
 div.space{
     width: 100%;
-    background: black;
-    clear: both;
-    margin-top: -160px;
+    height: 60px;
 
 }
 
@@ -68,135 +77,144 @@ div.space{
 
 #logo
 {
-	font-size: 200%;
-    margin-left: 15px;
+    margin-left: 0;
 }
 .head_background{
-    background: #0D7BFF;
-    background: url("menu_bg2.jpg");
-}   
+    background: #fefefe;
+    border-bottom: rgba(153, 153, 153, 0.54) solid 1px;
+}
 #mainmenu
 {
+    z-index: 9999;
+    font-family: 'Droid Sans', sans-serif;
+}
 
-
+#mainmenu a{
+    color: #cd4646;
+    text-decoration: underline;
 }
 
 #mainmenu ul
 {
-	padding:15px 15px 0 15px;
-	margin:0;
+    padding:15px 15px 0 15px;
+    margin:0;
 }
 
 #mainmenu ul li
 {
-	display: inline;
+    display: inline;
+    position: relative;
 }
 
 #mainmenu ul li a
 {
-	color:#ffffff;
-	background-color:transparent;
-	font-size:15px;
-	text-decoration:none;
-	padding:15px 15px;
+    color:#cd4646;
+    background-color:transparent;
+    font-size:17px;
+    text-decoration:none;
+    padding:5px 15px;
 }
 
 #mainmenu ul li a:hover, #mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#ffffff;
-	text-decoration:none;
+    color: #fff;
+    background-color: #cd4646;
+    text-decoration:none;
 }
 
 #mainmenu ul li ul{
     display: none;
-    color: red;
+    color: #cd4646;
+    background: #cccccc;
+    padding: 0;
 }
 
 #mainmenu ul li ul li a{
-
+    display: block;
     color: red;
 }
-
 
 
 #mainmenu ul li:hover ul{
     position: absolute;
-
+    top: 25px;
+    left:1px;
+    width: 250px;
     display: block;
+
 }
 
 div.flash-error, div.flash-notice, div.flash-success
 {
-	padding:.8em;
-	margin-bottom:1em;
-	border:2px solid #ddd;
+    padding:.8em;
+    margin-bottom:1em;
+    border:2px solid #ddd;
 }
 
 div.flash-error
 {
-	background:#FBE3E4;
-	color:#8a1f11;
-	border-color:#FBC2C4;
+    background:#FBE3E4;
+    color:#8a1f11;
+    border-color:#FBC2C4;
 }
 
 div.flash-notice
 {
-	background:#FFF6BF;
-	color:#514721;
-	border-color:#FFD324;
+    background:#FFF6BF;
+    color:#514721;
+    border-color:#FFD324;
 }
 
 div.flash-success
 {
-	background:#E6EFC2;
-	color:#264409;
-	border-color:#C6D880;
+    background:#E6EFC2;
+    color:#264409;
+    border-color:#C6D880;
 }
 
 div.flash-error a
 {
-	color:#8a1f11;
+    color:#8a1f11;
 }
 
 div.flash-notice a
 {
-	color:#514721;
+    color:#514721;
 }
 
 div.flash-success a
 {
-	color:#264409;
+    color:#264409;
 }
 
 div.form .rememberMe label
 {
-	display: inline;
+    display: inline;
 }
 
 div.view
 {
-	padding: 10px;
-	margin: 10px 0;
-	border: 1px solid #C9E0ED;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #C9E0ED;
 }
 
 div.breadcrumbs
 {
-	font-size: 0.9em;
-	padding: 5px 20px;
+    font-size: 0.9em;
+    padding: 5px 20px;
 }
 
 div.breadcrumbs span
 {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 div.search-form
 {
-	padding: 10px;
-	margin: 10px 0;
-	background: #eee;
+    padding: 10px;
+    margin: 10px 0;
+    background: #eee;
 }
 
 .portlet
@@ -206,81 +224,82 @@ div.search-form
 
 .portlet-decoration
 {
-	padding: 3px 8px;
-	background: #B7D6E7;
-	border-left: 5px solid #6FACCF;
+    padding: 3px 8px;
+    background: #B7D6E7;
+    border-left: 5px solid #6FACCF;
 }
 
 .portlet-title
 {
-	font-size: 12px;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	color: #298dcd;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    color: #298dcd;
 }
 
 .portlet-content
 {
-	font-size:0.9em;
-	margin: 0 0 15px 0;
-	padding: 5px 8px;
-	background:#EFFDFF;
+    font-size:0.9em;
+    margin: 0 0 15px 0;
+    padding: 5px 8px;
+    background:#EFFDFF;
 }
 
 .portlet-content ul
 {
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-	margin: 0;
-	padding: 0;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
 }
 
 .portlet-content li
 {
-	padding: 2px 0 4px 0px;
+    padding: 2px 0 4px 0px;
 }
 
 .operations
 {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .operations li
 {
-	padding-bottom: 2px;
+    padding-bottom: 2px;
 }
 
 .operations li a
 {
-	font: bold 12px Arial;
-	color: #0066A4;
-	display: block;
-	padding: 2px 0 2px 8px;
-	line-height: 15px;
-	text-decoration: none;
+    font: bold 12px Arial;
+    color: #0066A4;
+    display: block;
+    padding: 2px 0 2px 8px;
+    line-height: 15px;
+    text-decoration: none;
 }
 
 .operations li a:visited
 {
-	color: #0066A4;
+    color: #0066A4;
 }
 
 .operations li a:hover
 {
-	background: #80CFFF;
+    background: #80CFFF;
 }
 
 /* Карта */
 
 .map{
     height: 500px;
-    border: 2px solid black;
+    border: 1px solid #d9d9d9;
     border-top: 0;
     border-bottom: 0;
+    z-index: 1500;
 }
 
 
@@ -305,7 +324,6 @@ div.search-form
 }
 
 
-/***********слайдер на главной**************/
 
 
 
@@ -321,13 +339,65 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Droid Sans', sans serif;
     font-weight: 400;
 }
+.user_list{
+    padding: 15px 0;
+    border-bottom: 1px solid #cd4646;
+}
+.rate{
+    margin: 15px  0 15px 15px;
+}
 
+.order{
+    margin: 15px 10px;
+    border-bottom: 1px #cd4646 solid;
+    padding: 0 0 10px;
+}
 
+#reviews{
+    margin-top: 40px;
+}
 
-.avatar{
-    height: 350px;
+.review{
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    border: #d9d9d9 1px solid;
+}
+
+.review .text{
+    margin-bottom: 5px;
+    margin-left: 35px;
+    font-style: italic;
+}
+
+.review .date{
+    color: #555;
+    font-size: 0.8em;
+}
+.fio a{
+    text-decoration: none;
+}
+
+.fio a:hover{
+    text-decoration: underline;
+}
+
+.avatar_list{
     overflow: hidden;
     border-radius:15px;
+    width: 100%;
+    height: 200px;
+}
+
+.avatar_list img{
+    width: 100%;
+}
+
+.avatar{
+    overflow: hidden;
+    border-radius:15px;
+    width: 100%;
+    
 }
 
 .avatar img{
@@ -338,7 +408,6 @@ h1, h2, h3, h4, h5, h6{
 #links a div, #showImg a div{
     float: left;
     overflow: hidden;
-
     border-radius: 10px;
     width: 150px;
     height: 150px;

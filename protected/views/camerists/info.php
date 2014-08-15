@@ -9,15 +9,23 @@
             ?>
         </div>
         <div id="can">
+            <?php if(Yii::app()->request->getQuery('cam_id')!=Yii::app()->user->id){?>
                 <span class="btn btn-success">
                     <?php echo CHtml::link('Забронировать', Yii::app()->createUrl('orders/make', array('cam_id' => $camerist->id))); ?>
                 </span>
+
                 <span class="btn btn-danger">
                     <?php echo CHtml::link('Отзыв', Yii::app()->createUrl('/comments/add', array('cam_id' => $camerist->id))); ?>
                 </span>
-                <span class="btn btn-primary">
-                    <?php echo CHtml::link('Места фотографа', Yii::app()->createUrl('/map/showPlaces', array('cam_id' => $camerist->id))); ?>
+
+            <span class="btn btn-primary">
+                <?php echo CHtml::link('Места фотографа', Yii::app()->createUrl('/map/showPlaces', array('cam_id' => $camerist->id))); ?>
+            </span>
+            <?php }else{ ?>
+                <span class="btn btn-primary" style="width: 100%;">
+                    <?php echo CHtml::link('Мои места', Yii::app()->createUrl('/map/showPlaces', array('cam_id' => $camerist->id))); ?>
                 </span>
+            <?php }?>
         </div>
 
         <?php if(Yii::app()->request->getQuery('cam_id')!=Yii::app()->user->id) {?>
@@ -30,13 +38,13 @@
                 <?php echo $form->errorSummary($model); ?>
 
                 <div class="compactRadioGroup">
-<p>
-                    <?php
-                    echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'), array('separator' => ''));
-                    ?>
+                    <p>
+                        <?php
+                        echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'), array('separator' => ''));
+                        ?>
 
-                    <?php echo CHtml::submitButton('Rate', array('class' => 'btn btn-default')); ?>
-</p>
+                        <?php echo CHtml::submitButton('Rate', array('class' => 'btn btn-default')); ?>
+                    </p>
                 </div>
 
 
@@ -153,15 +161,16 @@
 
 
 
-    <script>
+<script>
 
     ymaps.ready(init);
     var myMap;
     var myLocation;
+    var url = "<?php echo Yii::app()->urlManager->createUrl('map/getcamlocation'); ?>/";
 
     function init() {
         myId = <?php echo Yii::app()->request->getQuery('cam_id'); ?>
-            //создаем карту и центрируем ее на Новосибирск
+
             myMap = new ymaps.Map('map', {
                 center: [55.02, 82.93], // Новосибирск
                 zoom: 13,
@@ -169,7 +178,7 @@
             });
 
         //делаем запрос на местоположение пользователя
-        $.getJSON("/freelens.us/index.php/map/getCamLocation/"+myId,
+        $.getJSON(url+myId,
             function(json){
 
                 //если координаты есть, то добавляем метку на карту и цнтрируемся по ней
@@ -187,11 +196,9 @@
             }
         );
 
+        //создаем карту и центрируем ее на Новосибирск
 
-
-
-
-         }
+    }
 
 
 </script>

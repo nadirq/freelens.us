@@ -61,7 +61,7 @@
 </script>
 
 <div class="row">
-    <h2 class="page-header">Места какого-то еще одного фотографа</h2>
+    <h2 class="page-header">Места фотографа <strong><?php echo Users::model()->findByPk(Yii::app()->request->getQuery('cam_id'))->fio; ?></strong></h2>
 
     <div class="col-lg-6">
         <div id="map" class="map"></div>

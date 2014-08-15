@@ -26,7 +26,7 @@ $this->breadcrumbs=array(
         </div>
         <div class="col-lg-8">
             <div class="photo_list">
-                
+
             </div>
         </div>
 

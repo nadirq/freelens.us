@@ -55,7 +55,7 @@ $this->pageTitle=Yii::app()->name;
                     'action'=>Yii::app()->createUrl('map/upload'),
                     'allowedExtensions'=>array('jpg', 'png', 'jpeg'),//array("jpg","jpeg","gif","exe","mov" and etc...
                     'sizeLimit'=>15*1024*1024,// maximum file size in bytes
-                    'minSizeLimit'=>1*1024*1024,// minimum file size in bytes
+                    'minSizeLimit'=>0.5*1024*1024,// minimum file size in bytes
                     'onComplete'=>"js:function(id, fileName, responseJSON){ idArray.push(responseJSON.id); }",
                 )
             )); ?>

@@ -1,4 +1,4 @@
 
-<h1>Thank you for your review</h1>
+<h3>Спасибо за ваш отзыв!</h3>
 
-<p>You can check it on photographer's page or in 'My reviews' page</p>
+<p>Теперь ваш отзыв доступен всем пользователям на странице фотграфа. Также можете его увидеть в разделе Мои отзывы</p>

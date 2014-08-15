@@ -1,4 +1,7 @@
-<?php foreach($orders as $i => $order): ?>
+<h3 class="page-header">Заявки на фотосессию</h3>
+<?php
+if(!empty($orders)){
+foreach($orders as $i => $order): ?>
         <div class='order'>
             <?php
                 echo $users[$i]->login;
@@ -41,7 +44,12 @@
 
      ?>
     </div>
-<?php endforeach; ?>
+<?php endforeach;
+}
+else{
+    echo 'Заявок нету';
+}
+?>
 
 
 <?php

@@ -3,36 +3,43 @@
 /* @var $camerist Users */
 
 $this->breadcrumbs=array(
-	'Camerists',
+    'Camerists',
 );
 ?>
-<h1>Our photographers</h1>
+<h2 class="page-header">Our photographers</h2>
 
 <p>
     <?php foreach($camerists as $camerist): ?>
-        <div class = "row" >
-            <div id='avatar'>
+    <div class = "row user_list" >
+        <div class="col-lg-2">
+            <div class='avatar_list'>
                 <?php
-                    echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($camerist->avatar), 'Avatar');
+                echo CHtml::image(Yii::app()->baseUrl.'/'.Thumbnail::getThumb($camerist->avatar), 'Avatar');
                 ?>
             </div>
-            <?php echo CHtml::link($camerist->login, Yii::app()->createUrl('/camerists/info', array('cam_id' => $camerist->id))); ?>
-            <?php echo $camerist->camerists->rate; ?>
-
         </div>
-        <br />
-    <?php endforeach; ?>
+        <div class="col-lg-2">
+            <div class="fio">
+                <h4><?php echo CHtml::link($camerist->fio, Yii::app()->createUrl('/camerists/info', array('cam_id' => $camerist->id))); ?></h4>
+            </div>
+            <?php echo 'Рейтинг: '.$camerist->camerists->rate; ?>
+        </div>
+        <div class="col-lg-8">
+            <div class="photo_list">
+                фоточки
+            </div>
+        </div>
+
+
+    </div>
+<br />
+<?php endforeach; ?>
 
 <?php
-    $this->widget('CLinkPager', array(
-        'pages' => $pages,
-    ));
+$this->widget('CLinkPager', array(
+    'pages' => $pages,
+));
 ?>
 
-</p>
 
-<script>
-    $(document).ready(function(){
-        $('.bxslider').bxSlider();
-    });
-</script>
+

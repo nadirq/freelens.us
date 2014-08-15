@@ -60,7 +60,7 @@ $baseUrl = Yii::app()->request->baseurl;
                         array('label'=>'Фотографы', 'url'=>array('/camerists/index')),
                         array('label'=>'Регистрация', 'url'=>array('/cabinet/auth/registration'), 'visible'=>Yii::app()->user->isGuest),
                         array('label'=>'Войти', 'url'=>array('/cabinet/auth/login'), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Мой кабинет', 'url'=>array('/cabinet/member/dashboard'),
+                        array('label'=>'Мой кабинет', 'url'=>array("/camerists/info?cam_id=".Yii::app()->user->id ),
                             'visible'=>Yii::app()->user->isCamerist(), 'items'=>array(
                             array('label'=>'Информация', 'url'=>array('/cabinet/member/dashboard')),
                             array('label'=>'Настройки', 'url'=>array('/cabinet/member/account')),

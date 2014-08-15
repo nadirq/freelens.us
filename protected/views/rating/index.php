@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 	'Orders',
 );
 ?>
-<h1>My rates</h1>
+<h3 class="page-header">Выставленные оценки</h3>
 
 <?php
 if(!$rates)
@@ -18,9 +18,9 @@ foreach($rates as $i => $r)
         <?php
         if(isset($camerists[$i]))
         {
-            echo $camerists[$i]->login . '<br />';
-            echo $r->rate;
-            echo CHtml::link('Change rate', Yii::app()->createUrl('rating/change'));
+            echo 'Оценка для '. $camerists[$i]->fio . '<br />';
+            echo $r->rate . '&nbsp;&nbsp;&nbsp;';
+            echo CHtml::link('Change rate', Yii::app()->createUrl('rating/change'),array('class'=>'btn btn-primary'));
 
         }
         ?>

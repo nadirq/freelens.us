@@ -347,9 +347,16 @@ h1, h2, h3, h4, h5, h6{
     margin: 15px  0 15px 15px;
 }
 
+.order{
+    margin: 15px 10px;
+    border-bottom: 1px #cd4646 solid;
+    padding: 0 0 10px;
+}
+
 #reviews{
     margin-top: 40px;
 }
+
 .review{
     padding: 10px;
     margin-bottom: 10px;

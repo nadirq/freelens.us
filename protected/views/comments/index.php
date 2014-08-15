@@ -1,11 +1,8 @@
 <?php
 /* @var $this CommentsController */
 
-$this->breadcrumbs=array(
-	'Comments',
-);
 ?>
-<h1>My reviews</h1>
+<h3 class="page-header">Я рассказал всем о</h3>
 
 <div id="rewiews">
     <?php
@@ -16,7 +13,7 @@ $this->breadcrumbs=array(
         ?>
         <div class="review">
             <?php if(isset($r)) { ?>
-                <?php echo $camerists[$i]->login; ?>
+                <?php echo 'Для <strong>'. $camerists[$i]->fio .'</strong>'; ?>
                 <br />
                 <?php echo $r->message; ?>
                 <br />

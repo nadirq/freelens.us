@@ -30,13 +30,13 @@
                 <?php echo $form->errorSummary($model); ?>
 
                 <div class="compactRadioGroup">
-
+<p>
                     <?php
                     echo $form->radioButtonList($model,'rate',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=> '5'), array('separator' => ''));
                     ?>
 
-                    <?php echo CHtml::submitButton('Rate', array('class' => 'btn')); ?>
-
+                    <?php echo CHtml::submitButton('Rate', array('class' => 'btn btn-default')); ?>
+</p>
                 </div>
 
 
@@ -48,7 +48,7 @@
                 echo 'Моя оценка: ' . Users::model()->getRate($camerist->id);
                 echo "&nbsp;&nbsp;";
                 echo '<span class="btn">';
-                echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change', array('cam_id' => $camerist->id)));
+                echo CHtml::link('Я передумал', Yii::app()->createUrl('rating/change', array('cam_id' => $camerist->id)), array('class' => 'btn btn-default'));
                 echo '<span>';
             }
             echo "</div>";
@@ -150,3 +150,48 @@
     <br />
     <br />
 </div>
+
+
+
+    <script>
+
+    ymaps.ready(init);
+    var myMap;
+    var myLocation;
+
+    function init() {
+        myId = <?php echo Yii::app()->request->getQuery('cam_id'); ?>
+            //создаем карту и центрируем ее на Новосибирск
+            myMap = new ymaps.Map('map', {
+                center: [55.02, 82.93], // Новосибирск
+                zoom: 13,
+                controls: ['zoomControl','geolocationControl','searchControl']
+            });
+
+        //делаем запрос на местоположение пользователя
+        $.getJSON("/freelens.us/index.php/map/getCamLocation/"+myId,
+            function(json){
+
+                //если координаты есть, то добавляем метку на карту и цнтрируемся по ней
+                if(json.marker[0].lat!=null&& json.marker[0].lon!=null){
+                    myLocation = new ymaps.Placemark([json.marker[0].lat, json.marker[0].lon],
+                        {
+                            balloonContentBody: 'Фотограф находится здесь)'
+                        }, {
+                            // Опции
+                            preset: 'islands#greenDotIcon'
+                        });
+                    myMap.geoObjects.add(myLocation);
+                    myMap.setCenter([json.marker[0].lat, json.marker[0].lon]);
+                }
+            }
+        );
+
+
+
+
+
+         }
+
+
+</script>

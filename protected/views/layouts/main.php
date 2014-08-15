@@ -70,12 +70,12 @@ $baseUrl = Yii::app()->request->baseurl;
                         ),
 
                         ),
-//                        array('label'=>'Мои', 'url'=>array(''),
-//                            'visible'=>Yii::app()->user->isUser(), 'items'=>array(
-//                            array('label'=>'Заказы', 'url'=>array('/orders/index')),
-//                            array('label'=>'Отзывы', 'url'=>array('/comments/index')),
-//                            array('label'=>'Оценки', 'url'=>array('/rating/index')),
-//                        )),
+                        array('label'=>'Мои', 'url'=>array(''),
+                            'visible'=>Yii::app()->user->isUser(), 'items'=>array(
+                            array('label'=>'Заказы', 'url'=>array('/orders/index')),
+                            array('label'=>'Отзывы', 'url'=>array('/comments/index')),
+                            array('label'=>'Оценки', 'url'=>array('/rating/index')),
+                        )),
                         array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                     ),
                 ));
@@ -85,17 +85,17 @@ $baseUrl = Yii::app()->request->baseurl;
         </div>
 
 
-        <div id="usermenu">
-            <?php
-            $this->widget('zii.widgets.CMenu',array(
-                'items'=>array(
-                    array('label'=>'My orders', 'url'=>array('/orders/index'), 'visible'=>Yii::app()->user->isUser()),
-                    array('label'=>'My reviews', 'url'=>array('/comments/index'), 'visible'=>Yii::app()->user->isUser()),
-                    array('label'=>'My rates', 'url'=>array('/rating/index'), 'visible'=>Yii::app()->user->isUser()),
-                ),
-            ));
-            ?>
-        </div>
+<!--        <div id="usermenu">-->
+<!--            --><?php
+//            $this->widget('zii.widgets.CMenu',array(
+//                'items'=>array(
+//                    array('label'=>'My orders', 'url'=>array('/orders/index'), 'visible'=>Yii::app()->user->isUser()),
+//                    array('label'=>'My reviews', 'url'=>array('/comments/index'), 'visible'=>Yii::app()->user->isUser()),
+//                    array('label'=>'My rates', 'url'=>array('/rating/index'), 'visible'=>Yii::app()->user->isUser()),
+//                ),
+//            ));
+//            ?>
+<!--        </div>-->
 
 
         <?php echo $content; ?>

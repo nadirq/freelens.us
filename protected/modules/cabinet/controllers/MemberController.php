@@ -38,7 +38,7 @@ class MemberController extends Controller
                 Thumbnail::createThumbs($usr->avatar, 200); // Size of avatar thumb
             }
             if($usr->save())
-                $this->redirect('dashboard');
+                $this->redirect('../../camerists/info?cam_id='.$usr->id);
         }
 
 
